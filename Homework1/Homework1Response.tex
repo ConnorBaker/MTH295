@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 12, 2016
-% Version: 0.3a
+% Version: 0.3b
 
 \documentclass[12pt]{article}
 % Import Packages
@@ -73,7 +73,11 @@
 
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}]
+  \item[\textbf{Proof}] The function has two $x$-intercepts, and two vertical asymptotes, at $x=-2,1$ and $x=-4,3$ respectively. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change the sign of its output.
+  \item[] The sign of the function on the interval $(-\infty, -2)$ is not of concern: we care only about the interval $(-2,1)$ and $(3,\infty)$. By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, the Intermediate Value Theorem proves that the function value has the same sign on the entirety of the interval.
+  \item[] Let $x=0$. Then, on the interval $(-2,1)$, the function is positive.
+  \item[] Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive.
+  \item[] Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
 \end{enumerate}
 
 \end{document}
