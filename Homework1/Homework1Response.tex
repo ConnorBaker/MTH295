@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
-% Last Edited: January 11, 2016
-% Version: 0.2a
+% Last Edited: January 12, 2016
+% Version: 0.3a
 
 \documentclass[12pt]{article}
 % Import Packages
@@ -27,19 +27,11 @@
 \item Prove by contradiction that if $a-b$ is odd, then $a+b$ is odd.
 \end{enumerate}
 
-% Assumptions
-\begin{enumerate}
-  \item[\textbf{Assumptions}] Assume that $a,b \in\mathbb{Z}$, $a-b$ is even, and $a+b$ is odd.
-\end{enumerate}
-
-% Lemma
-\begin{enumerate}
-  \item[\textbf{Lemma}] Let $x,y,z \in\mathbb{Z}$, $x=2z$, $y=2z+1$. For all $z$, $x$ is even (any number with a factor of two is even), and $y$ is odd (any even number plus one is odd).
-\end{enumerate}
-
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] If $a-b$ is even, then by the previous lemma, $a-b=2z$ for some unknown number $z$. If $a+b$ is odd, then by the previous lemma, $a+b=2z+1$ for some unknown number $z$. Substituting $2z+b$ for $a$ (from the first equation) into $a+b=2z+1$ yields $2z+b+b=2z+1$. Simplifying yields $b=1/2$, which means that $b$ is \textit{not} in the set of integers. Therefore, the original assumption is a contradiction. As a result, if $a-b$ is odd, then $a+b$ must odd.
+  \item[\textbf{Proof}] Assume that $a,b\in\mathbb{Z}$, $a-b$ is even, and $a+b$ is odd. If $a-b$ is even, then by definition, $a-b=2x$ for some number $x\in\mathbb{Z}$. If $a+b$ is odd, then by definition, $a+b=2y+1$ for some number $y\in\mathbb{Z}$.
+  \item[] Combining the system of equations with addition yields $2a=2x+2y+1$. By the definition of an even number, the product $2a$ will be positive, as will the products $2x$ and $2y$. The sum of the two even products $2x$ and $2y$ is even. By definition, an even number plus one is odd. As a result, the equation is a false: an even integer cannot equal an odd integer.
+  \item[] This is indicative of our original assumption that $a-b$ is even, and $a+b$ is odd being false. Therefore, through proof by condtradiction, if $a-b$ is odd, then $a+b$ must odd.
 \end{enumerate}
 
 % Problem 2
@@ -47,19 +39,9 @@
 \item[2.] Write a proof by contrapositive to show that if $xy$ is odd, then both $x$ and $y$ are odd.
 \end{enumerate}
 
-% Assumptions
-\begin{enumerate}
-  \item[\textbf{Assumptions}] Assume that $x,y \in\mathbb{Z}$, either $x$ or $y$ is even, and $xy$ is even.
-\end{enumerate}
-
-% Lemma
-\begin{enumerate}
-  \item[\textbf{Lemma}] Let $a,b,c \in\mathbb{Z}$, $a=2c$, $b=2c+1$. For all $c$, $a$ is even (any number with a factor of two is even), and $b$ is odd (any even number plus one is odd).
-\end{enumerate}
-
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] If $x$ is even, and $y$ is odd, then by the previous lemma, $xy=(2c)(2c+1)$, which is always even for some number $c$. If $x$ is odd, and $y$ is even, then by the previous lemma, $xy=(2c+1)(2c)$, which is also always even for some number $c$.
+  \item[\textbf{Proof}] Assume that $x$ is even, and that $x,y\in\mathbb{Z}$. By definition, $x=2k$ for all $k\in\mathbb{Z}$. Then $xy=2ky$, which, since $k,y\in\mathbb{Z}$, is by definition, even. So, regardless of the parity of $y$, the product $xy$ will be even so long as the multiplier and or multiplicand is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative.
   \item[] Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
 \end{enumerate}
 
@@ -70,11 +52,7 @@
 
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$, which is equivalent to $4m + 5n = 1/3$.
-  \item[] Any integer multiplied by an integer is an integer. As such, four (an integer) multiplied by any integer $m$ is an integer, and five (an integer) multiplied by any integer $n$ is also an integer.
-  \item[] Let $a,b\in\mathbb{Z}$, where $a=4m$ and $b=5n$. The equation can now be expressed as $a+b=1/3$. Additionaly, the sum of any two integers is an integer.
-  \item[] Let $c\in\mathbb{Z}$, where $c=a+b$. The equation can now be expressed as $c=1/3$.
-  \item[] However, $1/3$ is \textit{not} in the set of integers. Therefore, by direct proof, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
+  \item[\textbf{Proof}] The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$. For this statement to be true, $4m+5n$ must be the multiplicative inverse of $3$, which is not in the set of natural numbers. Therefore, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
 \end{enumerate}
 
 % Problem 4
@@ -84,8 +62,8 @@
 
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] \textbf{Basis Step:} Let $n=1$. Then $1/n=1<M$. If $n=1$, then the first natural number that $M$ can be to make the statement true is $M=2$.
-  \item[] \textbf{Induction:} Let $k=n+1$, where $k\in\mathbb{N}$. Then $1/n>1/(n+1)=1/k$. Therefore, by induction, every natural number $n$ greater than one will yield a number less than one. As such, the first natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$, is two.
+  \item[\textbf{Proof}] Let $n=1$. Then $1/n=1$. As $n$ increases, the value of the ratio decreases since the top is constant. As such, since $n\in\mathbb{N}$, for all $n>2$, $1/n < 1$.
+  \item[] Therefore, the first natural number $M$ larger than $1/n$ for all $n\geq 1$ is $2$.
 \end{enumerate}
 
 % Problem 5
@@ -95,9 +73,7 @@
 
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] The function has vertical asymptotes at $x=-4$ and $x=3$. The only two intercepts are at $x=-2$ and $x=1$. Since both have multiplicity one, the function crosses the axis at both points. The limit as $x$ approaches $-2$ from the right is positive, as is the limit as $x$ approaches $1$ from the left. Then, by the Intermediate Value Theorem, the function on $(-2,1)$ is positive.
-  \item[] Since there are no other roots, if the limit approaching from the right of $x=3$ is positive (which it is), the function is positive on $(3,\infty)$.
-  \item[] Therefore, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
+  \item[\textbf{Proof}]
 \end{enumerate}
 
 \end{document}
