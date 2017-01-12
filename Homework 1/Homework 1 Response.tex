@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 11, 2016
-% Version: 0.1a
+% Version: 0.1b
 
 \documentclass[12pt]{article}
 % Import Packages
@@ -26,15 +26,18 @@
 \item Prove by contradiction that if $a-b$ is odd, then $a+b$ is odd.
 \end{enumerate}
 
+% Assumptions
 \begin{enumerate}
   \item[\textbf{Assumptions}] Assume that $a-b$ is even, and $a+b$ is odd.
 \end{enumerate}
 
+% Claims
 \begin{enumerate}
   \item[\textbf{Claim 1}] Any even number less another even number is even. Any odd number less an odd number is even. Any even number less an odd number is odd. Any odd number less an even number is odd.
   \item[\textbf{Claim 2}] Any even number plus another even number is even. Any even number plus an odd number is odd (as is odd plus even because addition is commutative). Any odd number plus an odd number is even.
 \end{enumerate}
 
+% Lemmas
 \begin{enumerate}
   \item[\textbf{Lemma 1}] Let $n,x,y \in\mathbb{N}$, $x=2n+1$, $y=2n$. For all $n$, $x$ is odd, and $y$ is even (any number with a factor of two is defined as even, and any even number plus one is defined as odd). Then, $x-x=0$, $x-y=1$, $y-x=-1$, and $y-y=0$. As such, an odd less an odd is even (will result in a multiple of two), an odd less an even is odd (will result in another odd number), an even less an odd is odd (will result in another odd number), and an even less an even is even (will result in a multiple of two).
   \item[\textbf{Lemma 2}] Let $n,x,y \in\mathbb{N}$, $x=2n+1$, $y=2n$. For all $n$, $x$ is odd, and $y$ is even (any number with a factor of two is defined as even, and any even number plus one is defined as odd). Then, $x+x=2x$, $x+y=4n+1=2y+1$, $y+x=4n+1=2y+1$, and $y+y=2y$. As such, an odd plus an odd is even (any number with a factor of two is even), an odd plus an even is odd (factor of two plus one is odd), an even plus an odd is the same because addition is commutative, and an even plus an even is even (any number with a factor of two is even).
