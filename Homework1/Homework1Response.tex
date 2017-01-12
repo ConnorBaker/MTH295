@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 11, 2016
-% Version: 0.1d
+% Version: 0.2a
 
 \documentclass[12pt]{article}
 % Import Packages
@@ -84,13 +84,20 @@
 
 % Proof
 \begin{enumerate}
-  \item[\textbf{Proof}] Let $n=1$. Then $1/n=1<M$. If $n=1$, then the first natural number that $M$ can be to make the statement true is $M=2$.
-  \item[] Let $k=n+1$, where $k\in\mathbb{N}$. Then $1/n>1/(n+1)=1/k$. Therefore every natural number $n$ greater than one will yield a number less than one, so the natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$ is two.
+  \item[\textbf{Proof}] \textbf{Basis Step:} Let $n=1$. Then $1/n=1<M$. If $n=1$, then the first natural number that $M$ can be to make the statement true is $M=2$.
+  \item[] \textbf{Induction:} Let $k=n+1$, where $k\in\mathbb{N}$. Then $1/n>1/(n+1)=1/k$. Therefore, by induction, every natural number $n$ greater than one will yield a number less than one. As such, the first natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$, is two.
 \end{enumerate}
 
 % Problem 5
 \begin{enumerate}
-\item[5.] Prove that if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0.$
+\item[5.] Prove that if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
+\end{enumerate}
+
+% Proof
+\begin{enumerate}
+  \item[\textbf{Proof}] The function has vertical asymptotes at $x=-4$ and $x=3$. The only two intercepts are at $x=-2$ and $x=1$. Since both have multiplicity one, the function crosses the axis at both points. The limit as $x$ approaches $-2$ from the right is positive, as is the limit as $x$ approaches $1$ from the left. Then, by the Intermediate Value Theorem, the function on $(-2,1)$ is positive.
+  \item[] Since there are no other roots, if the limit approaching from the right of $x=3$ is positive (which it is), the function is positive on $(3,\infty)$.
+  \item[] Therefore, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
 \end{enumerate}
 
 \end{document}
