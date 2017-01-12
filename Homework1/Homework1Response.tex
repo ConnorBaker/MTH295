@@ -1,0 +1,61 @@
+% Author: Connor Baker
+% Date Created: January 2, 2016
+% Last Edited: January 11, 2016
+% Version: 0.1c
+
+\documentclass[12pt]{article}
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{gensymb}
+\usepackage{caption}
+\usepackage{tocloft}
+\usepackage[left=1.5in,right=1.5in,top=1.5in,bottom=1.5in]{geometry}
+
+\begin{document}
+% Create the Header
+\begin{center}
+\subsection*{Homework 1\\Connor Baker, January 2017}
+\end{center}
+
+\begin{enumerate}
+\item Prove by contradiction that if $a-b$ is odd, then $a+b$ is odd.
+\end{enumerate}
+
+% Assumptions
+\begin{enumerate}
+  \item[\textbf{Assumptions}] Assume that $a,b \in\mathbb{Z}$, $a-b$ is even, and $a+b$ is odd.
+\end{enumerate}
+
+% Lemmas
+\begin{enumerate}
+  \item[\textbf{Lemma}] Let $x,y,z \in\mathbb{Z}$, $x=2z$, $y=2z+1$. For all $z$, $x$ is even (any number with a factor of two is even), and $y$ is odd, (any even number plus one is odd).
+\end{enumerate}
+
+% Proof
+\begin{enumerate}
+  \item[\textbf{Proof}] If $a-b$ is even, then by the previous lemma, $a-b=2z$ for some unknown number $z$. If $a+b$ is odd, then by the previous lemma, $a+b=2z+1$ for some unknown number $z$. Substituting $2z+b$ for $a$ (from the first equation) into $a+b=2z+1$ yields $2z+b+b=2z+1$. Simplifying yields $b=1/2$, which means that $b$ is \textit{not} in the set of integers. Therefore, the original assumption is a contradiction. As a result, if $a-b$ is odd, then $a+b$ must odd.
+\end{enumerate}
+
+
+\begin{enumerate}
+\item[2.] Write a proof by contrapositive to show that if $xy$ is odd, then both $x$ and $y$ are odd.
+\end{enumerate}
+
+\begin{enumerate}
+\item[3.] Prove that there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
+\end{enumerate}
+
+\begin{enumerate}
+\item[4.] Prove there is a natural number $M$  such that for every natural number $n$, $\frac{1}{n} < M$.
+\end{enumerate}
+
+\begin{enumerate}
+\item[5.] Prove that if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0.$
+\end{enumerate}
+
+\end{document}
