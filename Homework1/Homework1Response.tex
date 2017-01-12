@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 11, 2016
-% Version: 0.1c
+% Version: 0.1d
 
 \documentclass[12pt]{article}
 % Import Packages
@@ -22,6 +22,7 @@
 \subsection*{Homework 1\\Connor Baker, January 2017}
 \end{center}
 
+% Problem 1
 \begin{enumerate}
 \item Prove by contradiction that if $a-b$ is odd, then $a+b$ is odd.
 \end{enumerate}
@@ -31,9 +32,9 @@
   \item[\textbf{Assumptions}] Assume that $a,b \in\mathbb{Z}$, $a-b$ is even, and $a+b$ is odd.
 \end{enumerate}
 
-% Lemmas
+% Lemma
 \begin{enumerate}
-  \item[\textbf{Lemma}] Let $x,y,z \in\mathbb{Z}$, $x=2z$, $y=2z+1$. For all $z$, $x$ is even (any number with a factor of two is even), and $y$ is odd, (any even number plus one is odd).
+  \item[\textbf{Lemma}] Let $x,y,z \in\mathbb{Z}$, $x=2z$, $y=2z+1$. For all $z$, $x$ is even (any number with a factor of two is even), and $y$ is odd (any even number plus one is odd).
 \end{enumerate}
 
 % Proof
@@ -41,19 +42,53 @@
   \item[\textbf{Proof}] If $a-b$ is even, then by the previous lemma, $a-b=2z$ for some unknown number $z$. If $a+b$ is odd, then by the previous lemma, $a+b=2z+1$ for some unknown number $z$. Substituting $2z+b$ for $a$ (from the first equation) into $a+b=2z+1$ yields $2z+b+b=2z+1$. Simplifying yields $b=1/2$, which means that $b$ is \textit{not} in the set of integers. Therefore, the original assumption is a contradiction. As a result, if $a-b$ is odd, then $a+b$ must odd.
 \end{enumerate}
 
-
+% Problem 2
 \begin{enumerate}
 \item[2.] Write a proof by contrapositive to show that if $xy$ is odd, then both $x$ and $y$ are odd.
 \end{enumerate}
 
+% Assumptions
+\begin{enumerate}
+  \item[\textbf{Assumptions}] Assume that $x,y \in\mathbb{Z}$, either $x$ or $y$ is even, and $xy$ is even.
+\end{enumerate}
+
+% Lemma
+\begin{enumerate}
+  \item[\textbf{Lemma}] Let $a,b,c \in\mathbb{Z}$, $a=2c$, $b=2c+1$. For all $c$, $a$ is even (any number with a factor of two is even), and $b$ is odd (any even number plus one is odd).
+\end{enumerate}
+
+% Proof
+\begin{enumerate}
+  \item[\textbf{Proof}] If $x$ is even, and $y$ is odd, then by the previous lemma, $xy=(2c)(2c+1)$, which is always even for some number $c$. If $x$ is odd, and $y$ is even, then by the previous lemma, $xy=(2c+1)(2c)$, which is also always even for some number $c$.
+  \item[] Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
+\end{enumerate}
+
+% Problem 3
 \begin{enumerate}
 \item[3.] Prove that there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
 \end{enumerate}
 
+% Proof
 \begin{enumerate}
-\item[4.] Prove there is a natural number $M$  such that for every natural number $n$, $\frac{1}{n} < M$.
+  \item[\textbf{Proof}] The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$, which is equivalent to $4m + 5n = 1/3$.
+  \item[] Any integer multiplied by an integer is an integer. As such, four (an integer) multiplied by any integer $m$ is an integer, and five (an integer) multiplied by any integer $n$ is also an integer.
+  \item[] Let $a,b\in\mathbb{Z}$, where $a=4m$ and $b=5n$. The equation can now be expressed as $a+b=1/3$. Additionaly, the sum of any two integers is an integer.
+  \item[] Let $c\in\mathbb{Z}$, where $c=a+b$. The equation can now be expressed as $c=1/3$.
+  \item[] However, $1/3$ is \textit{not} in the set of integers. Therefore, by direct proof, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
 \end{enumerate}
 
+% Problem 4
+\begin{enumerate}
+\item[4.] Prove there is a natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$.
+\end{enumerate}
+
+% Proof
+\begin{enumerate}
+  \item[\textbf{Proof}] Let $n=1$. Then $1/n=1<M$. If $n=1$, then the first natural number that $M$ can be to make the statement true is $M=2$.
+  \item[] Let $k=n+1$, where $k\in\mathbb{N}$. Then $1/n>1/(n+1)=1/k$. Therefore every natural number $n$ greater than one will yield a number less than one, so the natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$ is two.
+\end{enumerate}
+
+% Problem 5
 \begin{enumerate}
 \item[5.] Prove that if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0.$
 \end{enumerate}
