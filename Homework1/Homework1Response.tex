@@ -1,26 +1,22 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 18, 2016
-% Version: 0.4c
+% Version: 0.4d
 
 \documentclass[10pt]{article}
 % Import Packages
+
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
 \usepackage{amsfonts,amsmath,amssymb,amsthm}
-\usepackage{mathtools}
+\usepackage{mathtools,mathdots}
 \usepackage{enumitem}
 \usepackage{array}
-\usepackage{gensymb}
-\usepackage{caption}
-\usepackage{tocloft}
-%\usepackage[left=1.5in,right=1.5in,top=1.5in,bottom=1.5in]{geometry}
-%Page Formatting
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
 \topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
 \textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
 \parindent 0in
-% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
-
 
 % Define the basic math environments
 \theoremstyle{definition}
@@ -41,6 +37,7 @@
 % Use a black square for QED
 \renewcommand\qedsymbol{$\blacksquare$}
 
+% Begin the document
 \begin{document}
 % Create the Header
 \begin{center}
@@ -98,6 +95,6 @@
     \\
     \par Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
   \end{proof}
-\end{enumerate}
+\end{enumerate} % End problem set
 
-\end{document}
+\end{document} % End document
