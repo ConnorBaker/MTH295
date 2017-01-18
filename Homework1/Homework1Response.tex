@@ -1,9 +1,9 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
-% Last Edited: January 13, 2016
-% Version: 0.3c
+% Last Edited: January 18, 2016
+% Version: 0.4a
 
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 % Import Packages
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -14,7 +14,32 @@
 \usepackage{gensymb}
 \usepackage{caption}
 \usepackage{tocloft}
-\usepackage[left=1.5in,right=1.5in,top=1.5in,bottom=1.5in]{geometry}
+%\usepackage[left=1.5in,right=1.5in,top=1.5in,bottom=1.5in]{geometry}
+%Page Formatting
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+% Use a black square for QED
+\renewcommand\qedsymbol{$\blacksquare$}
 
 \begin{document}
 % Create the Header
@@ -28,11 +53,13 @@
 \end{enumerate}
 
 % Proof
-\begin{enumerate}
-  \item[\textbf{Proof}] Assume that $a,b\in\mathbb{Z}$, $a-b$ is even, and $a+b$ is odd. If $a-b$ is even, then by definition, $a-b=2x$ for some number $x\in\mathbb{Z}$. If $a+b$ is odd, then by definition, $a+b=2y+1$ for some number $y\in\mathbb{Z}$.
-  \item[] Combining the system of equations with addition yields $2a=2x+2y+1$. By the definition of an even number, the product $2a$ will be even, as will the products $2x$ and $2y$. The sum of the two even products $2x$ and $2y$ is even. By definition, an even number plus one is odd. As a result, the equation is a false: an even integer cannot equal an odd integer.
-  \item[] This is contradiction of our original assumption. Therefore, through proof by condtradiction, if $a-b$ is odd, then $a+b$ must odd.
-\end{enumerate}
+\begin{proof}
+  Assume that $a,b\in\Z$, $a-b$ is even, and $a+b$ is odd. If $a-b$ is even, then by definition, $a-b=2x$ for some number $x\in\Z$. If $a+b$ is odd, then by definition, $a+b=2y+1$ for some number $y\in\Z$.
+
+  \par Combining the system of equations with addition yields $2a=2x+2y+1$. By the definition of an even number, the product $2a$ will be even, as will the products $2x$ and $2y$. The sum of the two even products $2x$ and $2y$ is even. By definition, an even number plus one is odd. As a result, the equation is a false: an even integer cannot equal an odd integer.
+
+  \par This is contradiction of our original assumption. Therefore, through proof by condtradiction, if $a-b$ is odd, then $a+b$ must odd.
+\end{proof}
 
 % Problem 2
 \begin{enumerate}
@@ -40,10 +67,11 @@
 \end{enumerate}
 
 % Proof
-\begin{enumerate}
-  \item[\textbf{Proof}] Assume that $x$ is even, and that $x,y\in\mathbb{Z}$. By definition, $x=2k$ for all $k\in\mathbb{Z}$. Then $xy=2ky$, which, since $k,y\in\mathbb{Z}$, is by definition, even. So, regardless of the parity of $y$, the product $xy$ will be even so long as the multiplier and or multiplicand is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative.
-  \item[] Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
-\end{enumerate}
+\begin{proof}
+  Assume that $x$ is even, and that $x,y\in\Z$. By definition, $x=2k$ for all $k\in\Z$. Then $xy=2ky$, which, since $k,y\in\Z$, is by definition, even. So, regardless of the parity of $y$, the product $xy$ will be even so long as the multiplier and or multiplicand is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative.
+
+  \par Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
+\end{proof}
 
 % Problem 3
 \begin{enumerate}
@@ -51,9 +79,9 @@
 \end{enumerate}
 
 % Proof
-\begin{enumerate}
-  \item[\textbf{Proof}] The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$. For this statement to be true, $4m+5n$ must be the multiplicative inverse of $3$, which is not in the set of natural numbers. Therefore, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
-\end{enumerate}
+\begin{proof}
+  The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$. For this statement to be true, $4m+5n$ must be the multiplicative inverse of $3$, which is not in the set of natural numbers. Therefore, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
+\end{proof}
 
 % Problem 4
 \begin{enumerate}
@@ -61,10 +89,11 @@
 \end{enumerate}
 
 % Proof
-\begin{enumerate}
-  \item[\textbf{Proof}] Let $n=1$. Then $1/n=1$. As $n$ increases, the value of the ratio decreases since the top is constant. As such, since $n\in\mathbb{N}$, for all $n>2$, $1/n < 1$.
-  \item[] Therefore, the first natural number $M$ larger than $1/n$ for all $n\geq 1$ is $2$.
-\end{enumerate}
+\begin{proof}
+  Let $n=1$. Then $1/n=1$. As $n$ increases, the value of the ratio decreases since the top is constant. As such, since $n\in\N$, for all $n>2$, $1/n < 1$.
+
+  \par Therefore, the first natural number $M$ larger than $1/n$ for all $n\geq 1$ is $2$.
+\end{proof}
 
 % Problem 5
 \begin{enumerate}
@@ -72,12 +101,16 @@
 \end{enumerate}
 
 % Proof
-\begin{enumerate}
-  \item[\textbf{Proof}] The function has two $x$-intercepts, and two vertical asymptotes, at $x=-2,1$ and $x=-4,3$ respectively. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change the sign of its output.
-  \item[] The sign of the function on the interval $(-\infty, -2)$ is not of concern: we care only about the interval $(-2,1)$ and $(3,\infty)$. By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, the Intermediate Value Theorem proves that the function value has the same sign on the entirety of the interval.
-  \item[] Let $x=0$. Then, on the interval $(-2,1)$, the function is positive.
-  \item[] Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive.
-  \item[] Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
-\end{enumerate}
+\begin{proof}
+  The function has two $x$-intercepts, and two vertical asymptotes, at $x=-2,1$ and $x=-4,3$ respectively. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change the sign of its output.
+
+  \par The sign of the function on the interval $(-\infty, -2)$ is not of concern: we care only about the interval $(-2,1)$ and $(3,\infty)$. By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, the Intermediate Value Theorem proves that the function value has the same sign on the entirety of the interval.
+
+  \par Let $x=0$. Then, on the interval $(-2,1)$, the function is positive.
+
+  \par Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive.
+
+  \par Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
+\end{proof}
 
 \end{document}
