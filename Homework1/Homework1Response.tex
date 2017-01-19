@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 18, 2016
-% Version: 0.4d
+% Version: 0.4e
 
 \documentclass[10pt]{article}
 % Import Packages
@@ -50,9 +50,9 @@
   % Proof 1
   \begin{proof}
     Assume that $a,b\in\Z$, $a-b$ is even, and $a+b$ is odd. If $a-b$ is even, then by definition, $a-b=2x$ for some number $x\in\Z$. If $a+b$ is odd, then by definition, $a+b=2y+1$ for some number $y\in\Z$.
-    \\
+
     \par Combining the system of equations with addition yields $2a=2x+2y+1$. By the definition of an even number, the product $2a$ will be even, as will the products $2x$ and $2y$. The sum of the two even products $2x$ and $2y$ is even. By definition, an even number plus one is odd. As a result, the equation is a false: an even integer cannot equal an odd integer.
-    \\
+
     \par This is contradiction of our original assumption. Therefore, through proof by condtradiction, if $a-b$ is odd, then $a+b$ must odd.
   \end{proof}
 
@@ -60,8 +60,8 @@
 \item Write a proof by contrapositive to show that if $xy$ is odd, then both $x$ and $y$ are odd.
   % Proof 2
   \begin{proof}
-    Assume that $x$ is even, and that $x,y\in\Z$. By definition, $x=2k$ for all $k\in\Z$. Then $xy=2ky$, which, since $k,y\in\Z$, is by definition, even. So, regardless of the parity of $y$, the product $xy$ will be even so long as at least one is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative.
-    \\
+    We will prove that if $x$ or $y$ is even, then the product $xy$ is even. Assume that $x$ is even, and that $x,y\in\Z$. By definition, $x=2k$ for all $k\in\Z$. Then $xy=2ky$, which, since $k,y\in\Z$, is by definition, even. So, regardless of the parity of $y$, the product $xy$ will be even so long as at least one is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative.
+
     \par Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
   \end{proof}
 
@@ -76,8 +76,8 @@
 \item Prove there is a natural number $M$ such that for every natural number $n$, $\frac{1}{n} < M$.
   % Proof 4
   \begin{proof}
-    Let $n=1$. Then $1/n=1$. As $n$ increases, the value of the ratio decreases since the top is constant. As such, since $n\in\N$, for all $n>2$, $1/n < 1$.
-    \\
+    $1/n \leq 1 \forall n\in\N$. As such, $M$ can be any number in the set of natural numbers that is larger than or equal to two
+
     \par Therefore, the first natural number $M$ larger than $1/n$ for all $n\geq 1$ is $2$.
   \end{proof}
 
@@ -86,13 +86,13 @@
   % Proof 5
   \begin{proof}
     The function has two $x$-intercepts, and two vertical asymptotes, at $x=-2,1$ and $x=-4,3$ respectively. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change the sign of its output.
-    \\
+
     \par The sign of the function on the interval $(-\infty, -2)$ is not of concern: we care only about the interval $(-2,1)$ and $(3,\infty)$. By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, the Intermediate Value Theorem proves that the function value has the same sign on the entirety of the interval.
-    \\
+
     \par Let $x=0$. Then, on the interval $(-2,1)$, the function is positive.
-    \\
+
     \par Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive.
-    \\
+
     \par Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
   \end{proof}
 \end{enumerate} % End problem set
