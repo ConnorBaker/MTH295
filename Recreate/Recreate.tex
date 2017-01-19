@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 18, 2016
 % Last Edited: January 18, 2016
-% Version: 0.1a
+% Version: 0.1b
 
 \documentclass[10pt]{article}
 % Import Packages
@@ -14,7 +14,9 @@
 
 % Page Formatting
 % These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
-\usepackage[left=0.905in,right=0.8661in,top=0.827in,bottom=0.827in]{geometry}
+% \topmargin -0.25in \oddsidemargin -0.25in \evensidemargin -0.25in
+% \textheight 9in \textwidth 6.75in \headheight 0in \headsep 0.35in
+\usepackage[left=0.905in,right=0.8661in,top=0.80in,bottom=1.25in]{geometry}
 \parindent 0in
 
 % Define the basic math environments
@@ -33,70 +35,55 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 
-% Use a black square for QED
-\renewcommand\qedsymbol{$\blacksquare$}
-
 % Begin the document
 \begin{document}
-$\forall x\in\R,\ x\leq x+1$. \\
+$\forall x\in\R, x\leq x+1$.
+
 This sentence should start be on the next line.
 
 \begin{equation*}
   2^x,2^{2^x},2^{2^{2^{\iddots^{2^{x}}}}},a_{b_{c_{d_{e_{f_{g_{h_{i_{j_{k_{l_{m_{n_{n_{o_{p_{q_{r_{s_{t_{u_{v_{w_{x_{y_{z_{_{_{_{_{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 \end{equation*}
+$\arctan(\theta\varphi), \sin(x), \ln(x), \log_{10}(y)$
 
-$\arctan(\theta\varphi),\ \sin(x),\ \ln(x),\ \log_{10}(y)$ \\
-$(f\circ g)(x) = f(g(x))$. \\
+$(f\circ g)(x) = f(g(x))$.
 
 \begin{equation*}
-  \int{f(x)dx}, \int_{0}^{\text{ln(2)}}{e^xdx=e^x \bigg\rvert_{0}^{\text{ln(2)}}} = e^{\textln(2)} - e^0 = 2 - 1 = 1.
+  \int{f(x)dx}, \int_{0}^{\ln(2)}{e^xdx} = e^x \bigg\rvert_{0}^{\ln(2)} = e^{\ln(2)} - e^0 = 2 - 1 = 1.
 \end{equation*}
-
 \begin{definition}[Convergent Sequence]
   Let $a_n:\N\rightarrow\R$ be a sequence. We say that the sequence $\{a_n\}_{n=1}^{\infty}$ converges to a real number $L$ if for any $\epsilon > 0$, there exists $N\in\N$ such that $\forall n \geq N$, $|a_n-L|<\epsilon$.
 \end{definition}
-
 \begin{theorem}[Squeeze Lemma]
   Let $a_n,b_n,c_n$ be sequences. If there exists $N\in\N$ such that for all $n\geq N$, $a_n\leq b_n \leq c_n$ and $\displaystyle\lim_{n\rightarrow\infty} a_n = \lim_{n\rightarrow\infty} c_n = L$, then $\displaystyle\lim_{n\rightarrow\infty} b_n = L$.
 \end{theorem}
-
-Since $-1\leq \sin(n)\leq-1$ for all $n$, it follows that $\frac{-1}{n}\leq\frac{\sin(n)}{n}\leq\frac{1}{n}$ for all $n\geq 1$. Since $\displaystyle\lim_{n\rightarrow\infty} \frac{-1}{n}=\displaystyle\lim_{n\rightarrow\infty}\frac{1}{n}=0$, it follows from the Squeeze Lemma that
-
+Since $-1\leq \sin(n)\leq 1$ for all $n$, it follows that $\frac{-1}{n}\leq\frac{\sin(n)}{n}\leq\frac{1}{n}$ for all $n\geq 1$. Since $\displaystyle\lim_{n\rightarrow\infty} \frac{-1}{n}=\displaystyle\lim_{n\rightarrow\infty}\frac{1}{n}=0$, it follows from the Squeeze Lemma that
 \begin{equation*}
-  \lim_{n\rightarrow\infty} \frac{\sin(n)}{n} = 0
+  \lim_{n\rightarrow\infty} \frac{\sin(n)}{n} = 0.
 \end{equation*}
-
 \begin{equation*}
-  f(x) = |x| = \left\{
-    \begin{array}{ll}
-      x & \text{if }x\geq 0 \\
-      -x & \text{if }x < 0
-    \end{array}.
+  f(x) = |x| = \begin{cases}
+      x & $if $ x \geq 0 \\
+      -x & $if $x < 0
+   \end{cases}.
 \end{equation*}
-
-Let $a_{ij}= i + j$, for any $i,j\in\N$. If $A$ is $2\times3$ matrix with $A=[a_{ij}]$, then
-
+Let $a_{ij}= i + j$, for any $i,j\in\N$. If $A$ is a $2\times3$ matrix with $A=[a_{ij}]$, then
 \begin{equation*}
   A =
-  \[
   \begin{bmatrix}
-    2 & 3 & 4 \\
-    3 & 4 & 5
+    \ 2 & 3 & 4 \ \ \\
+    \ 3 & 4 & 5 \ \
   \end{bmatrix}.
-  \]
 \end{equation*}
-
 The following equation,
 
 \setcounter{equation}{2}
 \begin{equation} \label{QuadraticFormula}
   x=\frac{-b\pm \sqrt{b^2 - 4ac}}{2a}
 \end{equation}
-
 is labelled, so I can reference it later. For example, one might say: We can use equation \eqref{QuadraticFormula} to solve for $x$ in $x^2-2x+3=0$.
 
 If I want a numerical list, I can use an enumerated environment. In fact, we could have an enumerated environment within an enumerated environment, as follows:
-
 \begin{definition}[Group]
    The pair $(G,\cdot)$ is a group if:
   \begin{enumerate}
