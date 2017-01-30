@@ -1,21 +1,26 @@
-\documentclass[10pt]{article} %this indicates the type of document you are making along with the size of font.  There are several other options available for this command as well.
+% Author: Connor Baker
+% Date Created: January 26, 2016
+% Last Edited: January 30, 2016
+% Version: 0.1b
 
-%Note:  Any text entered on a line after a percent symbol % will not be read by the LaTeX compiler.  We will use this to add comments to anyone why might read the code (including yourself, you would be suprised how much you forget when you haven't look at a document in serval years.
+% Declare type of document
+\documentclass[10pt]{article}
 
-%This section is the header, which include the libraries we plan on using, along with any short cut we define that will be used in this document.  You can also change properties of the document, like margins, page numbering, ect.
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
 
-%Here we indicate the libraries we are planning on using.  There are tons of LaTeX libraries out there, you may find them useful not only in this course, but also in future courses.  I will start you off with some barebones libraries.
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
 
-\usepackage{amsfonts,amsmath,amssymb,amsthm} %these libaries are provided by the AMS (American Mathematical Society) and are the most common fonts for mathematical publications
-
-\usepackage{amsthm}
-
-
-\usepackage{comment} %this library allows you comment out entire sections of LaTeX code by simpliy surrounding the code by the enviroment \begin{comment} \end{comment}.  This can be great for troubleshooting.
-
-\usepackage{mathdots}
-
-\theoremstyle{definition} %defines the basic math enviroments
+% Define the basic math environments
+\theoremstyle{definition}
 \newtheorem{definition}[equation]{Definition}
 \newtheorem{example}[equation]{Example}
 \theoremstyle{plain}
@@ -24,57 +29,192 @@
 \newtheorem{lemma}[equation]{Lemma}
 \newtheorem{corollary}[equation]{Corollary}
 \newtheorem{conjecture}[equation]{Conjecture}
-%The following is an example of a user defined command.  You can use these to help simplify your LaTeX code
 
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\ds}{\displaystyle} %instead of writing \mathbb{R} to the R that represent the real numbers, you can just write \R.  However, since it is a math command, you will have to be in a math environment.  For example, $\R$, or $$\R$$, or \[ \R\], or \begin{equation}\R\end{equation}.
 
-\makeatletter
-\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
-\makeatother
-
-%Page Formatting
-
-\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
-\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
-\parindent 0in %these settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
-
-\begin{document} %This is where we type the text that we plan on having in our document.
-
+% Begin the document
+\begin{document}
+% Create the Header
 \begin{center}
-Homework 2
+  \subsection*{Homework 2\\Connor Baker, January 2017}
 \end{center}
 
+% Problem 1
 \begin{enumerate}
 \item Determine whether the following expressions are true or false.  Give a complete explanation for each part.
+  \begin{enumerate}
+  \item $\emptyset \subseteq \{\emptyset, \{ \emptyset \} \}$
+  \item $\{\emptyset\} \subseteq \{\emptyset, \{ \emptyset \} \}$
+  \item $\{\{\emptyset\}\} \subseteq \{\emptyset, \{ \emptyset \} \}$
+  \item For every set $A$, $\{\emptyset\} \subseteq A.$
+  \item $\{1,2\} \in \{\{1,2,3\},\{1,3\}, 1, 2\}$
+  \item $\{\{4\}\} \subseteq \{1,2,3,\{4\}\}$
+  \end{enumerate}
+\end{enumerate}
+
+\begin{definition}[Subset]
+  Given two subsets $A,B$, $A$ is said to be a subset of $B$ if and only if all elements of $A$ are also in $B$. That is to say:
+  \begin{equation*}
+    X \subseteq Y \iff \forall x(x\in X \implies x\in Y)
+  \end{equation*}
+\end{definition}
+
+% Proof 1a
+\begin{proof}{(a)}
+  Let $A=\emptyset, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+  \begin{equation*}
+    \emptyset \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \emptyset \implies a\in \{\emptyset,\{\emptyset\}\})
+  \end{equation*}
+  However, $a\not\in\emptyset$ (the empty set contains no elements). As such, the statement is vacuously true (because for all $a$, of which there are none, we cannot tell whether it is in both sets or not). \\
+
+  \par Therefore, by the definition of a subset, the expression is true.
+\end{proof}
+
+% Proof 1b
+\begin{proof}{(b)}
+  Let $A=\{\emptyset\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+  \begin{equation*}
+    \{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\emptyset\} \implies a\in \{\emptyset,\{\emptyset\}\})
+  \end{equation*}
+  Let $a=\emptyset$, the only element of $A$. Then,
+  \begin{equation*}
+    \{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
+  \end{equation*}
+  which is true. \\
+
+  \par Therefore, by the definition of a subset, the expression is true.
+\end{proof}
+
+% Proof 1c
+\begin{proof}{(c)}
+  Let $A=\{\{\emptyset\}\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+  \begin{equation*}
+    \{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\{\emptyset\}\} \implies a\in \{\emptyset,\{\emptyset\}\})
+  \end{equation*}
+  Let $a=\{\emptyset\}$, the only element of $A$. Then,
+  \begin{equation*}
+    \{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\{\emptyset\} \in \{\{\emptyset\}\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
+  \end{equation*}
+  which is true. \\
+
+  \par Therefore, by the definition of a subset, the expression is true.
+\end{proof}
+
+
+% Proof 1d
+\begin{proof}{(d)}
+  Let $B=\{\emptyset\}$. Then, by the definition of a subset,
+  \begin{equation*}
+    \{\emptyset\} \subseteq C \iff \forall b(b\in \{\emptyset\} \implies b\in C)
+  \end{equation*}
+  Let $b=\emptyset$, the only element of $B$. Then,
+  \begin{equation*}
+    \{\emptyset\} \subseteq C \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in C)
+  \end{equation*}
+  which is contingent on the elements of $C$. There is no guarantee that $C$ contains the empty set. \\
+
+  \par Therefore, by the definition of a subset, the expression is false.
+\end{proof}
+
+
+% Proof 1e
+\begin{proof}{(e)}
+  This statement is false because the set does not contain the set $\{1,2\}$.
+\end{proof}
+
+% Proof 1f
+\begin{proof}{(f)}
+  Let $A=\{\{4\}\}, B = \{1,2,3,\{4\}\}$. Then, by the definition of a subset,
+  \begin{equation*}
+    \{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff \forall a(a\in \{\{4\}\} \implies a\in \{1,2,3,\{4\}\})
+  \end{equation*}
+  Let $a=\{4\}$, the only element of $A$. Then,
+  \begin{equation*}
+      \{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff (\{4\}\in \{\{4\}\} \implies \{4\}\in \{1,2,3,\{4\}\})
+  \end{equation*}
+  which is true. \\
+
+  \par Therefore, by the definition of a subset, the expression is true.
+\end{proof}
+
+
+
+\pagebreak
+
+
 
 \begin{enumerate}
-\item $\emptyset \subseteq \{\emptyset, \{ \emptyset \} \}$
-\item $\{\emptyset\} \subseteq \{\emptyset, \{ \emptyset \} \}$
-\item $\{\{\emptyset\}\} \subseteq \{\emptyset, \{ \emptyset \} \}$
-\item For every set $A$, $\{\emptyset\} \subseteq A.$
-\item $\{1,2\} \in \{\{1,2,3\},\{1,3\}, 1, 2\}$
-\item $\{\{4\}\} \subseteq \{1,2,3,\{4\}\}$
+  % Problem 2
+  \item[2.] Let $\Delta = [0,1) = \{x \in \R: 0 \leq x < 1\}$ and let $A_\alpha = (-\alpha,\alpha] = \{x \in \R: -\alpha < x \leq \alpha\} \subseteq \R$, where $\alpha \in \Delta$.  Prove that
+      $$\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1),$$
+   and
+      $$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset$$
 \end{enumerate}
 
-\item Let $\Delta = [0,1) = \{x \in \R: 0 \leq x < 1\}$ and let $A_\alpha = 
-(-\alpha,\alpha] = \{x \in \R: -\alpha < x \leq \alpha\} \subseteq \R$, where $\alpha \in \Delta$.  Prove that 
-$$\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1),$$
-and
-$$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset,$$
+% Proof 2
+\begin{proof}
+  Assume
+\end{proof}
 
-\item Let $A, B, C,$ and $D$ be sets with $C \subseteq A$ and $D \subseteq B$.  Prove that $C \cup D \subseteq A \cup B$.
 
-\item Prove that if $\mathcal{A}$ is a non-empty family of sets, then
 
-$$\bigcap_{A \in \mathcal{A}}A \subseteq \bigcup_{A \in \mathcal{A}} A.$$
+\pagebreak
 
-\item Use the principle of mathematical induction to prove 
 
-$$4^{n+4} > (n+4)^4,$$
 
-for all natural numbers $n$.
-
+\begin{enumerate}
+  % Problem 3
+  \item[3.] Let $A, B, C,$ and $D$ be sets with $C \subseteq A$ and $D \subseteq B$.  Prove that $C \cup D \subseteq A \cup B$.
 \end{enumerate}
 
-\end{document} %Where the text for the document ends.
+% Proof 3
+\begin{proof}
+  Assume
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+  % Problem 4
+  \item[4.] Prove that if $\mathcal{A}$ is a non-empty family of sets, then $$\bigcap_{A \in \mathcal{A}}A \subseteq \bigcup_{A \in \mathcal{A}} A.$$
+\end{enumerate}
+
+% Proof 4
+\begin{proof}
+  Assume
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+  % Problem 5
+  \item[5.] Use the principle of mathematical induction to prove $4^{n+4} > (n+4)^4,$ for all natural numbers $n$.
+\end{enumerate}
+
+% Proof 5
+\begin{proof}
+  Let $n=1$: $4^5>5^4$. We see that the base case is true. Then, let $n=k$: $4^{k+4} > (k+4)^4$. Let $n=k+1$: $4^{k+5} > (k+5)^4$. Then:
+    $$4^{k+5} = 4^k*4^5$$
+    $$4^{k+4} = 4^k*4^4$$
+    $$4(4^{k+4})>4^{k+4}$$
+    $$4^k*4^5=4(4^{k+4})$$
+    $$(k+5)^4 = k^4 + 20k^3 + 150k^2 + 500k + 625$$
+    $$(k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256$$
+    $$4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > (k+5)^4$$
+    $$4^{k+5} = 4(4^{k+4})>4(k+4)^4 > (k+5)^4$$
+  Then $4^{n+4} > (n+4)^4$ $\forall n\in\N$.
+\end{proof}
+% End problem set
+
+\end{document} % End document
