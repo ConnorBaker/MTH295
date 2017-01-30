@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2016
 % Last Edited: January 30, 2016
-% Version: 0.1b
+% Version: 0.1c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -154,9 +154,14 @@
       $$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset$$
 \end{enumerate}
 
-% Proof 2
-\begin{proof}
+% Proof 2a
+\begin{proof}{(a)}
   Assume
+\end{proof}
+
+% Proof 2b
+\begin{proof}{(b)}
+  For this to be true, then for all $\alpha,\beta\in\Delta$, $A_\alpha \neq A_\beta$, which means the union of all these sets is pairwise disjoint.
 \end{proof}
 
 
@@ -172,7 +177,7 @@
 
 % Proof 3
 \begin{proof}
-  Assume
+  Since $C\subseteq A$, the set $A$ must be at least as large as $C$ and contain every element $C$ has. The same follows for $D$ and $B$, since $D\subseteq B$. Then, $A\cup B$ is the set containing at least every element in the sets $C$ and $D$, and as such must contain $C\cup D$.
 \end{proof}
 
 
@@ -213,7 +218,7 @@
     $$(k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256$$
     $$4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > (k+5)^4$$
     $$4^{k+5} = 4(4^{k+4})>4(k+4)^4 > (k+5)^4$$
-  Then $4^{n+4} > (n+4)^4$ $\forall n\in\N$.
+  Then, by the principle of mathematical induction, $4^{n+4} > (n+4)^4$ $\forall n\in\N$.
 \end{proof}
 % End problem set
 
