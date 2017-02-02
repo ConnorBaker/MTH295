@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
 % Last Edited: February 2, 2017
-% Version: 0.2c
+% Version: 0.2d
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -183,9 +183,13 @@
 
 % Proof 3
 \begin{proof}
-  Since $C$ is a subset of $A$, $\forall c\in C \implies c\in A$, and since $D$ is a subset of $B$, $\forall d\in D \implies d\in B$. \\
+  By the definition of a subset, $(\forall c)(c\in C \implies c\in A)$. Again, by the same definition, $(\forall d) (d\in D \implies d\in B)$. \\
 
-  \par The union of the sets $C$ and $D$ contains all elements that exist in either. The same is true for the union of the sets $A$ and $B$. Since $A$ contains $C$, and $B$ contains $D$, the union of the sets $A$ and $B$ contain the union of the sets $C$ and $D$.
+  \par Then, by the definition of the union, $(\forall c\in C$ and $\forall d\in D)(c\in C \implies c\in \cup D$ and $d\in D \implies d\in C\cup D)$. \\
+
+  \par Additionally, by the same definition, it follows from the first two statements that since all $c,d\in C\cup D$, then all $c,d \in A\cup B$. \\
+
+  \par Therefore, since all $c,d\in C\cup D$ and all $c,d \in A\cup B$, $C\cup D \subseteq A\cup B$.
 \end{proof}
 
 
