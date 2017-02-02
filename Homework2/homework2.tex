@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
 % Last Edited: February 2, 2017
-% Version: 0.2f
+% Version: 0.3a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -156,20 +156,26 @@
 
 % Proof 2a
 \begin{proof}{(a)}
-  Proving $\cup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1)$: \\
+  We will first prove that $\cup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1)$: \\
 
   \par There exists some $x\in\Delta = [0,1)$ such that $a\in\ A_x=(-x,x]$. Since $0 \leq x<1$, letting $x$ be the largest value it can, the set $A_x$ which is $(-x,x]$ must be a subset of the set $(-1,1)$. \\
 
-  \par Proving $(-1,1) \subseteq \cup_{\alpha \in \Delta} A_\alpha$: \\
+  \par We will now prove that $(-1,1) \subseteq \cup_{\alpha \in \Delta} A_\alpha$: \\
 
-  \par Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Then, let $n=(1+|x|)/(2)$. We know that $x\in A_n = (-(1+|x|)/2, (1+|x|)/2]$. As such, $(-1,1)\in A_n$.
+  \par Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Then, let $n=(1+|x|)/(2)$. We know that $x\in A_n = (-n, n]$. As such, $(-1,1)\in A_n$. \\
 
   \par Therefore, it has been proven that $\cup_{\alpha \in \Delta} A_\alpha = (-1,1)$.
 \end{proof}
 
 % Proof 2b
 \begin{proof}{(b)}
+  We will first prove that $\cap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset$: \\
 
+  \par Let $\alpha=0$. Then $A_\alpha = (0,0] = \emptyset$. The intersection with the any set is the empty set (since they have no elements to share in common). Since I proved in Problem (1), Part (a), the empty set is a subset of any set, $\cap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset$.
+
+  \par By the same proof as mentioned above, $\emptyset \subseteq \cap_{\alpha \in \Delta} A_\alpha$. \\
+
+  \par Therefore, it has been proven that $\cap_{\alpha \in \Delta} A_\alpha = \emptyset$.
 \end{proof}
 
 
@@ -207,7 +213,11 @@
 
 % Proof 4
 \begin{proof}
+  Let the set $X\in\mathcal{A}$. Then, let $x\in X$. If $x\in \cap_{A \in \mathcal{A}}A$, then $x$ is in all sets in the family. As such, $\cap_{A \in \mathcal{A}}A \subseteq X$. \\
 
+  \par If $x$ from the set $X$ as described above is in $\cup_{A \in \mathcal{A}}A$, then $x$ is in at least one set in the family. As such, $X \subseteq \cup_{A \in \mathcal{A}}A$. \\
+
+  \par Then, $\cap_{A \in \mathcal{A}}A \subseteq X \subseteq \cup_{A \in \mathcal{A}}A$. Therefore, $\cap_{A \in \mathcal{A}}A \subseteq \cup_{A \in \mathcal{A}}A$.
 \end{proof}
 
 
