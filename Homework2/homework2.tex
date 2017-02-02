@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
 % Last Edited: February 2, 2017
-% Version: 0.2e
+% Version: 0.2f
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -162,7 +162,9 @@
 
   \par Proving $(-1,1) \subseteq \cup_{\alpha \in \Delta} A_\alpha$: \\
 
-  \par
+  \par Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Then, let $n=(1+|x|)/(2)$. We know that $x\in A_n = (-(1+|x|)/2, (1+|x|)/2]$. As such, $(-1,1)\in A_n$.
+
+  \par Therefore, it has been proven that $\cup_{\alpha \in \Delta} A_\alpha = (-1,1)$.
 \end{proof}
 
 % Proof 2b
