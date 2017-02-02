@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
-% Last Edited: February 1, 2017
-% Version: 0.2b
+% Last Edited: February 2, 2017
+% Version: 0.2c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -156,16 +156,18 @@
 
 % Proof 2a
 \begin{proof}{(a)}
-  The union of a family of sets creates a set containing all elements that exist in any set in the family (by definition). \\
+  Proving $\cup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1)$: \\
 
-  \par As $\alpha$ increases, so too does the range of the interval. For example, $A_{0.5}=(-0.5,0.5]$ is smaller than $A_{0.9}=(-0.9,0.9]$. For every $\alpha$, the next largest $\alpha\ \forall\alpha\in\Delta$, which I will call $\alpha'$, as an index will is a set that will contain the previous set ($A_{\alpha} \subseteq A_{\alpha'})$. For example (though 0.9 is most certainly not the number directly after 0.5 in the set of all real numbers), $A_{0.5} \subseteq A_{0.9}$. \\
+  \par There exists some $x\in\Delta = [0,1)$ such that $a\in\ A_x=(-x,x]$ Since $0 \leq x<1$, letting $x$ be the largest value it can, the set $A_x$ which is $(-x,x]$ must be a subset of the set $(-1,1)$. \\
 
-  \par Since the next set in the index contains the set that is immediately before it, the union of all sets in the index will simply be the interval contained by the last set in the union. In this case, since the largest index possible given the constraints is one exclusive, the final set in the family will be $(-1,1)$.
+  \par Proving $(-1,1) \subseteq \cup_{\alpha \in \Delta} A_\alpha$: \\
+
+  \par
 \end{proof}
 
 % Proof 2b
 \begin{proof}{(b)}
- Let $\alpha=0$. Then $A_0=[0,0)$, which is not possible (the set both contains and does not contain zero), so $A_0=\emptyset$. Letting $\alpha=x$, $A_x=(-x,x]$. For all $x\in(0,1)$, the set $A_x$ contains at least zero. Then, the intersection of all the sets excluding the set $A_0$ is zero. However, the intersection of all sets including the set $A_0$ is the empty set: The first set is the empty set, no other sets contain the empty set, so they have no shared elements.
+
 \end{proof}
 
 
@@ -226,60 +228,49 @@
   so the base case is true.
   Then, let $n=k$:
   \setcounter{equation}{0}
-  \begin{subequations}
-    \begin{equation}
-      4^{k+4} > (k+4)^4
-    \end{equation}
-      Since $k\in\N$, then $(k+1)\in\N$ as well. As such, when $n=k+1$:
-    \begin{equation}
-      4^{k+5} > (k+5)^4
-    \end{equation}
-  \end{subequations}
-  To prove that this inequality holds for all natural numbers, we will establish bounds using the inequality in Equation (1a).
-  \begin{subequations}
-    \begin{equation}
-      4^{k+5} = 4^k*4^5
-    \end{equation}
-    \begin{equation}
-      4^{k+4} = 4^k*4^4
-    \end{equation}
-    Equations (2a) and (2b) show the left hand sides of Equations (1a) and (1b) re-written in expanded form. With this knowledge, we can see that:
-    \begin{equation}
-      4^{k+5} = 4^k*4^5 = 4(4^{k+4})
-    \end{equation}
-  \end{subequations}
-  which we can compare directly to the left hand side of the inequality from Equation (1a)
+  \begin{equation}
+    4^{k+4} > (k+4)^4.
+  \end{equation}
+    Since $k\in\N$, then $(k+1)\in\N$ as well. As such, when $n=k+1$:
+  \begin{equation}
+    4^{k+5} > (k+5)^4.
+  \end{equation}
+  To prove that this inequality holds for all natural numbers, we will establish bounds using Inequality (1). Equation (3) shows the left hand side of Inequality (2) re-written in expanded form.
+  \begin{equation}
+    4^{k+5} = 4^k*4^5
+  \end{equation}
+  With this knowledge, we can see that:
+  \begin{equation}
+    4^{k+5} = 4^k*4^5 = 4(4^{k+4}).
+  \end{equation}
+  which we can compare directly to the left hand side of Inequality (1)
   \begin{equation*}
     4(4^{k+4}) > 4^{k+4}
   \end{equation*}
-  and find that it is greater by a factor of exactly four. In terms of building a series of inequalities, we now have:
+  and find that it is greater by four times. In terms of building a series of inequalities, we now have:
   \begin{equation}
     4^{k+5} = 4(4^{k+4}) > 4^{k+4}
   \end{equation}
-  Now, let us look at the right hand side of the inequalities in Equations (1a) and (1b):
-  \begin{subequations}
-    \begin{equation}
-      (k+5)^4 = k^4 + 20k^3 + 150k^2 + 500k + 625
-    \end{equation}
-    \begin{equation}
-      (k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256
-    \end{equation}
-  \end{subequations}
-  Referring to Equation (3), where we used four times the left hand side of the inequality from Equation (1a), we now use four times the right hand side of the inequality from Equation (1a) to keep the relationship that the two share:
-  \begin{subequations}
-    \begin{equation}
-      4(k+4)^4 > 4(k+4)^4
-    \end{equation}
-    From this point, it is important to note the distributed form of $4(k+4)^4$ in comparison to $(k+5)^4$:
-    \begin{equation}
-      4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > k^4 + 20k^3 + 150k^2 + 500k + 625 = (k+5)^4
-    \end{equation}
-    So therefore
-    \begin{equation}
-      4(k+4)^4 > (k+5)^4
-    \end{equation}
-  \end{subequations}
-  Finally, we build the last inequality, taking parts of Equation (3), Equation (5a), and Equation (5c):
+  Now, let us look at the right hand side of Inequalities (1) and (2):
+  \begin{equation}
+    (k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256
+  \end{equation}
+  \begin{equation}
+    (k+5)^4 = k^4 + 20k^3 + 150k^2 + 500k + 625.
+  \end{equation}
+  Referring to Equation (4), where we used four times the left hand side of Inequality (2), we now use four times the right hand side of Inequality (1) to keep the relationship that the two share:
+  \begin{equation}
+    4(4^{k+4}) > 4(k+4)^4.
+  \end{equation}
+  From this point, it is important to note the distributed form of $4(k+4)^4$ is greater than $(k+5)^4$ (given of course that $k\in\N$):
+  \begin{equation}
+    4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > k^4 + 20k^3 + 150k^2 + 500k + 625 = (k+5)^4.
+  \end{equation}
+  Therefore
+  \begin{equation}
+    4(k+4)^4 > (k+5)^4.
+  \end{equation}
+  Finally, we build the last inequality, taking parts of Equation (5), Inequality (8), and Inequality (10):
   \begin{equation}
     4^{k+5} = 4(4^{k+4})>4(k+4)^4 > (k+5)^4
   \end{equation}
