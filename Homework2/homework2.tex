@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
 % Last Edited: February 2, 2017
-% Version: 0.3a
+% Version: 0.3b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -156,26 +156,26 @@
 
 % Proof 2a
 \begin{proof}{(a)}
-  We will first prove that $\cup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1)$: \\
+  We will first prove that $$\bigcup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1).$$ \\
 
   \par There exists some $x\in\Delta = [0,1)$ such that $a\in\ A_x=(-x,x]$. Since $0 \leq x<1$, letting $x$ be the largest value it can, the set $A_x$ which is $(-x,x]$ must be a subset of the set $(-1,1)$. \\
 
-  \par We will now prove that $(-1,1) \subseteq \cup_{\alpha \in \Delta} A_\alpha$: \\
+  \par We will now prove that $$(-1,1) \subseteq \bigcup_{\alpha \in \Delta} A_\alpha.$$ \\
 
   \par Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Then, let $n=(1+|x|)/(2)$. We know that $x\in A_n = (-n, n]$. As such, $(-1,1)\in A_n$. \\
 
-  \par Therefore, it has been proven that $\cup_{\alpha \in \Delta} A_\alpha = (-1,1)$.
+  \par Therefore, it has been proven that $$\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1).$$
 \end{proof}
 
 % Proof 2b
 \begin{proof}{(b)}
-  We will first prove that $\cap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset$: \\
+  We will first prove that $$\bigcap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset.$$ \\
 
-  \par Let $\alpha=0$. Then $A_\alpha = (0,0] = \emptyset$. The intersection with the any set is the empty set (since they have no elements to share in common). Since I proved in Problem (1), Part (a), the empty set is a subset of any set, $\cap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset$.
+  \par Let $\alpha=0$. Then $A_\alpha = (0,0] = \emptyset$. The intersection with the any set is the empty set (since they have no elements to share in common). Since I proved in Problem (1), Part (a), the empty set is a subset of any set, $$\bigcap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset.$$
 
-  \par By the same proof as mentioned above, $\emptyset \subseteq \cap_{\alpha \in \Delta} A_\alpha$. \\
+  \par By the same proof as mentioned above, $$\emptyset \subseteq \bigcap_{\alpha \in \Delta} A_\alpha.$$ \\
 
-  \par Therefore, it has been proven that $\cap_{\alpha \in \Delta} A_\alpha = \emptyset$.
+  \par Therefore, it has been proven that $$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset.$$
 \end{proof}
 
 
