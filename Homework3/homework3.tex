@@ -1,0 +1,150 @@
+% Author: Connor Baker
+% Date Created: February 14, 2017
+% Last Edited: February 14, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+% Begin the document
+\begin{document}
+% Create the Header
+\begin{center}
+  \subsection*{Homework 3\\Connor Baker, February 2017}
+\end{center}
+
+% Problem 1
+\begin{enumerate}
+\item Let $R$ be a relation from a nonempty set $A$ to itself.  Prove that if $R$ is symmetric, transitive, and $\dom(R) = A$, then $R$ is an equivalence relation.
+\end{enumerate}
+
+% Proof 1
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 2
+\begin{enumerate}
+  \item[2.] Use the Principle of Mathematical Induction to prove $3^n \geq 2^n + 1$ for all $n \in \N$.
+\end{enumerate}
+
+% Proof 2
+\begin{proof}
+  Let $n=1$. Then,
+  \begin{equation}
+    3^1 \geq 2^1 + 1.
+  \end{equation}
+  Therefore, we must now prove that $\forall n\in\N$, the above inequality also holds for $n+1$.
+
+  \par Let $n=k$. Then, assume the following equation to be true:
+  \begin{equation}
+    3^k \geq 2^k + 1.
+  \end{equation}
+
+  \par We now try to prove that the inequality holds for $n=k+1$:
+  \begin{equation}
+    3^{k+1} \geq 2^{k+1} + 1,
+  \end{equation}
+  which is equivalent to
+  \begin{equation}
+    3^{k}*3 \geq 2^{k}*2 + 1.
+  \end{equation}
+
+  \par Multiplying Inequality (2) by two on both sides does not destroy the inequality, but it does present us with a more useful form:
+  \begin{equation}
+    3^{k}*2 \geq 2^{k}*2 + 2.
+  \end{equation}
+
+  \par Comparing this with Inequality (4), we find that:
+    $$3^{k}*3 > 3^{k}*2 \geq 2^{k}*2 + 2 > 2^{k}*2 + 1,$$
+    which is the same as
+  \begin{equation}
+    3^{k+1} > 3^{k}*2 \geq 2^{k}*2 + 2 > 2^{k+1} + 1.
+  \end{equation}
+
+  \par Therefore, by the Principal of Mathematical Induciton, $3^n \geq 2^n + 1$, $\forall n\in\N$.
+\end{proof}
+
+
+\pagebreak
+
+
+
+% Problem 3
+\begin{enumerate}
+  \item[3.] Use the Principle of Mathematical Induction to prove
+  $$\sqrt{2\sqrt{2\sqrt{2\sqrt{2...}}}} \leq 2.$$
+  (Hint:  Construct a recursively defined sequence.)
+\end{enumerate}
+
+% Proof 3
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 4
+\begin{enumerate}
+  \item[4.] Let $a_1 = 2, a_2 = 4$, and $a_{n+2} = 5a_{n+1} - 6a_n$ for $n \geq 1$.  Prove that $a_n = 2^n$ for all natural numbers $n$.
+\end{enumerate}
+
+% Proof 4
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 5
+\begin{enumerate}
+  \item[5.] Use the Principle of Mathematical Induction to prove that
+  $$1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + ... + n \cdot n! = (n+1)! - 1.$$
+\end{enumerate}
+
+% Proof 4
+\begin{proof}
+\end{proof}
+% End problem set
+
+\end{document} % End document
