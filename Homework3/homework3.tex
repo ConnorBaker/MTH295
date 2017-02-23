@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: February 14, 2017
-% Last Edited: February 20, 2017
-% Version: 0.1c
+% Last Edited: February 23, 2017
+% Version: 0.2a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -49,6 +49,7 @@
 
 % Proof 1
 \begin{proof}
+  Let $x\in A$. Then since the the domain of $R$ is $A$, $\exist y: xRy$. By symmetry, $yRx$. By transitivity, $xRx$, so the relaiton is also reflixive. Since the relation is symmetric, transitive, and reflexive, $R$ must be an equivalence relation.
 \end{proof}
 
 
@@ -157,10 +158,6 @@
 \end{enumerate}
 
 % Proof 4
-\begin{center}
-  \huge NICE CIRCULAR LOGIC, IDIOT \\
-  \big Should be proved using Strong Induction
-\end{center}
 \setcounter{equation}{0}
 \begin{proof}
   Let $n=1$. Then:
@@ -168,9 +165,12 @@
 
   \par Next, we must now prove that if the inequality is true for some $n\in\N$, the above inequality also holds for $n+1$.
 
-  \par Let $n=k$. Then, assume the following equation to be true:
+  \par Let $n=k$. Then, assume the following equation to be true $\forall n \leq k$ as well -- that is, assume the equality holds for Equation (1) and Equation (2).
   \begin{equation}
-    a_{k+2} = 5a_{k+1} - 6a_k = 2^k.
+    a_{k+1} = 5a_{k} - 6a_{k-1} = 2^{k-1},
+  \end{equation}
+  \begin{equation}
+    a_{k+2} = 5a_{k+1} - 6a_{k} = 2^{k}.
   \end{equation}
 
   \par We now try to prove that the inequality holds for $n=k+1$:
@@ -180,24 +180,20 @@
 
   \par We substitute Equation (1) into Equation (2):
   \begin{equation}
-    a_{k+3} = 5(2^k) - 6a_{k+1} = 2^{k+1}.
-  \end{equation}
-
-  \par Then, we find the equation for $a_{k+1}$ so that we can substitute that as well:
-  \begin{equation}
-    a_{k+1} = 5a_{k} - 6a_{k-1} = 2^{k-1},
-  \end{equation}
-  which we then substitute into Equation (3):
-  \begin{equation}
     a_{k+3} = 5(2^k) - 6(2^{k-1}) = 2^{k+1}.
   \end{equation}
 
-  \par Expanding this equaiton yeilds:
+  \par This simplifies as follows:
+    $$a_{k+3} = 5(2\cdot2^{k-1}) - 6(2^{k-1}) = 2^{k+1},$$
+    $$a_{k+3} = 10\cdot2^{k-1}) - 6\cdot2^{k-1}) = 2^{k+1},$$
+    $$a_{k+3} = 2^{k-1}(10 - 6) = 2^{k+1},$$
+    $$a_{k+3} = 2^{k-1}(4) = 2^{k+1},$$
+    $$a_{k+3} = 2^{k-1}(2^2) = 2^{k+1},$$
   \begin{equation}
-    2^{k-1} (5\cdot 2 - 6) = 2^{k-1} (10 - 6) = 2^{k-1}\cdot 4 = 2^{k+1}.
+    a_{k+3} = 2^{k+1} = 2^{k+1}.
   \end{equation}
 
-  \par Therefore, by the Principle of Mathematical Induction, $a_n = 2^n$ holds for all natural numbers $n$.
+  \par Therefore, by the Principle of Strong Mathematical Induction, $a_n = 2^n$ holds for all natural numbers $n$.
 \end{proof}
 
 
