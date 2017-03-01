@@ -1,0 +1,123 @@
+% Author: Connor Baker
+% Date Created: February 27, 2017
+% Last Edited: February 27, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator\dom{dom}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+% Begin the document
+\begin{document}
+% Create the Header
+\begin{center}
+  \subsection*{Homework 4\\Connor Baker, February 2017}
+\end{center}
+
+% Problem 1
+\begin{enumerate}
+\item[1.] Prove that if $R$ is a partial order on a set $A$, then $R^{-1}$ (the inverse relation) is also a partial order on $A$.
+\end{enumerate}
+
+% Proof 1
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 2
+\begin{enumerate}
+  \item[2.] Let $R$ be a relation on the set $A$.  Prove that if $S$ is a symmetric relation on $A$, and $R \subseteq S$, then $R^{-1} \subseteq S$.
+\end{enumerate}
+
+% Proof 2
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 3
+\begin{enumerate}
+  \item[3.] Let $R$ be an antisymmetric relation on the nonempty set $A$.  Prove that if $R$ is symmetric and $\dom(R) = A$, then $R = I_A$ (the identity relation on $A$).
+\end{enumerate}
+
+% Proof 3
+\setcounter{equation}{0}
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 4
+\begin{enumerate}
+  \item[4.] Prove that the subset of every well-ordered set is well ordered.
+\end{enumerate}
+
+% Proof 4
+\setcounter{equation}{0}
+\begin{proof}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 5
+\begin{enumerate}
+  \item[5.] Prove that $R$ is transitive on a set $A$ if and only if $R \circ R \subseteq R$.
+\end{enumerate}
+
+% Proof 5
+\setcounter{equation}{0}
+\begin{proof}
+\end{proof}
+% End problem set
+
+\end{document} % End document
