@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: February 27, 2017
-% Last Edited: February 27, 2017
-% Version: 0.1a
+% Last Edited: March 1, 2017
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -54,6 +54,15 @@
 
 % Proof 1
 \begin{proof}
+  For $R$ to be a partial order on a set $A$, it must be reflexive, transitive, and anti-symmetric. $R^{-1}$ must also have these properties to be a partial order on $A$. We first prove reflexivity:
+
+  Assume that $\forall x\in A, (x,x)\in R$. Then, by the reflexivity of $R$, it must be that case that $(x,x)\in R^{-1}$. As such, $R^{-1}$ is reflexive. We now prove that $R^{-1}$ is anti-symmetric.
+
+  Assume that $(x,y)\in R$. Then, since $R^{-1}$ is the inverse of $R$, $(y,x)\in R^{-1}$. If it was the case that $(y,x)\in R$, then $x=y$ (by the definition of anti-symmetry). As such, if $(x,y)\in R^{-1}$, then $y=x$, and $R^{-1}$ is anti-symmetric.
+
+  Assume that $(x,y)\in R$, and $(y,z)\in R$. Then, since $R$ was transitive, $(x,z)\in R$. Because $R^{-1}$ is the inverse of $R$, if the assumption is true, then $(y,x)\in R^{-1}$, $(z,y)\in R^{-1}$, and $(z,x)\in R^{-1}$. As such, $R^{-1}$ is transitive.
+
+  Therefore, because $R^{-1}$ is reflexive, anti-symmetric, and transitive, $R^{-1}$ is a partial order on $A$.
 \end{proof}
 
 
@@ -69,6 +78,7 @@
 
 % Proof 2
 \begin{proof}
+  Since $S$ is a symmetric relation on $A$, if $(x,y)\in R$ (which is a subset of $S$) then $(x,y)\in S$, and by symmetry, $(y,x)\in S$. Then, $(y,x)\in R^{-1}$ since it is the inverse of $R$. We know this to be in $S$, so $R \subseteq S$.
 \end{proof}
 
 
@@ -85,6 +95,7 @@
 % Proof 3
 \setcounter{equation}{0}
 \begin{proof}
+
 \end{proof}
 
 
