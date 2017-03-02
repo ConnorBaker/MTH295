@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: February 27, 2017
-% Last Edited: March 1, 2017
-% Version: 0.1b
+% Last Edited: March 2, 2017
+% Version: 0.1c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -44,7 +44,7 @@
 \begin{document}
 % Create the Header
 \begin{center}
-  \subsection*{Homework 4\\Connor Baker, February 2017}
+  \subsection*{Homework 4\\Connor Baker, March 2017}
 \end{center}
 
 % Problem 1
@@ -95,7 +95,7 @@
 % Proof 3
 \setcounter{equation}{0}
 \begin{proof}
-
+  For $R$ to be an identity relation on $A$, it must be the case that $R = \{(x,y)\in A \times A : x = y\}$. Since $R$ is symmetric, and $\dom(R)=A$, then $\forall x,y \in A$ it must be the case that $(x,y)\in R$ and $(y,x)\in R$. Furthermore, since $R$ is anti-symmetric, if $(x,y)\in R$ and $(y,x) \in R$, then $x=y$. As such, $\forall x \in A, (x,x) \in R$. Therefore, $R = I_A$.
 \end{proof}
 
 
@@ -112,6 +112,7 @@
 % Proof 4
 \setcounter{equation}{0}
 \begin{proof}
+  Assume that the linear ordering $R$ on $A$ is well ordered. Then, every nonempty subset $B$ of $A$ has a least element in $B$. Let $S\subseteq B$. Then, $\forall S\in \mathcal{P}(B) - \{\emptyset\}$, there is an element $x\in S$ such that $\forall y \in S, x\leq y$. As such, every subset $S$ of $B$ has a least element in $S$. Therefore, every subset of a well-ordered set is well-ordered.
 \end{proof}
 
 
@@ -128,6 +129,7 @@
 % Proof 5
 \setcounter{equation}{0}
 \begin{proof}
+  Assume that $R \circ R \subseteq R$. Then, if $(x,y)\in R$ and $(y,z)\in R$, $(x,z)\in R \circ R$. Since $R \circ R \subseteq R$, it must be the case that $(x,z)\in R$. As such, $R$ is transitive.
 \end{proof}
 % End problem set
 
