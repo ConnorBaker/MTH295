@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 9, 2017
-% Last Edited: March 9, 2017
-% Version: 0.1b
+% Last Edited: March 10, 2017
+% Version: 0.1c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -297,5 +297,119 @@
 
   Assume $\exists q_1,r_1$ with $a=bq_1 + r_1$ where $0\leq r_1 < b$. Then $a=bq+r$, $a=bq_1+r_1$. This implies that $0=b(q-q_1) + (r-r_1), b\neq 0$. If it is the case that $q-q_1\neq 0$, then $|q-q_1|\in\N$. Then $r_1 > r$ and $|r_1-r|=mb$ for some $m\in\N, m=|q-q_1|$. Thus, $r_1 \geq mb\implies r_1\geq b$, which is a contradition such that $q-q_1$ would be zero and $r_1-r=0$.
 \end{theorem}
+
+\begin{definition}[Greatest Common Divisor (GCD)]
+  For $a,b\in\N$, the GCD of $a$ and $b$ can be written as the linear combination of $a$ and $b$ -- that is, if:
+
+  $$d=\text{GCD}(a,b), \exists x,y\in\Z: xa+yb=d$$
+\end{definition}
+
+\begin{definition}[Ordered Pair]
+  A set whose order matters. $(x,y) = \{x,\{x,y\}\}$.
+  The reason the ordered pair translates to this is because $x$ is the first coordinate, since it is an element at every level of the set.
+\end{definition}
+
+\begin{definition}[n-tuples]
+  A set of n-tuples $(x_1,x_2,\dots,x_n)$ can be re-written as a set like so: \\ $\{x_1,\{x_1,x_2\},\{x_1,\{x_1,x_2\},\{x_1,x_2,x_3\}\},\dots, \{x_1,\{x_1,x_2\},\dots, \{x_1,x_2,\dots, x_n\}\}\}$.
+\end{definition}
+
+\begin{definition}[Cartesian Product]
+  let $A,B$ be sets. Then, the Cartesian product $A\times B$ is the set:
+  $$A\times B = \{(a,b): (a\in A) \land (b\in B)\}$$
+  In general, $A\times B \neq B\times A$.
+  While it might be tempting, note that (again, in general) $A\times B\times C \neq (A\times B) \times C \neq A\times (B\times C)$.
+\end{definition}
+
+\begin{theorem}[Properties of the Cartesian Product]
+  Let $A,B,C,D$ be sets. Then:
+  \begin{enumerate}
+    \item $A\times(B\cup C) = (A\times B)\cup(A\times C)$
+    \item $A\times(B\cap C) = (A\times B)\cap(A\times C)$
+    \item $A\times \emptyset = \emptyset$
+    \item $(A\times B)\cap(C\times D) = (A\cap C)\times(B\cap D)$
+    \item $(A\times B)\cup(C\times D) \subseteq (A\cup C)\times(B\cup D)$
+    \item $(A\times B)\cap(B\times A) = (A\cap B)\times(A\cap B)$
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Relation]
+  A relation $R$ from a set $A$ to a set $B$ is any subset of $A\times B$.
+  If $a\in A$, and $b\in B$, then:
+  \begin{enumerate}
+    \item $aRb \iff (a,b)\in R$
+    \item $a\not{R}b \iff (a,b)\not\in R$
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Domain]
+  The domain of a relation $R$ from a set $A$ to a set $B$ $(R: A\rightarrow B)$ is $\dom(R) = \{x\in A: \exists y\in B : xRy\}$.
+\end{definition}
+
+\begin{definition}[Domain]
+  The range of a relation $R: A\rightarrow B)$ is rang$(R) = \{y\in B: \exists x\in A : xRy\}$.
+\end{definition}
+
+\begin{definition}[Identity Relation]
+  Let $A$ be any set. Then:
+  $$I_A = \{(x,x): x\in A\}$$
+\end{definition}
+
+\begin{definition}[Inverse Relation]
+  Let $R:A\rightarrow B$. Then $R^{-1} = \{(y,x): xRy\}$.
+\end{definition}
+
+\begin{theorem}[Range and Domain of Inverse Relation]
+  Let $R:A\rightarrow B$. Then:
+  \begin{enumerate}
+    \item $\dom(R) = \text{rang}(R^{-1})$
+    \item $\dom(R^{-1}) = \text{rang}(R)$
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Composition of Relations]
+  Let $R:A\rightarrow B$, and $S:B\rightarrow BC$. Then:
+  \begin{enumerate}
+    \item $S\circ R: A\rightarrow C$
+    \item $S\circ R=\{(x,z): \exists y\in B: (xRy) \land (ySz)$
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Properties of Relations]
+  Assuming that all compositions are well defined:
+  \begin{enumerate}
+    \item $(R^{-1})^{-1} = R$
+    \item $T\circ (S\circ R) = (T\circ S)\circ R$ (associativity)
+    \item $I_B \circ R = R \circ I_A = R$ (identity relation)
+    \item $(S\circ R)^{-1} = R^{-1} \circ S^{-1}$
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Unary Operator]
+  Requires only a single argument.
+\end{definition}
+
+\begin{definition}[Binary Operator]
+  Requires two arguments.
+\end{definition}
+
+\begin{definition}[Reflexive Relation]
+  A relation $R$ on $A$ is reflexive if, $\forall x\in A, xRx$.
+\end{definition}
+
+\begin{definition}[Symmetric Relation]
+  A relation $R$ on $A$ is symmetric if $xRy\implies xRx$.
+\end{definition}
+
+\begin{definition}[Transitive Relation]
+  A relation $R$ on $A$ is transitive if $((xRy)\land(yRz))\implies xRz$.
+\end{definition}
+
+\begin{definition}[Equivalence Relation]
+  A relation $R$ on $A$ is an equivalence relation if $R$ is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{definition}[Equivalence Class]
+  Given $R$, a equivalence relation on $A$, for any $x\in A$, the equivalence class of $x$, denoted $[x]$, is the set $\{y\in A: xRy\}$.
+\end{definition}
 
 \end{document} % End document
