@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 9, 2017
 % Last Edited: March 9, 2017
-% Version: 0.1a
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -117,6 +117,7 @@
 \end{definition}
 
 \begin{definition}[Quantifiers and Negations]
+  Logical Quantifiers and Negators:
   \begin{enumerate}
     \item Universal Quantifier: $\forall$ -- Must be true for all $x$ in the universal set such that  $P(x)$ is true: $(\forall x)(P(x))$.
     \item Existential Quantifier: $\exists$ -- True if for at least one $x$ in the universal set such that $P(x)$ is true: $(\exists x)(P(x))$.
@@ -139,6 +140,7 @@
 \end{definition}
 
 \begin{definition}[Axioms of the Natural Numbers]
+  The following are axioms for the set of the Natural Numbers, $\N$:
   \begin{enumerate}
     \item Successor property
     \begin{enumerate}
@@ -203,8 +205,97 @@
   If $\mathcal{A} \neq \emptyset$, the union isn't a problem but the intersection would be the set of all sets, and as such is undefined.
 \end{theorem}
 
-\begin{definition}[Family of Sets]
+\begin{definition}[Indexed Family of Sets]
   Let $\Delta$ be a nonempty set. Then, $\forall\alpha\in\Delta$, there is a corresponding set $A_\alpha$. The family of sets $\mathcal{A} = \{A_\alpha: \alpha\in\Delta\}$.
 \end{definition}
+
+\begin{definition}[Union and Intersection over an Indexed Family of Sets $\mathcal{A}$]
+  Let $\mathcal{A}$ be a family of sets with indicies $\alpha\in\Delta$. Then, the union over $A_\alpha$ is defined as:
+  $$\bigcap_{\alpha\in\Delta} A_\alpha = \{x: (\exists\alpha\in\Delta)(x\in A_\alpha)$$
+  and the intersection is defined as:
+  $$\bigcup_{\alpha\in\Delta} A_\alpha = \{x: (\forall\alpha\in\Delta)(x\in A_\alpha)$$
+\end{definition}
+
+\begin{theorem}[Relative Cardinality of Intersection and Union over Indexed Family of Sets]
+  For every set $\beta\in\Delta$:
+    $$A_\beta \subseteq \bigcup_{\alpha\in\Delta} A_\alpha,$$
+    $$\bigcap_{\alpha\in\Delta} A_\alpha \subseteq A_\beta.$$
+    $$\overline{\bigcup_{\alpha\in\Delta} A_\alpha} = \bigcap_{\alpha\in\Delta} \overline{A_\alpha}$$
+    $$\overline{\bigcap_{\alpha\in\Delta} A_\alpha} = \bigcup_{\alpha\in\Delta} \overline{A_\alpha}$$
+\end{theorem}
+
+\begin{definition}[Pairwise Disjoint]
+  Let $\mathcal{A} = \{A_\alpha : \alpha\in\Delta\}$. Then $\mathcal{A}$ is pairwise disjoint if $\forall\alpha,\beta\in\Delta$ with $A_\alpha\neq A_\beta$, $A_\alpha \cap A_\beta = \emptyset$.
+\end{definition}
+
+\begin{theorem}[Order Properties of the Natural Numbers]
+  Let $x,y,z\in\N$. Then, $\forall x,y,z$:
+  \begin{enumerate}
+    \item $x<y \iff \exists w\in\N: x+w=y$
+    \item $x\leq y \iff x=y or x<y$
+    \item if $x<y$ and $y<z$, then $x<z$ (transitivity)
+    \item if $x\leq y$ and $y\leq x$, then $x=y$
+    \item if $x<y$, then $x+z < y+z$ and $xz<yz$
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Principle of Mathematical Induction (PMI)]
+  If $S$ is any subset of the natural numbers, with the properties that:
+  \begin{enumerate}
+    \item $1\in S$
+    \item if $k\in S$, then $(k+1)\in S$
+  \end{enumerate}
+  then $S=\N$.
+
+  The general process of mathematical induction is as follows:
+  \begin{enumerate}
+    \item Define $S=\{n\in\N:$ some statement is true$\}$
+    \begin{enumerate}
+      \item Prove that the basis case holds: that means that $1\in S$
+      \item Assume $k\in S$. Then, based on this assumption, prove it to be the case that $(k+1)\in S$.
+      \item Conclude that by the Principle of Mathematical Induction, $S=\N$.
+    \end{enumerate}
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Inductive Set]
+  A set $S\subseteq\N$ is inductive if whenever $n\in S$, then $(n+1)\in S$.
+\end{definition}
+
+\begin{definition}[Factorial]
+  If $n\in\N$, then $n! = n(n-1)!$.
+\end{definition}
+
+\begin{definition}[Zero Factorial]
+  $0! = 1$.
+\end{definition}
+
+\begin{definition}[General Principle of Mathematical Induction]
+  $S\subseteq\N$ where $k\in S$ and if $j\in S$, then $(j+1)\in S$, and it is true for all $\{k, k+1, \dots \}$, then $S$ is inductive.
+\end{definition}
+
+\begin{theorem}[Principle of Strong Mathematical Induction (PSMI)]
+    If $S\subseteq\N$ with the property that $\forall m\in\N$, if $\{1,2,\dots,m-1\}\subseteq S$, then $m\subseteq S$, then $S=\N$.
+
+    PSMI is different from PMI because with PMI we assume that we can start at a value and carrying forward from that value something holds. With PSMI, we assume that it holds over an interval.
+\end{theorem}
+
+\begin{theorem}[Well Ordering Principle (WOP)]
+  Every nonempty subset of $\N$ has a least element.
+\end{theorem}
+
+\begin{theorem}[The Division Algorithm]
+  Let $a,b\in\N$, with $b\leq a$. Then we will prove that $\exists q\in \N$ and $r\in\N\cup\{0\}:a=bq+r$ where $0\leq r < b$.
+
+  Consider all multiples of $b>a$. Let $S=\{s\in\N:sb>a\}$. By (WOP), $S$ has a least element $q+1$, so $q\not\in S$. Therefore, $qb\leq a$.
+
+  Let $r=q-qb$. Since $qb\leq a$, $a-qb \geq 0$, so it must be the case that $r\geq 0$.
+
+  If $r\geq b$, then $r=q-qb \geq b \implies a-qb-b \geq 0 \implies q-b(q+1) \geq 0$. So, $a\geq b(q+1)$. But, for $(q+1)\in S$, it must be that $b(q+1) > a$. Then, $(q+1)\in S$. This is a contradiction. Therefore, $r<b$.
+
+  Furthermore, $q$ and $r$ are unique.
+
+  Assume $\exists q_1,r_1$ with $a=bq_1 + r_1$ where $0\leq r_1 < b$. Then $a=bq+r$, $a=bq_1+r_1$. This implies that $0=b(q-q_1) + (r-r_1), b\neq 0$. If it is the case that $q-q_1\neq 0$, then $|q-q_1|\in\N$. Then $r_1 > r$ and $|r_1-r|=mb$ for some $m\in\N, m=|q-q_1|$. Thus, $r_1 \geq mb\implies r_1\geq b$, which is a contradition such that $q-q_1$ would be zero and $r_1-r=0$.
+\end{theorem}
 
 \end{document} % End document
