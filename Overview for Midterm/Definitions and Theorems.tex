@@ -1,0 +1,210 @@
+% Author: Connor Baker
+% Date Created: March 9, 2017
+% Last Edited: March 9, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator\dom{dom}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+% Begin the document
+\begin{document}
+% Create the Header
+\begin{center}
+  \subsection*{Definitions and Theorems\\Connor Baker, March 2017}
+\end{center}
+
+\begin{definition}[Statement]
+  Any sentence which can be evaluated as either true or false.
+\end{definition}
+
+\begin{definition}[Compound Statement]
+  A statement made up of one or more component statements connected by logical connectors.
+\end{definition}
+
+\begin{definition}[Equivalence of Logical Operators]
+  Two sets of logical operators are said to be equivalent if they produce the same output.
+\end{definition}
+
+\begin{definition}[Tautology]
+  A statement that's always true.
+\end{definition}
+
+\begin{definition}[Contradiction]
+  A statement that's always false.
+\end{definition}
+
+\begin{definition}[A Set]
+  Any collection of objects.
+\end{definition}
+
+\begin{definition}[Set Builder Notation]
+  \{expression: rule\}
+\end{definition}
+
+\begin{definition}[Universal Set]
+  The given or implied set that contains all other sets in the problem. This set fixes Russel's Paradox.
+\end{definition}
+
+\begin{definition}[Tautology]
+  A statement that's always true.
+\end{definition}
+
+\begin{definition}[Natural Numbers]
+  The set $\N: \{1,2,3, \dots \}$.
+\end{definition}
+
+\begin{definition}[Integers]
+  The set $\Z: \{\dots, -1,0,2, \dots \}$.
+\end{definition}
+
+\begin{definition}[Rational Numbers]
+  The set $\mathbb{Q}: \{\frac{a}{b}: a\in\Z$ and $b\in\N \}$.
+\end{definition}
+
+
+\begin{definition}[Real Numbers]
+  The set $\R: \{a_n a_{n-1}\dots a_1a_0a_{-1}a_{-2} \dots:n\in\N\cup\{ 0\}$ and $a_i \in \{ 0,\dots,9\} \}$.
+\end{definition}
+
+\begin{definition}[Complex Numbers]
+  The set $\mathbb{C}: \{a+bi:i^2 = -1$ and $a,b \in\R\}$.
+\end{definition}
+
+\begin{definition}[Subset]
+  Given two sets $A$ and $B$, $A\subseteq B \iff \forall a\in A \implies a\in B$.
+\end{definition}
+
+
+\begin{definition}[Open Sentence (AKA Predicate)]
+  A statement that contains a variable. The truth value depends on the variable.
+\end{definition}
+
+\begin{definition}[Truth Set]
+  The set of values that make the statement true.
+\end{definition}
+
+\begin{definition}[Quantifiers and Negations]
+  \begin{enumerate}
+    \item Universal Quantifier: $\forall$ -- Must be true for all $x$ in the universal set such that  $P(x)$ is true: $(\forall x)(P(x))$.
+    \item Existential Quantifier: $\exists$ -- True if for at least one $x$ in the universal set such that $P(x)$ is true: $(\exists x)(P(x))$.
+    \item Unique Quantifier: $\exists!$ -- True if there exists only one $x$ in the universal set such that $P(x)$ is true: $(\exists! x)(P(x))$.
+    \item Negation of the Universal Quantifier: $\sim(\forall x)(P(x))$ is $(\exists x)(\sim P(x))$.
+    \item Negation of the Existential Quantifier: $\sim(\exists x)(P(x))$ is $(\forall x)(\sim P(x))$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Direct Proof]
+  $P\implies Q$.
+\end{definition}
+
+\begin{definition}[Contrapositive Proof]
+  $(\sim Q) \implies (\sim P)$.
+\end{definition}
+
+\begin{definition}[Proof by Contradiction]
+  We start with $P \implies Q$. Assume that $\sim P \land Q$ is true. Then $\sim P \implies A_1 \implies A_2 \implies \dots \implies R$. And, if $Q \implies B_1 \implies B_2 \implies \dots \implies \sim R$. Then,$\sim R \land R$ must be true, which is a contradiction, so the original assumption is false, and $P \implies Q$.
+\end{definition}
+
+\begin{definition}[Axioms of the Natural Numbers]
+  \begin{enumerate}
+    \item Successor property
+    \begin{enumerate}
+      \item One is a natural number
+      \item One is not the successor of any number
+      \item Every natural number has a unique successor
+    \end{enumerate}
+    \item Closure under addition and multiplication
+    \item Associativity
+    \item Commutativity
+    \item Distribution of multiplication over addition
+    \item Cancellation
+    \begin{enumerate}
+      \item Real numbers have this property unless the number being cancelled is a zero
+      \item Matrix multiplication does not have this property
+    \end{enumerate}
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Divisible]
+  Let $a,b\in\N$. Then $a|b$ if $\exists k\in\N:ak=b$.
+\end{definition}
+
+\begin{definition}[Prime]
+    A number $p$, where $p\in\N$, is prime if $p>1$ and its only divisors are one and itself.
+\end{definition}
+
+\begin{definition}[Factor]
+  A number $q$, where $q\in\N$, is a factor of $r$ if $q|r$.
+\end{definition}
+
+\begin{definition}[Prime Factor Decomposition]
+  Let $p_1,p_2,\dots,p_k$ be all primes less than $q$. Then, the prime factor decomposition of $q$ is $p_1^{n_1} p_2^{n_2},\dots, p_k^{n_k}$ where $n_i\in(\N\cup \{0\})$.
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Arithmetic]
+  All natural numbers have a unique prime factorization up to commutativity.
+\end{theorem}
+
+\begin{definition}[Union over $\mathcal{A}$]
+  Let $\mathcal{A}$ be a family of sets. The union over $\mathcal{A}$ is defined as:
+  $$\bigcup_{A\in\mathcal{A}} = \{x: (\exists A\in\mathcal{A})(x\in A)$$
+  which is equivalent to:
+  $$\bigcup_{A\in\mathcal{A}} = \{x: (\exists A)((A\in\mathcal{A})\land(x\in A))$$
+\end{definition}
+
+\begin{definition}[Intersection over $\mathcal{A}$]
+  Let $\mathcal{A}$ be a family of sets. The intersection over $\mathcal{A}$ is defined as:
+  $$\bigcap_{A\in\mathcal{A}} = \{x: (\forall A\in\mathcal{A})(x\in A)$$
+  which is equivalent to:
+  $$\bigcap_{A\in\mathcal{A}} = \{x: (\forall A)((A\in\mathcal{A})\implies(x\in A))$$
+\end{definition}
+
+\begin{theorem}[Relative Cardinality of Intersection and Union]
+  For every set $B\in\mathcal{A}$:
+    $$B\subseteq \bigcup_{A\in\mathcal{A}} A,$$
+    $$\bigcap_{A\in\mathcal{A}} A\subseteq B.$$
+  The intersection is no bigger than the smallest set, and the union is no smaller than the biggest set.
+
+  Assume that $\mathcal{A} \neq \emptyset$. Then:
+    $$\bigcap_{A\in\mathcal{A}} A\subseteq \bigcup_{A\in\mathcal{A}} A.$$
+  If $\mathcal{A} \neq \emptyset$, the union isn't a problem but the intersection would be the set of all sets, and as such is undefined.
+\end{theorem}
+
+\begin{definition}[Family of Sets]
+  Let $\Delta$ be a nonempty set. Then, $\forall\alpha\in\Delta$, there is a corresponding set $A_\alpha$. The family of sets $\mathcal{A} = \{A_\alpha: \alpha\in\Delta\}$.
+\end{definition}
+
+\end{document} % End document
