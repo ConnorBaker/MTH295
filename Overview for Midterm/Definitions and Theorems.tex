@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 9, 2017
 % Last Edited: March 11, 2017
-% Version: 0.2a
+% Version: 0.2b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -416,6 +416,68 @@
   If the cardinality of a set $|A|=n$, then the cardinality of $|A\times A| = n^2$, by the multiplication principle.
 
   If $\mathcal{P}(n)$ is the powerset on $A\times A$, then $|\mathcal{P}(n)| = 2^n^2$.
+\end{definition}
+
+
+\begin{definition}[Partition]
+  Let $A$ be a set. Then a partition of $AS$ is a collection of sets $\mathcal{X}$, which is a subset of $\mathcal{P}(A)$ with the following conditions.
+  \begin{enumerate}
+    \item $\emptyset\not\in\mathcal{X}$
+    \item $\forall\mathcal{C,D}\in\mathcal{X}, \mathcal{C}\cap\mathcal{D}=\emptyset,$ when $\mathcal{C}\neq\mathcal{D}$ (piece-wise disjoint)
+    \item $\cap_{\mathcal{C}\in\mathcal{X}} \mathcal{C} = A$
+  \end{enumerate}
+
+  For every equivalence class of a set, they form a partition. Conversely, equivalence classes and partitions generate the other.
+\end{definition}
+
+\begin{theorem}[Properties of Equivalence Relation]
+  Suppose that $R$ is an equivalence relation on $A$, $A\neq\emptyset$ (which means that $R\neq\emptyset$, since everything at least relates to itself). Then:
+  \begin{enumerate}
+    \item $\forall x\in A, x\in[x]$ (this implies $[x]\neq \emptyset$)
+    \item $[x] \subseteq A, \forall x\in A$ (the range$(R)\subseteq A$, so $[x]\subseteq A$)
+    \item $xRy \iff [x]=[y]$
+    \item $\cup_{x\in A} [x] = A$
+    \item $x\not Ry \iff [x]\cap [y] = \emptyset$
+    \item The set of all equivalence relations (A quotient R) $A/R = \{[x]:x\in A\}$
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Partitions on Non-empty Sets]
+  Let $P$ be a partition of a non-empty set $A$. Then, $\exists$ an equivalence relation $R$ on $A$ where $A/R=P$.
+\end{theorem}
+
+\begin{definition}[Comparability]
+  $R$ has the property of comparability if $\forall x,y\in A$, either $xRy$ or $yRx$. One example of a relation with comparability is the less than or greater than relation. An example of a relation that does not have comparability is the divides relation (two does not divide three, 3 does not divide two, but two and three are both in in the set $A$).
+\end{definition}
+
+\begin{definition}[Bounded Set]
+  A set $A\subseteq\R$ of real numbers is bounded from above if there exists a real number $M\in\R$, called an upper bound of $A$, such that $x\leq M, \forall x\in A$. Similarly, $A$ is bounded from below if there exists $m\in\R$, called a lower bound of $A$ ,such that $x\geq m,\forall x\in A$. A set is bounded if it is bounded both from above and below.
+\end{definition}
+
+\begin{definition}[Supremum]
+  The supremum of a set is its least upper bound. Suppose that $A\subseteq\R$ is a set of real numbers. If $M\in\R$ is an upper bound of $A$ such that $M\leq M′$ for every upper bound $M′$ of $A$, then $M$ is called the supremum of $A$, denoted $M = $sup$(A)$.
+\end{definition}
+
+\begin{definition}[Infemum]
+  The infemum of a set is its greatest upper bound. Suppose that $A\subseteq\R$ is a set of real numbers. If $m\in\R$ is a lower bound of $A$ such that $m\geq m′$ for every lower bound $m′$ of $A$, then $m$ is called the infemum of $A$, denoted $m = $inf$(A)$.
+\end{definition}
+
+\begin{theorem}[Uniqueness of Least Upper Bound and Greatest Lower Bound]
+  If $R$ is a partial order on $A$, and $B$ is a subset of $A$, then if there is a least upper bound, or greatest lower bound for $B$ in $A$, then it is unique.
+\end{theorem}
+
+\begin{definition}[Lienar Order]
+  A partial order $R$ on $A$ is a linear order (or total order) if $\forall a,b\in A$, either $aRb$ or $bRa$. The Hesse Diagram of a linear order relationship looks like a line. One such example of a linear order relationship is less than or equal to.
+\end{definition}
+
+\begin{definition}[Well Ordering]
+  A linear ordering $R$ on $A$ is well ordered if every nonempty subset $B$ of $A$ has a least element in $B$. Being a well ordered set is super non-trivial.
+  Let $A=[0,1], A\subseteq\R$:
+  \begin{enumerate}
+    \item $B=(0,1)\subseteq A$
+    \item inf$(B) = 0 \not\in B$
+  \end{enumerate}
+  so $B$ is not well ordered.
 \end{definition}
 
 \end{document} % End document
