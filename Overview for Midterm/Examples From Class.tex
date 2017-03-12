@@ -1,0 +1,74 @@
+% Author: Connor Baker
+% Date Created: March 11, 2017
+% Last Edited: March 11, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator\dom{dom}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+% Begin the document
+\begin{document}
+% Create the Header
+\begin{center}
+  \subsection*{Examples from Class\\Connor Baker, March 2017}
+\end{center}
+
+\begin{example}[Prove that if $(3|a)\land (3|b)$ then $9|(ab)$]
+  Assume that $\exists k,j\in\N:3k=a,3j=b$. Then, $ab=9kj$. Since $k,j\in\N$, and $(kj)\in\N$, then $(9kj)\in\N$. By the definition of divisibility, $9|(ab)$.
+\end{example}
+
+\begin{example}[Let $m,n\in\N$ and $q$ prime. Then $q|m\iff q|m^2$.]
+  If $q|m$, then $q|m^2$. Then $\exists k\in\N:qk=m$. Then, $m^2=q^2 k^2$. By definition, since it has the same factor twice, $q|m^2$.
+
+  If $q|m^2$, then $q|m$. Let the unique prime factor decomposition of $m=p_1^{n_1}\cdot p_2^{n_2}\cdots p_k^{n_k}$. Then $m^2 = p_1^{2n_1}\cdot p_2^{2n_2}\cdots p_k^{2n_k}$. Since $q|m^2,q=p_i^{2n_i}$ for some $i\in\N,i\leq k$. Since $q$ is prime and is in $\N,2n_i \geq 2 \implies n_i \geq 1$. Furthermore, $q$ must be in the unique prime factorization of $m$ (which we can infer from $q$'s being prime and a factor of $m^2$ -- it must have a factor of at least $q^2$). As such, $q|m$.
+
+  Therefore, $q|m\iff q|m^2$.
+\end{example}
+
+\begin{example}[$\sqrt{2}$ is irrational]
+  If $(x>0)\land (x^2=2)$, then $x$ is irrational. We will prove by contradiction that $x$ is irrational.
+
+  Assume that $x$ is rational and $x>0,x^2=2$. Then, since $x$ is rational, $\exists m,n\in\N:x=\frac{m}{n}$, and $m,n$ have no common factors. As such, $2=x^2=\frac{m^2}{n^2}\implies m^2=2n^2$, and $2|m^2$, which by the previous example, means $2|m$.
+
+  Since $2|m,\exists k\in\N$ where $m=2k$. As such, $x=\frac{2k}{n}\implies x^2 = \frac{4k^2}{n^2} = 2 \implies 2k^2 = n^2$.
+
+  Therfore, $2|n^2\implies2|n$.
+
+  So, $m,n$ both have no factors in common, yet they have a factor of two, which is a contradiction. Therefore, it must the case that if $(x>0)\land (x^2=2)$, then $x$ is irrational.
+\end{example}
+
+
+\end{document} % End document
