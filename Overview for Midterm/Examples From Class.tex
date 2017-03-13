@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 11, 2017
-% Last Edited: March 11, 2017
-% Version: 0.1a
+% Last Edited: March 12, 2017
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -68,6 +68,42 @@
   Therfore, $2|n^2\implies2|n$.
 
   So, $m,n$ both have no factors in common, yet they have a factor of two, which is a contradiction. Therefore, it must the case that if $(x>0)\land (x^2=2)$, then $x$ is irrational.
+\end{example}
+
+\begin{example}[$\mathcal{A} = \{(-a,a): (a\in\R) \land (a>0)\}.$ Show that the union over the indexed family of sets is $\R$.]
+  We must show that given the definition of $\mathcal{A}$ above:
+  $$\bigcup_{A\in\mathcal{A}}A = \R.$$
+
+  We begin by proving that:
+  $$\bigcup_{A\in\mathcal{A}}A\subseteq\R.$$
+  Let $x\in\cup_{A\in\mathcal{A}}A$. Then, $\exists a\in\R,a>0:x\in(-a.a)$. Then $-a<x<a$. Since $a\in\R,x\in(-a,a)$, it must be that $x\in\R$, and $\cup_{A\in\mathcal{A}}A\subseteq\R$.
+
+  We now prove that:
+  $$\R\subseteq\bigcup_{A\in\mathcal{A}}A.$$
+  Let $x\in\R$. Then $0\leq|x|\leq(|x|+1)$ and $-|x|\leq x\leq|x|$. Using this inequality, we see that $-(|x|+1)<x\leq|x|<(|x|+1)$. Then $x\in(-(|x|+1),(|x|+1))\in A$, so by the definition of union, $x\in\cup_{A\in\mathcal{A}}A$, which implies that all elements of $\R$ are in the union, so $\R\subseteq\cup_{A\in\mathcal{A}}A$.
+
+  Therefore,
+  $$\bigcup_{A\in\mathcal{A}}A=\R.$$
+\end{example}
+
+\begin{example}[$\mathcal{A} = \{(-a,a): (a\in\R) \land (a>0)\}.$ Show that the intersection over the indexed family of sets is $\{0\}$.]
+  We must show that given the definition of $\mathcal{A}$ above:
+  $$\bigcap_{A\in\mathcal{A}}A = \{0\}.$$
+
+  We begin by proving that:
+  $$\bigcap_{A\in\mathcal{A}}A\subseteq\{0\}.$$
+  Let $x\in\cap_{A\in\mathcal{A}}A$. Then, if $x\in\{0\},x=0$. However, suppose that $x\neq0.$ Then since $x\in\R$, $\forall a\in\R^+,x\in(-a,a)$. We now prove that $x$ is in every interval, but not one specific interval. Let $(-|x|/2,|x|/2)\in\mathcal{A}$. Then, since $|x|/2 < |x|$, it follows that $-|x| < -|x|/2 < |x|/2 < |x|$. Furthermore, $x=-|x|$ or $x=|x|$, so $x\not\in(-|x|/2,|x|/2)$.
+
+  This is a contradiction of our assumption that $x\in\cap_{A\in\mathcal{A}}A$ and $x\neq0$. It must be the case that $x=0$ and is the only element of the intersection. As such, $\cap_{A\in\mathcal{A}}A\subseteq\{0\}.$
+
+  We now prove that:
+  $$\{0\}\subseteq\bigcap_{A\in\mathcal{A}}A.$$
+  Let $I\in\mathcal{A}$. Then $\exists a\in\R^+$ such that when $I=(-a,a), -a<0<a$ (since $a>0$).
+
+  Therefore $0\in(-a,a)\ \forall a>0$. So, $0\in I, \forall I \in\mathcal{A}$. As such, it must be the case that $\{0\}\subseteq\cap_{A\in\mathcal{A}}A.$
+
+  Therefore,
+  $$\bigcap_{A\in\mathcal{A}}A = \{0\}.$$
 \end{example}
 
 
