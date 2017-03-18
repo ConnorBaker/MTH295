@@ -1,0 +1,170 @@
+% Author: Connor Baker
+% Date Created: March 18, 2017
+% Last Edited: March 18, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rang{rang}
+\newcommand{\ds}{\displaystyle}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+% Begin the document
+\begin{document}
+% Create the Header
+\begin{center}
+  \subsection*{Homework 5\\Connor Baker, March 2017}
+\end{center}
+
+% Problem 1
+\begin{enumerate}
+\item Prove that if the real-valued function $f$ is strictly increasing or strictly decreasing on $\R$, then $f$ is one-to-one (Note:  You cannot assume $f$ is differentiable).
+\end{enumerate}
+
+
+
+% Proof 1
+\begin{proof}
+  Case 1: $f$ is strictly decreasing.
+
+  If $f$ is strictly decreasing, then $\forall\ x,a\in\dom(f),\ x\leq a,\ f(x) \geq f(a)$. If it is the case that $f(x)=f(a)$, then it must also be the case that $x=a$. Then, $f(x)=f(a)$ if and only if $x=a$, and $f(x) > f(a)\ \forall x,a\in\dom(f),\ x < a$, the function $f$ must be one-to-one.
+
+  Case 2: $f$ is strictly increasing.
+
+  If $f$ is strictly increasing, then $\forall\ x,a\in\dom(f),\ x\leq a,\ f(x) \leq f(a)$. If it is the case that $f(x)=f(a)$, then it must also be the case that $x=a$. Then, $f(x)=f(a)$ if and only if $x=a$, and $f(x) < f(a)\ \forall x,a\in\dom(f),\ x < a$, the function $f$ must be one-to-one.
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 2
+\begin{enumerate}
+  \item[2.] Prove the following are metrics:
+  \begin{enumerate}
+    \item $X = \R, d(x,y) =  \begin{cases} 0 & \mbox{if } x = y \\ 1 & \mbox{if } x \neq y \end{cases} $
+    \item $X = \R \times \R, d((x,y),(z,w)) = \sqrt{(x-z)^2 + (y-w)^2}$
+  \end{enumerate}
+  \begin{definition}[Metric]
+    A metric on a set $X$ is a function $d: X \times X \to \R$ such that for all $x,y,z \in X$,
+  \end{definition}
+  \begin{enumerate}
+    \item $d(x,y) \geq 0$
+    \item $d(x,y) = 0$ if and only if $x = y$
+    \item $d(x,y) = d(y,x),$
+    \item $d(x,y) + d(y,z) \geq d(x,z)$.
+  \end{enumerate}
+\end{enumerate}
+
+
+
+% Proof 2
+\begin{proof}
+  We begin by proving that the first function is a metric.
+  \begin{enumerate}
+    \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
+    \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
+    \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
+    \item Proving that $d(x,y) + d(y,z) \geq d(x,z)$ must be done with five cases:
+    \begin{enumerate}
+      \item Case 1: $x=y=z$
+      \item Case 2: $x=y, y\neq z$
+      \item Case 3: $x\neq y, x=z$
+      \item Case 4: $x\neq y, y=z$
+      \item Case 5: $x\neq y, y\neq z$
+    \end{enumerate}
+  \end{enumerate}
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 3
+\begin{enumerate}
+\item[3.] Let $f: \N \times \N \to \N$ be given by $f(m,n) = 2^{m-1}(2n-1)$.  Prove that $f$ is one-to-one and onto.
+\end{enumerate}
+
+
+
+% Proof 3
+\begin{proof}
+  Since
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 4
+\begin{enumerate}
+\item[4.] Let $f:A \to B$ be a function from a nonempty set $A$.  Prove that the set $ \mathcal{C} = \{f^{-1}(b): b \in \rang(f)\}$ is a partition of $A$.  Note:  $\mathcal{C}$ is a subset of $\mathscr{P}(A)$.
+\end{enumerate}
+
+
+
+% Proof 4
+\begin{proof}
+  Since
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+% Problem 5
+\begin{enumerate}
+\item[5.] Let $f:A \to B$ be a function from a nonempty set $A$ which is surjective.  Find a new function $g:C \to B$ which is one-to-one such that $C \subseteq A$, $\rang(g) = \rang(f)$, and for every $x \in C, f(x) = g(x)$.  Explain why $g$ has an inverse function, $g^{-1}$.  Then, compute $f(g^{-1}(x))$ for all $x \in B$.
+\end{enumerate}
+
+
+
+% Proof 5
+\begin{proof}
+  Since
+\end{proof}
+
+\end{document} % End the document
