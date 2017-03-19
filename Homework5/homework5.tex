@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
 % Last Edited: March 18, 2017
-% Version: 0.1a
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -99,18 +99,58 @@
 \begin{proof}
   We begin by proving that the first function is a metric.
   \begin{enumerate}
-    \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
+    \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than or equal to zero for any inputted pair of values.
     \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
     \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
-    \item Proving that $d(x,y) + d(y,z) \geq d(x,z)$ must be done with five cases:
-    \begin{enumerate}
-      \item Case 1: $x=y=z$
-      \item Case 2: $x=y, y\neq z$
-      \item Case 3: $x\neq y, x=z$
-      \item Case 4: $x\neq y, y=z$
-      \item Case 5: $x\neq y, y\neq z$
-    \end{enumerate}
+    \item As shown below, it is not the case that $d(x,y) + d(y,z) \geq d(x,z)$.
   \end{enumerate}
+
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|} \hline
+      x & y & z & d(x,y) & d(y,z) & d(x,z) & d(x,y)+d(y,z)$\geq$d(x,z) \tabularnewline \hline
+
+      0 & 0 & 0 & 0 & 0 & 0 & true \tabularnewline \hline
+      0 & 0 & 1 & 0 & 1 & 1 & true \tabularnewline \hline
+      0 & 0 & 2 & 0 & 1 & 1 & true \tabularnewline \hline
+      0 & 1 & 0 & 1 & 1 & 0 & true \tabularnewline \hline
+      0 & 1 & 1 & 1 & 0 & 1 & true \tabularnewline \hline
+      0 & 1 & 2 & 1 & 1 & 1 & true \tabularnewline \hline
+      0 & 2 & 0 & 1 & 1 & 0 & true \tabularnewline \hline
+      0 & 2 & 1 & 1 & 1 & 1 & true \tabularnewline \hline
+      0 & 2 & 2 & 1 & 0 & 1 & true \tabularnewline \hline
+
+      1 & 0 & 0 & 1 & 0 & 1 & true \tabularnewline \hline
+      1 & 0 & 1 & 1 & 1 & 0 & true \tabularnewline \hline
+      1 & 0 & 2 & 1 & 1 & 1 & true \tabularnewline \hline
+      1 & 1 & 0 & 0 & 1 & 1 & true \tabularnewline \hline
+      1 & 1 & 1 & 0 & 0 & 0 & true \tabularnewline \hline
+      1 & 1 & 2 & 0 & 1 & 1 & true \tabularnewline \hline
+      1 & 2 & 0 & 1 & 1 & 1 & true \tabularnewline \hline
+      1 & 2 & 1 & 1 & 1 & 1 & true \tabularnewline \hline
+      1 & 2 & 2 & 1 & 0 & 1 & true \tabularnewline \hline
+
+      2 & 0 & 0 & 1 & 0 & 1 & true \tabularnewline \hline
+      2 & 0 & 1 & 1 & 1 & 1 & true \tabularnewline \hline
+      2 & 0 & 2 & 1 & 1 & 0 & true \tabularnewline \hline
+      2 & 1 & 0 & 1 & 1 & 1 & true \tabularnewline \hline
+      2 & 1 & 1 & 1 & 0 & 1 & true \tabularnewline \hline
+      2 & 1 & 2 & 1 & 1 & 0 & true \tabularnewline \hline
+      2 & 2 & 0 & 0 & 1 & 1 & true \tabularnewline \hline
+      2 & 2 & 1 & 0 & 1 & 1 & true \tabularnewline \hline
+      2 & 2 & 2 & 0 & 0 & 0 & true \tabularnewline \hline
+    \end{tabular}
+  \end{center}
+
+  Therefore the first function is a metric. \\
+
+  We now prove that the second function is a metric.
+  % \begin{enumerate}
+  %   \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
+  %   \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
+  %   \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
+  %   \item Proving that $d(x,y) + d(y,z) \geq d(x,z)$ must be done with five cases:
+  % \end{enumerate}
+  % Therefore the function is a metric.
 \end{proof}
 
 
