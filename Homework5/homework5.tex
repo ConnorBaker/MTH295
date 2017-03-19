@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
 % Last Edited: March 18, 2017
-% Version: 0.1c
+% Version: 0.1d
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -13,6 +13,7 @@
 \usepackage{mathtools,mathdots}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{longtable}
 
 % Page Formatting
 % These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
@@ -144,13 +145,282 @@
   Therefore the first function is a metric. \\
 
   We now prove that the second function is a metric.
-  % \begin{enumerate}
-  %   \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
-  %   \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
-  %   \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
-  %   \item Proving that $d(x,y) + d(y,z) \geq d(x,z)$ must be done with five cases:
-  % \end{enumerate}
-  % Therefore the function is a metric.
+  \begin{enumerate}
+    \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
+    \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
+    \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
+    \item As shown below, it is the case that $d(x,y) + d(y,z) \geq d(x,z)$:
+  \end{enumerate}
+
+    \begin{longtable}{|c|c|c|c|c|c|c|c|} \hline
+      x & y & w & z & d(x,y) & d(y,z) & d(x,z) & d(x,y)+d(y,z)$\geq$d(x,z) \endhead \hline
+
+      0 & 0 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 0 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 1 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      0 & 2 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 2 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      0 & 3 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      1 & 0 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 0 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 1 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      1 & 2 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 2 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      1 & 3 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      2 & 0 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 0 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 1 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      2 & 2 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 2 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      2 & 3 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      3 & 0 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 0 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 1 & 3 & 3 &  &  &  & true \tabularnewline \hline
+
+      3 & 2 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 2 & 3 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 0 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 0 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 0 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 0 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 1 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 1 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 1 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 1 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 2 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 2 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 2 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 2 & 3 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 3 & 0 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 3 & 1 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 3 & 2 &  &  &  & true \tabularnewline \hline
+      3 & 3 & 3 & 3 &  &  &  & true \tabularnewline \hline
+    \end{longtable}
+
+  Therefore the function is a metric.
 \end{proof}
 
 
