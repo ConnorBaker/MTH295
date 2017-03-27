@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
 % Last Edited: March 27, 2017
-% Version: 0.2a
+% Version: 0.2b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -134,9 +134,16 @@
 \begin{proof}
   Let $a,b,c\in\N$. Then, $f(b,c)\geq 1$, and $\forall a\in\N,\ \exists (b,c)\in\N\times\N:\ f(b,c)=a$, since $a,b$ and $c$ are all natural numbers, and the natural numbers are closed under multiplication. As such, $f$ is surjective.
 
-  The function $f$ is injective if $\forall x,y\in\N\times\N, x\neq y, f(x)\neq f(y).$
-\end{proof}
+  The function $f$ is injective if $\forall x,y\in\N\times\N, x\neq y, f(x)\neq f(y).$ Then, assuming $f(x)=f(y)$ we have $2^{a-1} (2b-1) = 2^{c-1} (2d-1).$ Assuming that $x\neq y$, $x=(a,c)$ and $y=(c,d)$, it must be that the case that $a\neq c$ or $b\neq d$.
 
+  Since the prime factor decomposition of a number is unique up to commutativity, they must have the same factor of two, which must come from the term outside the parenthesis (since $2k-1 \ \forall k\in\N$ is the definition of an odd number and will therefore have no factor of two), so $a=c$.
+
+  Furthermore, since the two sides of the equation have the same factor of two and the prime factor decomposition is unique, the terms in the parenthesis must be equal. Using cancellation, we find that $b=d$.
+
+  This is a contradiction of our assumption that $x\neq y$, so it must be that $f(x)=f(y)$ if and only if $x=y$, and $f$ is injective.
+
+  Since $f$ is both injective and surjective, it must be bijective.
+\end{proof}
 
 
 \pagebreak
