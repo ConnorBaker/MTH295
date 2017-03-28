@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
 % Last Edited: March 27, 2017
-% Version: 0.2c
+% Version: 0.3a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -101,9 +101,9 @@
   We begin by proving that the first function is a metric.
   \begin{enumerate}
     \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than or equal to zero for any inputted pair of values.
-    \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
-    \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
-    \item As shown below, it is the case that $d(x,y) + d(y,z) \geq d(x,z)$.
+    \item By the definition of $d$, $d(x,y)=0$ if and only if $x=y$.
+    \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$, since the order of the inputs does not generate a unique output.
+    \item Not completed.
   \end{enumerate}
   Therefore the first function is a metric. \\
 
@@ -112,7 +112,7 @@
     \item The $\rang(d)=\{0,1\}$ so the function is definitely greater than zero.
     \item By the definition of $d$, if and only if $x=y$ does $d(x,y)=1$.
     \item Since the equals relationship is symmetric, $x=y \implies y=x$. As such, $d(x,y) = d(y,x)$.
-    \item As shown below, it is the case that $d(x,y) + d(y,z) \geq d(x,z)$:
+    \item Not completed.
   \end{enumerate}
   Therefore the function is a metric.
 \end{proof}
@@ -160,7 +160,7 @@
 
 % Proof 4
 \begin{proof}
-  The range of the function $f$ is by definiton a subset of the codomain, $B$. If $b\in\rang(f)$, then $\exists a\in A:\ f(a) = b$. Then, it must be that $\forall b\in\rang(f)$, there exists $a\in A:\ f^{-1}(b) = a$. Then, the set of all $a:\ f^{-1}(b) = a$ is a subset of the power set of $A$, and is therefore a partition.
+  The range of the function $f$ is by definiton a subset of the codomain, $B$. If $b\in\rang(f)$, then $\exists a\in A:\ f(a) = b$. Then, it must be that $\forall b\in\rang(f)$, there exists $a\in A:\ f^{-1}(b) = a$. Then, the set of all $a:\ f^{-1}(b) = a$ is a subset of $A$, which is in turn a subest of the power set of $A$, which contains partitions of $A$. Therefore, $\mathcal{C}$ is a partition.
 \end{proof}
 
 
@@ -178,7 +178,7 @@
 
 % Proof 5
 \begin{proof}
-  Since
+  Since $\rang(g) = \rang(f)$, and $\rang(f) = B$ (because $f$ is surjective), $\rang(g) = B$, and as a result $g$ is bijective. The function $g$ has an inverse because it is bijective. For all $x \in B$, the function $f(g^{-1}(x))$ is equivalent to $f(C)$ since $g$ has an inverse and is bijective. Furthermore, $f(C)=B$, since $C\subseteq A$ and $\rang(g) = \rang(f)$.
 \end{proof}
 
 \end{document} % End the document
