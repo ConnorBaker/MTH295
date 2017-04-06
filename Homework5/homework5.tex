@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
-% Last Edited: April 5, 2017
-% Version: 0.3c
+% Last Edited: April 6, 2017
+% Version: 0.4a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -146,9 +146,34 @@
 
 % Proof 3
 \begin{proof}
-  We begin by showing that the prime factorization is unique up to commutativity. We have to match the factors of two, and then the odd number factor which is the prodcut of all the odd prime factors.
+  If we can prove that there is a unique solution $f(m,n)$ for every $m,n\in\N$, then we will have proven that $f$ is one-to-one and onto.
 
-  We need to make sure we note all of the solutions are in $\N$.
+  We begin by breaking apart the function. Let us consider two functions:
+  $$g(m) = 2^{m-1}$$
+  and
+  $$h(n) = 2n-1,$$
+  such that
+  $$f(m,n) = g(m)\cdot h(n).$$
+
+  The function $g$ is clearly one-to-one and onto for any $m$. Any value of $m$ produces a power of two, all of which are in $\N$. Looking at $f$, we see that if $m>1$, $g$ in effect creates the even factors found in the result, $f(m,n)$.
+
+  Considering $h$, we see that it is also one-to-one and onto for any $n$. Any value of $n$ produces an odd number (because $h$ is the definition of an odd number) -- in fact, $h$ produces every odd number in $\N$.
+
+  There are two cases to consider.
+
+  Case 1: $m=1$. In this case, $f(1,n)$ will map $n$ to every odd number in $\N$. If $m=1$, the function $f$ is one-to-one and onto.
+
+  Let $p_1 p_2 \dots p_q$ be the prime factorization of $f(m,n)$, where $p_i$, $1\leq i \leq q$, is a prime factor of $f(m,n)$ raised to some power. By the fundamental theorem of arithmetic, the prime factorization of a number is unique up to commutativity. In this case, we find that $f(1,n) = 2n-1$, so the prime factorization is entirely dependent on the value of $n$.
+
+  Case 2: $m>1$. In this case, $f(m,n)$ has some power of two (that is not one) multiplying an odd number. Since any odd number multiplied by an even number is even, $f(m,n)$ will be even for all $n$.
+
+  Let $p_1 p_2 \dots p_q$ be the prime factorization of $f(m,n)$, where $p_i$, $1\leq i \leq q$, is a prime factor of $f(m,n)$ raised to some power. By the fundamental theorem of arithmetic, the prime factorization of a number is unique up to commutativity. In this case, we find that $f(m,n) = 2^{m-1}(2n-1)$, so the prime factorization is entirely dependent on the value of both $m$ and $n$.
+
+  Since different values of $n$ will yield different odd numbers, the prime factors will be the same if and only if the value of the input is the same. The same is true for $m$.
+
+  As such, as long as $(m,n)\neq(p,q)$, $f(m,n)$ and $f(p,q)$ have different prime factors. Therefore, $f(m,n)$ is one-to-one.
+
+  Furthermore, there is always at least one solution for all $m,n$, so $f(m,n)$ is onto as well.
 \end{proof}
 
 \pagebreak
