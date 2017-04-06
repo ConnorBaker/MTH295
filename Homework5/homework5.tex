@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
-% Last Edited: April 4, 2017
-% Version: 0.3b
+% Last Edited: April 5, 2017
+% Version: 0.3c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -63,11 +63,25 @@
 \begin{proof}
   Case 1: $f$ is strictly decreasing.
 
-  If $f$ is strictly decreasing, then $\forall\ x,a\in\dom(f),\ x\leq a,\ f(x) \geq f(a)$. If it is the case that $f(x)=f(a)$, then it must also be the case that $x=a$. Then, $f(x)=f(a)$ if and only if $x=a$, and $f(x) > f(a)\ \forall x,a\in\dom(f),\ x < a$, the function $f$ must be one-to-one.
+  Let $x,a\in\dom(f).$ Assume that $f(x)=f(a)$. If $x\neq a$, then by trichotomy either $x<a$ or $x>a.$
+
+  Case A: If $x<a,$ then $f(x) > f(a)$, and $f(x)\neq f(a)$.
+
+  Case B: If $x>a,$ then $f(x) < f(a)$, and $f(x)\neq f(a)$.
+
+  In either case, if $x\neq a,$ then  $f(x)\neq f(a),$ and $f$ is one-to-one.
 
   Case 2: $f$ is strictly increasing.
 
-  If $f$ is strictly increasing, then $\forall\ x,a\in\dom(f),\ x\leq a,\ f(x) \leq f(a)$. If it is the case that $f(x)=f(a)$, then it must also be the case that $x=a$. Then, $f(x)=f(a)$ if and only if $x=a$, and $f(x) < f(a)\ \forall x,a\in\dom(f),\ x < a$, the function $f$ must be one-to-one.
+  Let $x,a\in\dom(f).$ Assume that $f(x)=f(a)$. If $x\neq a$, then by trichotomy either $x<a$ or $x>a.$
+
+  Case A: If $x<a,$ then $f(x) < f(a)$, and $f(x)\neq f(a)$.
+
+  Case B: If $x>a,$ then $f(x) > f(a)$, and $f(x)\neq f(a)$.
+
+  In either case, if $x\neq a,$ then  $f(x)\neq f(a),$ and $f$ is one-to-one.
+
+  As such, $f$ is one-to-one if it is strictly increasing or strictly decreasing on $\R$.
 \end{proof}
 
 
@@ -131,23 +145,10 @@
 
 
 % Proof 3
-\begin{proof}[Proof: f is one-to-one]
-  Let $m,n,p,q\in\N$ and $f(m,n)=f(p,q)$. Then,
-  $$2^{m-1}(2n-1)=2^{p-1}(2q-1).$$
+\begin{proof}
+  We begin by showing that the prime factorization is unique up to commutativity. We have to match the factors of two, and then the odd number factor which is the prodcut of all the odd prime factors.
 
-  Each side has two distinct factors: one that is even (a power of two), and one that is odd (two times a number less one). For these two numbers to be even, they must have the same power factor of two, so it must be the case that:
-  $$2^{m-1}=2^{p-1}.$$
-
-  As such, by taking the $log_2$ of both sides and using cancellation on the negative one shared on both sides, we find $m=p$. Additionally, since they have the same power factor of two, it must be the case that:
-  $$(2n-1)=(2q-1).$$
-
-  Using cancellation on the one and then the two, we find that $n=q$. As such, when $f(m,n)=f(p,q),$ it must also be the case that $(m,n)=(p,q)$, and $f: \N \times \N \to \N$ is one-to-one.
-\end{proof}
-\begin{proof}[Proof: f is onto]
-  Let $m,n,p\in\N$. Then, for all values $m,n$ in the natural numbers, there is a natural number $p$ such that $f(m,n)=p$.
-\end{proof}
-\begin{proof}[Proof: f is bijective]
-  By the above two proofs, since $f$ is both one-to-one and onto, $f$ is bijective.
+  We need to make sure we note all of the solutions are in $\N$.
 \end{proof}
 
 \pagebreak
@@ -164,21 +165,11 @@
 % Proof 4
 \setcounter{equation}{0}
 \begin{definition}[Partition]
-  A set $B$ is said to be a partition of a set $A$ if:
-  \begin{enumerate}
-    \item $\emptyset\not\in B$
-    \item $\forall C,D \in B, C\cap D= \emptyset$ when $C\neq D$
-    \item $\cap_{C\in B} C = A$
-    \item $B\subseteq \mathcal{P}(A)$
-  \end{enumerate}
+
 \end{definition}
 
 \begin{proof}
-  The set $C$ does not have $\emptyset$ as an element since that would mean that $A$ contains the empty set -- but it does not, since $A$ is a nonempty set. As such, the first condition is met.
 
-
-
-  The fourth condition is met because it is given.
 \end{proof}
 
 
@@ -196,7 +187,7 @@
 
 % Proof 5
 \begin{proof}
-  Since $\rang(g) = \rang(f)$, and $\rang(f) = B$ (because $f$ is surjective), $\rang(g) = B$, and $g$ is surjective. Additionally, since $g$ was given as injective, $g$ must be bijective. The function $g$ has an inverse because it is bijective, and that inverse is bijective. For all $x \in B$, the function $f(g^{-1}(x))$ is equivalent to $f(C)$ (since $\rang(g^{-1}) = C$). Furthermore, $f(C)=B$, since $C\subseteq A$ and $\forall c\in C, f(x)=g(x)$.
+
 \end{proof}
 
 \end{document} % End the document
