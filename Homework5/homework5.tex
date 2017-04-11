@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: March 18, 2017
-% Last Edited: April 6, 2017
-% Version: 0.4a
+% Last Edited: April 10, 2017
+% Version: 0.4b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -190,10 +190,23 @@
 % Proof 4
 \setcounter{equation}{0}
 \begin{definition}[Partition]
-
+The set $\mathcal{C}$ is a partition of $A$ if:
+\begin{enumerate}
+  \item $\forall D\in\mathcal{C},\ D\neq \emptyset$
+  \item $\forall D,E\in\mathcal{C},$ then either $D\cap E = \emptyset$ or $D=E$
+  \item $\cup_{D\in\mathcal{C}} D = A$
+\end{enumerate}
 \end{definition}
 
 \begin{proof}
+We begin by showing that $\mathcal{C}$ does not contain the empty set. By the definition of the inverse, we know that $f^{-1} = \{a\in A:f(a) = b\}$. Choosing any $D\in\mathcal{C}\subseteq\mathscr{P}(A)$, we can see that $\exists b\in\rang(f):f^{-1}(b)=D$. The set $D$ is nonempty, since if $b\in\rang(f)$, then there exists $a\in A:f(a)=b$.
+
+We now show that any two subsets of $\mathcal{C}$ are pairwise disjoint if they are not the same set. Since $f$ is a function, there is only one $f(a)$ for any $a\in A$. Then, the intersection of any two subsets of $\mathcal{C}$, which is the set containing the inverse of all elements of the range, will be the empty set unless they are the same: this follows as a result of there being only one $f(a)$ for any $a \in A$ -- if there were more than one, then multiple elements in the range could have the same preimage, but this is not the case. Indeed, the intersect of any two sets in $\mathcal{C}$ is not the empty set if they are the same set.
+
+Finally, we show that the union of all sets in $\mathcal{C}$ are equal to $A$. since $f$ is a function, $\dom(f)=A$. That means that every point in $A$ is either mapped to $B$ by $f$, or does not have a solution. By the definition of $\mathcal{C}$, the other partition must be the set of $a\in A: f^{-1}(b)\neq a, b\in B$. The union of these two partitions is equal to $A$.
+
+Therefore, $\mathcal{C}$ is a partition of $A$.
+
 
 \end{proof}
 
@@ -212,7 +225,9 @@
 
 % Proof 5
 \begin{proof}
+Since $f$ is surjective, there is at least one solution for $f(a)$ for all $a\in A$. Consider the function $g:C\to B$, where $C$ is the set of all values in $A$ such that a single element is chosen from every different partition of $A$. Then, since we can partition $A$ such that each partition's elements send all its points to the same point in $B$, by restricting the domain to a single point from each partition, we can make $g$ one-to-one -- and since $f$ was onto, simply restricting the domain doesn't cause $g$ to cease being onto, which makes $g$ bijective. Furthermore, $\rang(g) = \rang(f)$, and for every $x \in C, f(x) = g(x)$, since $g$ is essentially $f$ with a restricted domain. Since $g$ is bijective, it has an inverse that is also bijective.
 
+The composed function $f(g^{-1}(x))$ for all $x \in B$ is $B$. The inverse $g^{-1}$ takes every element of $B$ and maps it to a partition of $A$. Then, $f$ operates on those elements (which are essentially a single element from every partition of $A$, making $f$ look like $g$ since it's operating on what is essentially a restricted domain) and sends them to the range. Since $f$ is onto, every element that $g^{-1}$ returned in $A$ is sent back to $B$. As such, the composition yields the set $B$.
 \end{proof}
 
 \end{document} % End the document
