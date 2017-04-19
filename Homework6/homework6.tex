@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
-% Last Edited: April 18, 2017
-% Version: 0.1a
+% Last Edited: April 19, 2017
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -37,6 +37,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
 \DeclareMathOperator\dom{dom}
 \DeclareMathOperator\rang{rang}
 \newcommand{\ds}{\displaystyle}
@@ -56,15 +57,73 @@
 \item An algebraic number is any number that is a root of a polynomial with rational coefficients.  Prove that the algebraic numbers are countable.  A number is transcendental if it is not algebraic.  Prove there are uncountable many transcendental numbers.
 \end{enumerate}
 
+\begin{proof}
+  Let $P_n$ be the set of all polynomials that have rational coefficients, and variables raised to nonzero, whole exponents of (at most) degree $n$:
+  $$P_n = \{a_k x^n + a_{k-1} x^{n-1} + \dots + a_1 x^1 + a_0\}: a_i \in\Q\}.$$
+
+  Then, since all polynomials are functions on $\R$, $P_n$ is a set of functions (which all have solutions). Let $R_n$ be the set of all roots of $P_n$:
+  $$R_n= \{z\in\C: \exists f\in P_n: f(z)= 0\}.$$
+
+  By the fundamental theorem of algebra, every polynomial in $P_n$ has at most $n$ roots (including complex roots). Additionally, $|P_n|\ \forall n = |\Q|$. We can consider each coefficient to be a choice of an element from $\Q$, and the number of possible polynomials to be $|\cup_{i\in\N}^n \Q|$ (the union of the sets containing the coefficients we can choose from). Since this is the countable union of countable sets, the result is countable. Then since any $P_n$ is countable:
+  $$\left| P_n \bigcup P_{n-1} \bigcup \dots \bigcup P_1 \right|= |\Q|.$$
+
+  Since $P_n$ is countable, $R_n$ contains a countable number of solutions for countably many polynomials (technically, $n$ times countably infinite solutions -- which is still countably infinite). As such:
+  $$\left| R_n \bigcup R_{n-1} \bigcup \dots \bigcup R_1 \right|= |\Q|.$$
+
+  Since there are countably many roots in all, algebraic numbers are countable.
+
+  We now prove that there are uncountable many transcendental numbers.
+
+  Let $A$ be the set of all algebraic numbers. We know that $|A| = |\Q|$. The reals are the union of the sets of algebraic numbers $A$, and the set of transcendental numbers $T$. Since the union of any countable set with another countable set is countable, and we know that $|A\cup T| = |\R|$, $T$ must be uncountable.
+\end{proof}
+
+
+
+\pagebreak
+
 
 
 \begin{enumerate}
 \item[2.] Let $A$ be the set of all functions $f:\N \to \{0,1\}$.  Find the cardinality of $A$.
 \end{enumerate}
 
+\begin{proof}
+  Let $A = \{f: f:\N \to \{0,1\}\}$. Let
+  $$G=\{g:\N\to\{0,1\}\}, g(n) = \begin{cases}
+      1 & rn\geq 0 \\
+      0 & rn<0
+   \end{cases}$$
+  where $r\in\R$. Then, since $\R$ is uncountable, $G$ contains uncountable many functions.
+
+  Since $G$ is a set of functions that map $\N$ to the set $\{0,1\}$, $G\subseteq A$. Furthermore, since $|G|=|\R|$, it must also be the case that $|A|=|\R|$.
+\end{proof}
+
+
+
+\pagebreak
+
+
+
 \begin{enumerate}
 \item[3.] Let $A$ be the set of all functions $f:\N \to \{0,1\}$ that are ``eventually zero'' (We say that $f$ is eventually zero if there is a positive integer $N$ such that $f(n) = 0$ for all $n \geq N$).  Find the cardinality of $A$.
 \end{enumerate}
+
+\begin{proof}
+  Let $A = \{f: f:\N \to \{0,1\}, $``and $f$ eventually zero''$\}$. Let
+  $$G=\{g:\N\to\{0,1\}\},g(n) = \begin{cases}
+    1 & n\leq |r| \\
+    0 & n>|r|
+   \end{cases}$$
+
+  where $r\in\R$. Then, since $\R$ is uncountable, $G$ contains uncountable many functions.
+
+  Since $G$ is a set of functions that map $\N$ to the set $\{0,1\}$, $G\subseteq A$. Furthermore, since $|G|=|\R|$, it must also be the case that $|A|=|\R|$.
+\end{proof}
+
+
+\pagebreak
+
+
 
 \begin{enumerate}
 \item[4.] Use the axiom of choice to prove that if there exists $f:A \to B$ that is onto, then there exists a function $g:B \to A$ that is one-to-one.
