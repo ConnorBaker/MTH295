@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
-% Last Edited: April 19, 2017
-% Version: 0.1b
+% Last Edited: April 20, 2017
+% Version: 0.1c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -58,23 +58,27 @@
 \end{enumerate}
 
 \begin{proof}
-  Let $P_n$ be the set of all polynomials that have rational coefficients, and variables raised to nonzero, whole exponents of (at most) degree $n$:
-  $$P_n = \{a_k x^n + a_{k-1} x^{n-1} + \dots + a_1 x^1 + a_0\}: a_i \in\Q\}.$$
+  Let $M_n$ be the set of all monomials of degree $n,n\in\Z^+$, which have rational coefficients:
+  $$M_n = \{q_n x^n: q_n \in\Q\}.$$
 
-  Then, since all polynomials are functions on $\R$, $P_n$ is a set of functions (which all have solutions). Let $R_n$ be the set of all roots of $P_n$:
-  $$R_n= \{z\in\C: \exists f\in P_n: f(z)= 0\}.$$
+  Let $P_n$ be the set of all polynomials of (at most) degree $n$, which have rational coefficients:
+  $$P_n = \{M_n + M_{n-1} + \dots + M_1 + M_0\}.$$
 
-  By the fundamental theorem of algebra, every polynomial in $P_n$ has at most $n$ roots (including complex roots). Additionally, $|P_n|\ \forall n = |\Q|$. We can consider each coefficient to be a choice of an element from $\Q$, and the number of possible polynomials to be $|\cup_{i\in\N}^n \Q|$ (the union of the sets containing the coefficients we can choose from). Since this is the countable union of countable sets, the result is countable. Then since any $P_n$ is countable:
-  $$\left| P_n \bigcup P_{n-1} \bigcup \dots \bigcup P_1 \right|= |\Q|.$$
+  Then, $|P_n|=|M_0\cup M_1\cup \cdots \cup M_n| = |\Q|,$ since the countable union of countable sets is countable.
 
-  Since $P_n$ is countable, $R_n$ contains a countable number of solutions for countably many polynomials (technically, $n$ times countably infinite solutions -- which is still countably infinite). As such:
-  $$\left| R_n \bigcup R_{n-1} \bigcup \dots \bigcup R_1 \right|= |\Q|.$$
+  Let $R_n$ be the set of all roots of $P_n$:
+  $$R_n= \{x\in\R: \exists f\in P_n: f(x)= 0\}.$$
 
-  Since there are countably many roots in all, algebraic numbers are countable.
+  For each $i\in\N$, let $p_i^n$ be a unique polynomial from $P_n$. Then, let $r_i^n\subseteq R_n$ be the roots of $p_i^n$. By the fundamental theorem of algebra, every polynomial of degree $n$ has at most $n$ real roots.
 
-  We now prove that there are uncountable many transcendental numbers.
+  Then, $$R_n = \bigcup_{i\in\N}^\infty r_i^n.$$
+  As the countable union of countable sets, $R_n$ is countable, and $|R_n|=|\Q|$.
 
-  Let $A$ be the set of all algebraic numbers. We know that $|A| = |\Q|$. The reals are the union of the sets of algebraic numbers $A$, and the set of transcendental numbers $T$. Since the union of any countable set with another countable set is countable, and we know that $|A\cup T| = |\R|$, $T$ must be uncountable.
+  Let $\mathbb{A} = \cup_{n\in\N} R_n$ be the set of algebraic numbers. Again, the countable union of countable sets is countable, and the algebraic numbers are countable.
+
+  We now prove that there are uncountable many transcendental numbers by contradiction.
+
+  Suppose that the set of all transcendental numbers $\mathbb{T}$ is countable. Then, since $\R$ is defined as $\mathbb{A}\cup\mathbb{T}$, $|\R|=|\mathbb{A}\cup\mathbb{T}|$. However, since the union of any countable set with another countable set is countable, $|A\cup T| = |\Q|$, which by transitivity means $|\Q|=|\R|$, which is a contradiction since the reals are uncountable. Therefore, by contradiction, $T$ must be uncountable.
 \end{proof}
 
 
