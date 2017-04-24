@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
-% Last Edited: April 20, 2017
-% Version: 0.1c
+% Last Edited: April 23, 2017
+% Version: 0.1d
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -92,14 +92,15 @@
 \end{enumerate}
 
 \begin{proof}
-  Let $A = \{f: f:\N \to \{0,1\}\}$. Let
-  $$G=\{g:\N\to\{0,1\}\}, g(n) = \begin{cases}
-      1 & rn\geq 0 \\
-      0 & rn<0
-   \end{cases}$$
-  where $r\in\R$. Then, since $\R$ is uncountable, $G$ contains uncountable many functions.
+  We will prove by contradiction. Assume that $|A|=|\N|$. Then, $A=\{f_1,f_2,\dots\}$. Let $g:\N\to\{0,1\}$,
+  $$g(n)= \begin{cases}
+      0 & \text{if }f_n(n) = 1 \\
+      1 & \text{if }f_n(n) = 0
+   \end{cases}.$$
 
-  Since $G$ is a set of functions that map $\N$ to the set $\{0,1\}$, $G\subseteq A$. Furthermore, since $|G|=|\R|$, it must also be the case that $|A|=|\R|$.
+   Then, there is some $n$ such that $g(n)\neq f_n(n)$. Since $A$ is the set of all functions $f:\N \to \{0,1\}$, and $g$ is one of those functions and yet not included in the set, our assumption that $|A|=|\N|$ must be incorrect.
+
+  Therefore, by contradiction, $|A|=|\R|$.
 \end{proof}
 
 
@@ -113,15 +114,7 @@
 \end{enumerate}
 
 \begin{proof}
-  Let $A = \{f: f:\N \to \{0,1\}, $``and $f$ eventually zero''$\}$. Let
-  $$G=\{g:\N\to\{0,1\}\},g(n) = \begin{cases}
-    1 & n\leq |r| \\
-    0 & n>|r|
-   \end{cases}$$
 
-  where $r\in\R$. Then, since $\R$ is uncountable, $G$ contains uncountable many functions.
-
-  Since $G$ is a set of functions that map $\N$ to the set $\{0,1\}$, $G\subseteq A$. Furthermore, since $|G|=|\R|$, it must also be the case that $|A|=|\R|$.
 \end{proof}
 
 
