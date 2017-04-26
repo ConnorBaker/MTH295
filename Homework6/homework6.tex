@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
-% Last Edited: April 23, 2017
-% Version: 0.1d
+% Last Edited: April 26, 2017
+% Version: 0.2a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -92,15 +92,20 @@
 \end{enumerate}
 
 \begin{proof}
-  We will prove by contradiction. Assume that $|A|=|\N|$. Then, $A=\{f_1,f_2,\dots\}$. Let $g:\N\to\{0,1\}$,
-  $$g(n)= \begin{cases}
-      0 & \text{if }f_n(n) = 1 \\
-      1 & \text{if }f_n(n) = 0
-   \end{cases}.$$
+  To show that $A$ has the same cardinality as $\R$, we must show that there is a bijective mapping between the two. Instead of creating a mapping to $\R$, we instead use $(0,1)$, which has the same cardinality (as proved in class).
 
-   Then, there is some $n$ such that $g(n)\neq f_n(n)$. Since $A$ is the set of all functions $f:\N \to \{0,1\}$, and $g$ is one of those functions and yet not included in the set, our assumption that $|A|=|\N|$ must be incorrect.
+  Consider the function $g:A \to (0,1)$. The function $g$ takes each function in $f$ and creates a list of the outputs of that function as a decimal number in $(0,1)$:
+    $$g(f_1) = 0.a_{11} a_{12} a_{13} \dots$$
+    $$g(f_2) = 0.a_{21} a_{22} a_{23} \dots$$
+    $$g(f_3) = 0.a_{31} a_{32} a_{33} \dots$$
+    $$\vdots$$
+    $$g(f_n) = 0.a_{n1} a_{n2} a_{n3} \dots$$
+    $$\vdots$$
+  where $a_{ij}$ is either 0 or 1, the range of $f$. Then $g$ is obviously a one-to-one mapping to $(0,1)$.
 
-  Therefore, by contradiction, $|A|=|\R|$.
+  Now, consider $g^{-1}: (0,1) \to A$. Any real number in $(0,1)$ has a binary representation, finite or not. As such, $g^{-1}$ maps any binary number in the interval to $A$ and is one-to-one.
+
+  As such, $g$ is bijective, and $|A|=|(0,1)|=|\R|$.
 \end{proof}
 
 
@@ -114,7 +119,20 @@
 \end{enumerate}
 
 \begin{proof}
+  To show that $A$ has the same cardinality as $\N$, we must show that there is a bijective mapping between the two.
 
+  Consider the function $g:A \to (0,1)$. The function $g$ takes each function in $f$ and creates a list of the outputs of that function, excluding all trailing zeros (that is, all zeros that are not followed at some point by a nonzero number), then reverses that list (ex: $010010100000\mapsto1010010$), creating a unique binary number in $\N$:
+    $$g(f_1) = a_{13} a_{12} a_{11} \dots$$
+    $$g(f_2) = a_{23} a_{22} a_{21} \dots$$
+    $$g(f_3) = a_{33} a_{32} a_{31} \dots$$
+    $$\vdots$$
+    $$g(f_n) = a_{n3} a_{n2} a_{n1} \dots$$
+    $$\vdots$$
+  where $a_{ij}$ is either 0 or 1, the range of $f$. Then $g$ is obviously a one-to-one mapping to $\N$.
+
+  Now, consider $g^{-1}: \N \to A$. All natural numbers have a unique finite binary representation. As such, $g^{-1}$ maps any number in $\N$ to $A$ and is one-to-one.
+
+  As such, $g$ is bijective, and $|A|=|\N|$.
 \end{proof}
 
 
