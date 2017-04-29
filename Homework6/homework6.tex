@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
 % Last Edited: April 28, 2017
-% Version: 0.2c
+% Version: 0.3a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -25,6 +25,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[equation]{Definition}
 \newtheorem{example}[equation]{Example}
+\newtheorem{axiom}[equation]{Axiom}
 \theoremstyle{plain}
 \newtheorem{theorem}[equation]{Theorem}
 \newtheorem{proposition}[equation]{Proposition}
@@ -133,6 +134,7 @@
 \end{proof}
 
 
+
 \pagebreak
 
 
@@ -142,18 +144,45 @@
 \end{enumerate}
 
 \begin{proof}
-Consider $g:B\to A$ such that
-$$g=
-\begin{cases}
-f^{-1}(x) &\text{if }\not\exists y\in A,y\neq x: f(y)=f(x) \\
-\text{DNE} &\text{otherwise}
-\end{cases}.$$
+This proof uses the axiom of choice, as defined below.
 
-Then, $g$ is one-to-one.
+\begin{axiom}[Axiom of Choice]
+  If $\mathscr{A}$ is any collection of nonempty sets, then there exists a function $F$ (called a choice function) from $\mathscr{A}$ to $\cup_{A\in\mathscr{A}} A$ such that for every $A\in\mathscr{A}, F(A)\in A.$
+\end{axiom}
+
+Let $\mathcal{F}=\{f^{-1}(\{b\}):b\in B\}.$ Then $\mathcal{F}$ is the set that contains the pre-image(s) of each element of $B$. Since $f$ is onto, every element of $\mathcal{F}$ is nonempty.
+
+Furthermore, since $f$ is a function, everything in $\mathcal{F}$ is disjoint (because if $a\in f^{-1}(\{b_i\})$ and $a\in f^{-1}(\{b_j\})$, then $b_i=b_j$). We now use the axiom of choice.
+
+Let $C$ be a choice function such that
+$$C:\mathcal{F}\to \cup_{F\in\mathcal{F}} F.$$
+Let $g$ be a function such that
+$$g:\underset{g(b) \mapsto C(f^{-1}(\{b\}))}{B \to A}.$$
+
+Claim: The function $g$ is one-to-one.
+Let $b_i, b_j\in B$. Suppose that $g(b_i)=g(b_j)$. Then, $C(f^{-1}(\{b_i\})) = C(f^{-1}(\{b_j\}))$. Since $\mathcal{F}$ is disjoint, $b_i=b_j$, and $g$ is one-to-one.
 \end{proof}
+
+
+
+
+\pagebreak
+
+
+
 
 \begin{enumerate}
 \item[5.] We say that $|A| \geq |B|$ if there exists a function $f:A \to B$ which is onto.  Prove that if $|A| \geq |B|$, and $|B| \geq |A|$, then $|A| = |B|$.  (Hint:  Use 4).
 \end{enumerate}
+
+\begin{proof}
+  Since $|A| \geq |B|$, there exists a function $f:A\to B$ which is onto. By the previous proof, there exists a function $f':B\to A$ which is one-to-one.
+
+  Since $|B| \geq |A|$, there exists a function $g:B\to A$ which is onto. By the previous proof, there exists a function $g':A\to B$ is one-to-one.
+
+  Since there exists both onto and one-to-one functions that map $A\to B$ and the same for functions that map $B\to A$, there exists a bijective mapping between the two sets.
+
+  Since there exists a bijective mapping between the two functions, $|A| = |B|$.
+\end{proof}
 
 \end{document} %Where the text for the document ends.
