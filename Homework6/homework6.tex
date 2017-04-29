@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: April 18, 2017
-% Last Edited: April 26, 2017
-% Version: 0.2b
+% Last Edited: April 28, 2017
+% Version: 0.2c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -92,15 +92,18 @@
 \end{enumerate}
 
 \begin{proof}
-  To show that $A$ has the same cardinality as $\R$, we must show that there is a bijective mapping between the two. Instead of creating a mapping to $\R$, we instead use $(0,1)$, which has the same cardinality (as proved in class).
+  To show that $A$ has the same cardinality as $\R$, we must show that there is a bijective mapping between the two. Instead of creating a mapping to $\R$, we instead use $\{0,1\}^\N$, which has the same cardinality (as proved in class).
 
   Consider the function
-  $$\underset{f\mapsto 0.f(1)f(2)\dots}{g:A \to (0,1)}.$$
-  The function $g$ takes each function in $f$ maps it to a string of ones and zeros in $(0,1)$. As such $g$ is obviously a one-to-one mapping to $(0,1)$.
+  $$\underset{f\mapsto f(1)f(2)\dots}{g:A \to \{0,1\}^\N}.$$
 
-  Now, consider $g^{-1}: (0,1) \to A$. Any real number in $(0,1)$ has a binary representation, finite or not. As such, $g^{-1}$ maps any binary number in the interval to $A$ and is one-to-one.
+  Claim: $g(f)\in\{0,1\}^\N$.
+  The funciton $g$ always yields a sequence of ones and zeros. Since every sequence of ones and zeros is in $\{0,1\}^\N,$ so there is at least one solution, and $g$ is onto.
 
-  As such, $g$ is bijective, and $|A|=|(0,1)|=|\R|$.
+  Claim: $g(f)=g(h) \iff f=h$.
+  Assume $g(f)=g(h)$. Then $f(1)=h(1), f(2)=h(2),\dots,f(n)=h(n)$. Since $\forall n, f(n)=h(n)$, and $\dom(f)=\dom(h)$, $f=h$. Then, $g$ is one-to-one.
+
+  As such, $g$ is bijective, and $|A|=|\{0,1\}^\N|=|\R|$.
 \end{proof}
 
 
@@ -117,10 +120,14 @@
   To show that $A$ has the same cardinality as $\N$, we must show that there is a bijective mapping between the two.
 
   Consider the function
-  $$\underset{f\mapsto f(N-1)f(N-2)\dots f(2)f(1)}{g:A \to (0,1)},$$
-  where $N$ is the value for which all $f(n), n\geq N$ are zero. Then $g$ is obviously a one-to-one mapping to $\N,$ since all natural numbers have a unique finite binary representation.
+  $$\underset{f\mapsto f(N-1)f(N-2)\dots f(2)f(1)}{g:A \to \N},$$
+  where $N$ is the value for which all $f(n), n\geq N$ are zero.
 
-  Now, consider $g^{-1}: \N \to A$. All natural numbers have a unique finite binary representation. As such, $g^{-1}$ maps any number in $\N$ to $A$ and is one-to-one.
+  Claim: $g(f)\in\N.$
+  The function $g$ maps $f$ to the binary representation of a number in $\N$. Since $g(f)$ is always a positive, whole binary number, $g$ is onto since there is always a solution for any $f$.
+
+  Claim: $g(f)=g(h) \iff f=h$.
+  Assume that $g(f)=g(h)$. Then $f(N-1) = h(N-1), f(N-2) = h(N-2), \dots, f(1) = h(1)$. Then, since for all $n, f(n)=h(n), f=h$, and $\dom(f)=\dom(h)$, $g$ is one-to-one.
 
   As such, $g$ is bijective, and $|A|=|\N|$.
 \end{proof}
@@ -133,6 +140,17 @@
 \begin{enumerate}
 \item[4.] Use the axiom of choice to prove that if there exists $f:A \to B$ that is onto, then there exists a function $g:B \to A$ that is one-to-one.
 \end{enumerate}
+
+\begin{proof}
+Consider $g:B\to A$ such that
+$$g=
+\begin{cases}
+f^{1}(x) &\text{if }\not\exists y\in A,y\neq x: f(y)=f(x) \\
+\text{DNE} &\text{otherwise}
+\end{cases}.$$
+
+Then, $g$ is one-to-one.
+\end{proof}
 
 \begin{enumerate}
 \item[5.] We say that $|A| \geq |B|$ if there exists a function $f:A \to B$ which is onto.  Prove that if $|A| \geq |B|$, and $|B| \geq |A|$, then $|A| = |B|$.  (Hint:  Use 4).
