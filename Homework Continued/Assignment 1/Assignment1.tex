@@ -1,0 +1,151 @@
+% Author: Connor Baker
+% Date Created: May 29, 2017
+% Last Edited: May 30, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\newtheorem{axiom}[equation]{Axiom}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rang{rang}
+\newcommand{\ds}{\displaystyle}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\begin{document} %This is where we type the text that we plan on having in our document.
+
+% Create the Header
+\begin{center}
+  {\Large Rudin's \textsc{Principles of Mathematical Analysis, 3rd ed}}
+
+  {\large Connor Baker, May 2017}
+
+  \subsection*{Basic Topology -- Selected Exercises}
+\end{center}
+\begin{enumerate}
+\item[5.] Construct a bounded set of real numbers with exactly three limit points.
+\end{enumerate}
+
+\begin{proof}
+  The point $p$ is a limit point of $\{\frac{1}{n}:n\in\N\}$ if $\forall r>0, N_r(p)\cap E$ has infinitely many points. \\
+
+  Claim: Zero is a limit point of $\{\frac{1}{n}:n\in\N\}$. \\
+
+  For zero, $N_r(0) = \{x:d(x,0) < r\} = \{x: |x-0| < r\} = \{x: -r <x< r\} = (-r,r)$. Since $(r,r)\subseteq \R, \forall r>0,$ there are uncountably infinitely many points and $(r,r)\cap\{\frac{1}{n}:n\in\N\}$ has infinitely many points. \\
+
+  It is important to note that we can shift the location of this limit point. Consider the set $\{\frac{1}{n}+1:n\in\N\}$. For the same reasons above we can see that the limit point here is one. \\
+
+  In general, we can make a bounded set of real numbers with exactly $p, p\in\Z^+,$ limit points with the set
+  $$\bigcup_{k=0}^{p} \{\frac{1}{n}+k: n\in\N\}.$$
+
+  So, if we want three limit points, our set is as
+  $$\left\{\frac{1}{n}: n\in\N\right\}\bigcup\left\{\frac{1}{n}+1: n\in\N\right\}\bigcup\left\{\frac{1}{n}+2: n\in\N\right\}.$$
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[6.] Let $E'$ be the set of all limit points of a set $E$. Prove that $E'$ is closed. Prove that $E$ and $\bar{E}$ have the same limit points. (Recall that $\bar{E} = E \cup E'.$) Do $E$ and $E'$ always have the same limit points?
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[7.] Let $A_1,A_2,A_3,\dots$ be subsets of a metric space.
+\begin{enumerate}
+  \item If $B_n = \cup_{i=1}^{n} A_i,$ prove that $\bar{B}_n = \cup_{i=1}^{n} \bar{A}_i,$ for $n=1,2,3,\dots$.
+  \item If $B = \cup_{i=1}^{\infty} A_i,$ prove that $\bar{B} \supset \cup_{i=1}^{\infty} \bar{A}_i.$
+\end{enumerate}
+Show, by an example, that this inclusion can be proper.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[8.] Is every point of every open set $E \subset \R^2$ a limit point of $E$? Answer the same question for closed sets in $\R^2$.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[9.] Let $E^\circ$ denote the set of all interior points of a set $E$.
+\begin{enumerate}
+  \item Prove that $E^\circ$ is always open.
+  \item Prove that $E$ is open if and only if $E^\circ = E$.
+  \item If $G \subset E$ and $G$ is open, prove that $G\subset E^\circ$.
+  \item Prove that the complement of $E^\circ$ is the closure of the complement of $E$.
+  \item Do $E$ and $\bar{E}$ always have the same interiors?
+  \item Do $E$ and $E^\circ$ always have the same closures?
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+\end{document} %Where the text for the document ends.
