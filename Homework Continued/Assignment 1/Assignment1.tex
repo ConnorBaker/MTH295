@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: May 30, 2017
-% Version: 0.1a
+% Last Edited: June 1, 2017
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -88,7 +88,41 @@
 \end{enumerate}
 
 \begin{proof}
+Set of all limit points of a set is closed. \\
 
+The set $E'$ is closed if it contains its own limit points. \\
+
+Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p, x\in E': \forall r>0, d(x,p) < \frac{r}{2}$. \\
+
+Since $x\in E'$, $x$ is a limit point of $E$, by the definition of $E'$. As such, $\exists y\in E: d(x,y) < \frac{r}{2}$. By the triangle inequality:
+$$d(y,p) \leq d(y,x) + d(x,p).$$
+
+Substituting using the inequalities described above:
+$$d(y,p) < \frac{r}{2}+\frac{r}{2} =r,$$
+
+so $p$ is a limit point of $E$. Since $p$ is a limit point of $E$, it must be in $E'$. Therefore, since $E'$ contains its own limit points, it is closed.
+\end{proof}
+
+\begin{proof}
+A set and a set which is the union of that set and the set containing its limit points have the same limit points. \\
+
+By the previous proof, $E'$ is closed and therefore contains its own limit points. \\
+
+Let $\bar{E}'$ be the set of all limit points of $\bar{E}$. \\
+
+We begin by showing that $E'\subseteq \bar{E}'$.
+
+\end{proof}
+
+\begin{proof}
+  A set and the set that contains that set's limit points do not necessarily have the same limit points.
+
+  Consider the set
+  $$E = \{\frac{1}{n}: n\in\N\}.$$
+
+  Then the limit point of that set is zero, so $E' = {0}$. However, the limit points of $E'$ are the empty set. We know this because to be a limit point, the intersection of the neighborhood and the set must have infinitely many points. This is not possible for our $E'$, since we have at most a single point in the intersection. \\
+
+  In general, the limit points of a finite set are the empty set. \\
 \end{proof}
 
 
