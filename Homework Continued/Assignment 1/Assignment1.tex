@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: June 1, 2017
-% Version: 0.1b
+% Last Edited: June 3, 2017
+% Version: 0.1c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -88,11 +88,9 @@
 \end{enumerate}
 
 \begin{proof}
-Set of all limit points of a set is closed. \\
-
 The set $E'$ is closed if it contains its own limit points. \\
 
-Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p, x\in E': \forall r>0, d(x,p) < \frac{r}{2}$. \\
+Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p,$ (since if $x=p, d(x,p)=0$, and the neighborhood has a finite number of points, so there can not exist a limit point). We fix $r>0$, so $\exists x\in E'\cap N_{\frac{r}{2}}(p)$ and $\exists y\in E \cap N_{\frac{r}{2}}(x)$. \\
 
 Since $x\in E'$, $x$ is a limit point of $E$, by the definition of $E'$. As such, $\exists y\in E: d(x,y) < \frac{r}{2}$. By the triangle inequality:
 $$d(y,p) \leq d(y,x) + d(x,p).$$
@@ -118,11 +116,9 @@ We begin by showing that $E'\subseteq \bar{E}'$.
   A set and the set that contains that set's limit points do not necessarily have the same limit points.
 
   Consider the set
-  $$E = \{\frac{1}{n}: n\in\N\}.$$
+  $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
 
-  Then the limit point of that set is zero, so $E' = {0}$. However, the limit points of $E'$ are the empty set. We know this because to be a limit point, the intersection of the neighborhood and the set must have infinitely many points. This is not possible for our $E'$, since we have at most a single point in the intersection. \\
-
-  In general, the limit points of a finite set are the empty set. \\
+  Then the limit point of that set is zero, so $E' = \{0\}$. However, the limit points of $E'$ are the empty set. We know this because to be a limit point, the intersection of the neighborhood and the set must have infinitely many points. This is not possible for our $E'$, since we have at most a single point in the intersection. \\
 \end{proof}
 
 
