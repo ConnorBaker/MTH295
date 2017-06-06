@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: June 3, 2017
-% Version: 0.1c
+% Last Edited: June 6, 2017
+% Version: 0.2a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -55,26 +55,39 @@
 
   {\large Connor Baker, May 2017}
 
-  \subsection*{Basic Topology -- Selected Exercises}
+  \subsection*{Basic Topology: Selected Exercises}
 \end{center}
 \begin{enumerate}
 \item[5.] Construct a bounded set of real numbers with exactly three limit points.
 \end{enumerate}
 
 \begin{proof}
-  The point $p$ is a limit point of $\{\frac{1}{n}:n\in\N\}$ if $\forall r>0, N_r(p)\cap E$ has infinitely many points. \\
+Let $E$ be the set of numbers such that:
+$$E = \left\{\frac{1}{n} + a: n\in\N, a\in\{0,1,2\} \right\}.$$
 
-  Claim: Zero is a limit point of $\{\frac{1}{n}:n\in\N\}$. \\
+Then the set of limit points of $E$, must contain at least 0, 1, and 2, since their neighborhoods all contain infinitely many points of $E$. As such, $\{0,1,2\}\subseteq E'$. \\
 
-  For zero, $N_r(0) = \{x:d(x,0) < r\} = \{x: |x-0| < r\} = \{x: -r <x< r\} = (-r,r)$. Since $(r,r)\subseteq \R, \forall r>0,$ there are uncountably infinitely many points and $(r,r)\cap\{\frac{1}{n}:n\in\N\}$ has infinitely many points. \\
+We now show that $E'$ contains only 0, 1, and 2. \\
 
-  It is important to note that we can shift the location of this limit point. Consider the set $\{\frac{1}{n}+1:n\in\N\}$. For the same reasons above we can see that the limit point here is one. \\
+Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood $$N_\frac{\epsilon}{2} (x) = \left\{y: d(x,y) < \frac{\epsilon}{2}\right\}$$
+does not contain the set $\{0, 0+\frac{\epsilon}{2}\}\cup\{1, 1+\frac{\epsilon}{2}\}\cup\{2, 2+\frac{\epsilon}{2}\}$ (known limit points of $E$, which by definition have neighborhoods which are not finite), so it contains at most finitely many points of $E$. \\
 
-  In general, we can make a bounded set of real numbers with exactly $p, p\in\Z^+,$ limit points with the set
-  $$\bigcup_{k=0}^{p} \{\frac{1}{n}+k: n\in\N\}.$$
+Since it is finite, we know that $E\cap N_\frac{\epsilon}{2} (x) = \{p_1, p_2, \dots, p_i\}$. Let $\delta = \min(\frac{\epsilon}{2},\ d(x,p_j))$ where $x\neq p_j$. Then, the set $A=\{y\in N_\frac{\epsilon}{2} (x): d(x,y) < \delta\}$ contains no points of $E$ -- except maybe $x$. As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
 
-  So, if we want three limit points, our set is as
-  $$\left\{\frac{1}{n}: n\in\N\right\}\bigcup\left\{\frac{1}{n}+1: n\in\N\right\}\bigcup\left\{\frac{1}{n}+2: n\in\N\right\}.$$
+
+%   The point $p$ is a limit point of $\{\frac{1}{n}:n\in\N\}$ if $\forall r>0, N_r(p)\cap E$ has infinitely many points. \\
+
+%   Claim: Zero is a limit point of $\{\frac{1}{n}:n\in\N\}$. \\
+
+%   For zero, $N_r(0) = \{x:d(x,0) < r\} = \{x: |x-0| < r\} = \{x: -r <x< r\} = (-r,r)$. Since $(r,r)\subseteq \R, \forall r>0,$ there are uncountably infinitely many points and $(r,r)\cap\{\frac{1}{n}:n\in\N\}$ has infinitely many points. \\
+
+%   It is important to note that we can shift the location of this limit point. Consider the set $\{\frac{1}{n}+1:n\in\N\}$. For the same reasons above we can see that the limit point here is one. \\
+
+%   In general, we can make a bounded set of real numbers with exactly $p, p\in\Z^+,$ limit points with the set
+%   $$\bigcup_{k=0}^{p} \{\frac{1}{n}+k: n\in\N\}.$$
+
+%   So, if we want three limit points, our set is as
+%   $$\left\{\frac{1}{n}: n\in\N\right\}\bigcup\left\{\frac{1}{n}+1: n\in\N\right\}\bigcup\left\{\frac{1}{n}+2: n\in\N\right\}.$$
 \end{proof}
 
 
