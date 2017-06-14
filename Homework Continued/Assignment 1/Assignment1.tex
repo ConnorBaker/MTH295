@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: June 6, 2017
-% Version: 0.2a
+% Last Edited: June 13, 2017
+% Version: 0.2b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -53,7 +53,7 @@
 \begin{center}
   {\Large Rudin's \textsc{Principles of Mathematical Analysis, 3rd ed}}
 
-  {\large Connor Baker, May 2017}
+  {\large Connor Baker, June 2017}
 
   \subsection*{Basic Topology: Selected Exercises}
 \end{center}
@@ -61,7 +61,7 @@
 \item[5.] Construct a bounded set of real numbers with exactly three limit points.
 \end{enumerate}
 
-\begin{proof}
+\begin{proof}[CHECK ME]
 Let $E$ be the set of numbers such that:
 $$E = \left\{\frac{1}{n} + a: n\in\N, a\in\{0,1,2\} \right\}.$$
 
@@ -101,32 +101,38 @@ Since it is finite, we know that $E\cap N_\frac{\epsilon}{2} (x) = \{p_1, p_2, \
 \end{enumerate}
 
 \begin{proof}
+Prove that $E'$ is closed. \\
+
 The set $E'$ is closed if it contains its own limit points. \\
 
-Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p,$ (since if $x=p, d(x,p)=0$, and the neighborhood has a finite number of points, so there can not exist a limit point). We fix $r>0$, so $\exists x\in E'\cap N_{\frac{r}{2}}(p)$ and $\exists y\in E \cap N_{\frac{r}{2}}(x)$. \\
+Let $x\in \bar{E}'$.
 
-Since $x\in E'$, $x$ is a limit point of $E$, by the definition of $E'$. As such, $\exists y\in E: d(x,y) < \frac{r}{2}$. By the triangle inequality:
-$$d(y,p) \leq d(y,x) + d(x,p).$$
+% Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p,$ (since if $x=p, d(x,p)=0$, and the neighborhood has a finite number of points, so there can not exist a limit point). We fix $r>0$, so $\exists x\in E'\cap N_{\frac{r}{2}}(p)$ and $\exists y\in E \cap N_{\frac{r}{2}}(x)$. \\
 
-Substituting using the inequalities described above:
-$$d(y,p) < \frac{r}{2}+\frac{r}{2} =r,$$
+% Since $x\in E'$, $x$ is a limit point of $E$, by the definition of $E'$. As such, $\exists y\in E: d(x,y) < \frac{r}{2}$. By the triangle inequality:
+% $$d(y,p) \leq d(y,x) + d(x,p).$$
 
-so $p$ is a limit point of $E$. Since $p$ is a limit point of $E$, it must be in $E'$. Therefore, since $E'$ contains its own limit points, it is closed.
+% Substituting using the inequalities described above:
+% $$d(y,p) < \frac{r}{2}+\frac{r}{2} =r,$$
+
+% so $p$ is a limit point of $E$. Since $p$ is a limit point of $E$, it must be in $E'$. Therefore, since $E'$ contains its own limit points, it is closed.
 \end{proof}
 
 \begin{proof}
-A set and a set which is the union of that set and the set containing its limit points have the same limit points. \\
+Proof that $E$ and $\bar{E}$ have the same limit points. \\
 
 By the previous proof, $E'$ is closed and therefore contains its own limit points. \\
 
 Let $\bar{E}'$ be the set of all limit points of $\bar{E}$. \\
 
-We begin by showing that $E'\subseteq \bar{E}'$.
+We begin by showing that $E'\subseteq \bar{E}'$. \\
+
+Let $x\in E'$. Then $x\in  $
 
 \end{proof}
 
-\begin{proof}
-  A set and the set that contains that set's limit points do not necessarily have the same limit points.
+\begin{proof}[CHECK ME]
+  Do $E$ and $E'$ always have the same limit points? \\
 
   Consider the set
   $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
@@ -163,8 +169,16 @@ Show, by an example, that this inclusion can be proper.
 \item[8.] Is every point of every open set $E \subset \R^2$ a limit point of $E$? Answer the same question for closed sets in $\R^2$.
 \end{enumerate}
 
-\begin{proof}
+\begin{proof}[CHECK ME]
+Since $E$ is open, all elements of $E$ are interior points. \\
 
+Let $p\in E$. Choose $r>0$, and let $N_r(p)$ be a neighborhood of $p$. Since $p$ is an interior point, $\exists \delta > 0: N_\delta (p) \subseteq E$. \\
+
+Choose $0<\epsilon \leq \min(r,\delta)$. Since $N_\epsilon (p)$ contains infinitely many points of $E$, $N_r(p)$ does as well. \\
+
+As such, $N_\epsilon (p) \subseteq N_\delta (p) \subseteq E$ and $N_\epsilon (p) \subseteq N_r (p)$. \\
+
+Closed sets, by definition contain all of their own limit points, so any closed subset of $\R^2$ will contain its own limit points. However, it is not the case that any finite set of $E$ will have limit points since the neighborhood intersect $E$ will be finite.
 \end{proof}
 
 
@@ -188,7 +202,41 @@ Show, by an example, that this inclusion can be proper.
 \end{enumerate}
 
 \begin{proof}
+Proof that $E^\circ$ is always open. \\
 
+$E^\circ = \{p: N_r(p) \subseteq E$ for some $r\}$.
+\end{proof}
+
+\begin{proof}[CHECK ME]
+Proof that $E$ is open if and only if $E^\circ = E$. \\
+
+Assume that $E^\circ =E$. Then, $E$ is the set of all interior points of $E$. Since every point of $E$ is an interior point, $E$ is open.
+\end{proof}
+
+\begin{proof}[CHECK ME]
+If $G \subset E$ and $G$ is open, prove that $G\subset E^\circ$. \\
+
+Since $G$ is open, every point of $G$ is an interior point of $G$. Since $G\subseteq E$, $G$ is a set of some number of interior points of $E$, so $G\subseteq E^\circ$.
+\end{proof}
+
+\begin{proof}
+Prove that the complement of $E^\circ$ is the closure of the complement of $E$. \\
+
+$(E^\circ)^c = \bar{E^c} = (E^c \cup E'^c)$?
+\end{proof}
+
+\begin{proof}
+Do $E$ and $\bar{E}$ always have the same interiors?
+\end{proof}
+
+\begin{proof}
+Do $E$ and $E^\circ$ always have the same closures? \\
+
+Since $\bar{E} = E\cup E'$, and $\bar{E}^\circ = E^\circ \cup E'^\circ$, we must show that $\bar{E} \subset \bar{E}^\circ$ and $\bar{E}^\circ \subset \bar{E}$. \\
+
+$\bar{E} \subset \bar{E}^\circ$: \\
+
+$\bar{E}^\circ \subset \bar{E}$:
 \end{proof}
 
 \end{document} %Where the text for the document ends.
