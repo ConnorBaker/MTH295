@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: June 13, 2017
-% Version: 0.2b
+% Last Edited: June 22, 2017
+% Version: 0.2c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -61,33 +61,36 @@
 \item[5.] Construct a bounded set of real numbers with exactly three limit points.
 \end{enumerate}
 
+\begin{lemma}
+Consider the set $E$:
+$$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
+Claim: $|E|=|\N|$. \\
+
+Let $f:E\rightarrow\N$ where $\frac{1}{n} \mapsto n$. We will show that $f$ is one-to-one. \\
+Assume $f(a)=f(b)$. Then $a=b$, so $f$ is one-to-one. \\
+Choose $n\in\N$. Then there exists exactly one $\frac{1}{n}\in E$ such that $f(\frac{1}{n}) = n$ (since the reciprocal of any natural number is unique relative to the reciprocal of any other number in the naturals). As such, $f$ is onto. \\
+
+Since there is a one-to-one correspondence between $E$ and $\N$, $|E|=|\N|$.
+\end{lemma}
+
+
 \begin{proof}[CHECK ME]
 Let $E$ be the set of numbers such that:
-$$E = \left\{\frac{1}{n} + a: n\in\N, a\in\{0,1,2\} \right\}.$$
+$$E = \bigcup_{k=0}^{2} A_k, \qquad A_k = \left\{\frac{1}{n} + k: n\in\N\right\}.$$
 
-Then the set of limit points of $E$, must contain at least 0, 1, and 2, since their neighborhoods all contain infinitely many points of $E$. As such, $\{0,1,2\}\subseteq E'$. \\
+By Lemma 1, we know that $A_0$ has the same cardinality as $N$. Since $\lim_{n\rightarrow\infty} \frac{1}{n} = 0$ the value of $k$ allows us to change the value the limit approaches. As such, every value of $A_1$ is one larger than the corresponding value of $A_0$, as is $A_2$ with respect to $A_1$. The cardinality remains unchanged.
+
+Since the cardinality of $A_k$ is that of the naturals, the neighborhood $N_r(k)$ for some $r>0$ intersect $A_k$ is infinite.
+
+Therefore the set of limit points of $E$ must contain at least the points 0, 1, and 2, and as such, $\{0,1,2\}\subseteq E'$. \\
 
 We now show that $E'$ contains only 0, 1, and 2. \\
 
-Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood $$N_\frac{\epsilon}{2} (x) = \left\{y: d(x,y) < \frac{\epsilon}{2}\right\}$$
-does not contain the set $\{0, 0+\frac{\epsilon}{2}\}\cup\{1, 1+\frac{\epsilon}{2}\}\cup\{2, 2+\frac{\epsilon}{2}\}$ (known limit points of $E$, which by definition have neighborhoods which are not finite), so it contains at most finitely many points of $E$. \\
+Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood 
+$$N_\frac{\epsilon}{2} (x) = \left\{y: d(x,y) < \frac{\epsilon}{2}\right\}$$
+does not contain the set $(0, \frac{\epsilon}{2})\cup(1, 1+\frac{\epsilon}{2})\cup(2, 2+\frac{\epsilon}{2})$. Each interval in that union has no least lower bound, since $\N$ is not bounded above, we can pick larger and larger $n$ for $\frac{1}{n}$, which the interval is composed of. Since this portion of the interval is not included, the neighborhood is finite. Since the neighborhood is finite, the intersection with $E$ is finite and therefore $x$ is not a limit point. \\
 
-Since it is finite, we know that $E\cap N_\frac{\epsilon}{2} (x) = \{p_1, p_2, \dots, p_i\}$. Let $\delta = \min(\frac{\epsilon}{2},\ d(x,p_j))$ where $x\neq p_j$. Then, the set $A=\{y\in N_\frac{\epsilon}{2} (x): d(x,y) < \delta\}$ contains no points of $E$ -- except maybe $x$. As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
-
-
-%   The point $p$ is a limit point of $\{\frac{1}{n}:n\in\N\}$ if $\forall r>0, N_r(p)\cap E$ has infinitely many points. \\
-
-%   Claim: Zero is a limit point of $\{\frac{1}{n}:n\in\N\}$. \\
-
-%   For zero, $N_r(0) = \{x:d(x,0) < r\} = \{x: |x-0| < r\} = \{x: -r <x< r\} = (-r,r)$. Since $(r,r)\subseteq \R, \forall r>0,$ there are uncountably infinitely many points and $(r,r)\cap\{\frac{1}{n}:n\in\N\}$ has infinitely many points. \\
-
-%   It is important to note that we can shift the location of this limit point. Consider the set $\{\frac{1}{n}+1:n\in\N\}$. For the same reasons above we can see that the limit point here is one. \\
-
-%   In general, we can make a bounded set of real numbers with exactly $p, p\in\Z^+,$ limit points with the set
-%   $$\bigcup_{k=0}^{p} \{\frac{1}{n}+k: n\in\N\}.$$
-
-%   So, if we want three limit points, our set is as
-%   $$\left\{\frac{1}{n}: n\in\N\right\}\bigcup\left\{\frac{1}{n}+1: n\in\N\right\}\bigcup\left\{\frac{1}{n}+2: n\in\N\right\}.$$
+As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
 \end{proof}
 
 
@@ -137,7 +140,9 @@ Let $x\in E'$. Then $x\in  $
   Consider the set
   $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
 
-  Then the limit point of that set is zero, so $E' = \{0\}$. However, the limit points of $E'$ are the empty set. We know this because to be a limit point, the intersection of the neighborhood and the set must have infinitely many points. This is not possible for our $E'$, since we have at most a single point in the intersection. \\
+  Since $\lim_{n\rightarrow\infty} \frac{1}{n} = 0$, and $|E|=|\N|$ (by Lemma 1), $N_r (0)\cap E$ has infinitely many points, zero must be a limit point of $E$, so $E' = \{0\}$. \\
+  
+  However, the limit points of $E'$ are the empty set, since no matter the point we pick to center the neighborhood, the intersection will contain at most one element (zero). As such, $E$ and $E'$ do not always have the same limit points. \\
 \end{proof}
 
 
@@ -155,8 +160,39 @@ Let $x\in E'$. Then $x\in  $
 Show, by an example, that this inclusion can be proper.
 \end{enumerate}
 
-\begin{proof}
+\begin{proof}[CHECK ME]
+Note that:
+$$\bar{B}_n = B_n \cup B_n'$$
+$$\bigcup_{i=1}^n \bar{A}_i = \bigcup_{i=1}^n \{A_i \cup A_i'\} = $$
+Claim: $\bar{B}_n \subseteq \cup_{i=1}^{n} \bar{A}_i$.
 
+Assume $x\in \bar{B}_n$. \\
+
+Case 1: $x\in B_n$. \\
+
+Since $B_n \subseteq \cup_{i=1}^n A_i$, and $x\in B_n$, $x\in \cup_{i=1}^n A_i \subseteq \cup_{i=1}^n \bar{A}_i$. Therefore $x\in\cup_{i=1}^n \bar{A}_i$. \\
+
+Case 2: $x\in B_n'$. \\
+
+Since $B_n = \cup_{i=1}^n A_i$, and $x\in B_n'$, then $x$ must be a limit point of some $A_i$ in $\cup_{i=1}^n A_i$, so $x\in A_i'$, and as such is in the union $\cup_{i=1}^n A_i'$. Therefore $x\in\cup_{i=1}^n \bar{A}_i$. \\
+
+As such, $\bar{B}_n \subseteq \cup_{i=1}^{n} \bar{A}_i$. \\
+
+Claim: $\cup_{i=1}^{n} \bar{A}_i \subseteq \bar{B}_n$. \\
+
+Assume $y\in\cup_{i=1}^{n} \bar{A}_i$. \\
+
+Case 1: $y\in\cup_{i=1}^{n} A_i$. \\
+
+Since $B_n = \cup_{i=1}^{n} A_i, y\in B_n$.
+
+Case 2: $y\in\cup_{i=1}^{n} A_i'$. \\
+
+Since $B_n = \cup_{i=1}^{n} A_i$, they must have the same limit points. As such, $y\in B_n'$.
+
+As a result, $\cup_{i=1}^{n} \bar{A}_i \subseteq \bar{B}_n$. \\
+
+Therefore, $\bar{B}_n = \cup_{i=1}^{n} \bar{A}_i$.
 \end{proof}
 
 
@@ -174,9 +210,7 @@ Since $E$ is open, all elements of $E$ are interior points. \\
 
 Let $p\in E$. Choose $r>0$, and let $N_r(p)$ be a neighborhood of $p$. Since $p$ is an interior point, $\exists \delta > 0: N_\delta (p) \subseteq E$. \\
 
-Choose $0<\epsilon \leq \min(r,\delta)$. Since $N_\epsilon (p)$ contains infinitely many points of $E$, $N_r(p)$ does as well. \\
-
-As such, $N_\epsilon (p) \subseteq N_\delta (p) \subseteq E$ and $N_\epsilon (p) \subseteq N_r (p)$. \\
+Choose $0<\epsilon \leq \min(r,\delta)$. Then, $N_\epsilon (p) \subseteq N_\delta (p) \subseteq E$. Since $N_\epsilon (p)$ contains infinitely many points of $E$, and $N_\epsilon (p) \subseteq N_r (p)$, $N_r(p)$ does as well. \\
 
 Closed sets, by definition contain all of their own limit points, so any closed subset of $\R^2$ will contain its own limit points. However, it is not the case that any finite set of $E$ will have limit points since the neighborhood intersect $E$ will be finite.
 \end{proof}
