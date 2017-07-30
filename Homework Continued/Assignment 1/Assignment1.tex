@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: June 22, 2017
-% Version: 0.2c
+% Last Edited: July 30, 2017
+% Version: 0.3a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -74,7 +74,7 @@ Since there is a one-to-one correspondence between $E$ and $\N$, $|E|=|\N|$.
 \end{lemma}
 
 
-\begin{proof}[CHECK ME]
+\begin{proof}
 Let $E$ be the set of numbers such that:
 $$E = \bigcup_{k=0}^{2} A_k, \qquad A_k = \left\{\frac{1}{n} + k: n\in\N\right\}.$$
 
@@ -86,7 +86,7 @@ Therefore the set of limit points of $E$ must contain at least the points 0, 1, 
 
 We now show that $E'$ contains only 0, 1, and 2. \\
 
-Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood 
+Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood
 $$N_\frac{\epsilon}{2} (x) = \left\{y: d(x,y) < \frac{\epsilon}{2}\right\}$$
 does not contain the set $(0, \frac{\epsilon}{2})\cup(1, 1+\frac{\epsilon}{2})\cup(2, 2+\frac{\epsilon}{2})$. Each interval in that union has no least lower bound, since $\N$ is not bounded above, we can pick larger and larger $n$ for $\frac{1}{n}$, which the interval is composed of. Since this portion of the interval is not included, the neighborhood is finite. Since the neighborhood is finite, the intersection with $E$ is finite and therefore $x$ is not a limit point. \\
 
@@ -100,28 +100,36 @@ As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
 
 
 \begin{enumerate}
-\item[6.] Let $E'$ be the set of all limit points of a set $E$. Prove that $E'$ is closed. Prove that $E$ and $\bar{E}$ have the same limit points. (Recall that $\bar{E} = E \cup E'.$) Do $E$ and $E'$ always have the same limit points?
+\item[6.] Let $E'$ be the set of all limit points of a set $E$. Prove:
+\begin{enumerate}
+  \item $E'$ is closed.
+  \item $E$ and $\bar{E}$ have the same limit points.
+  \item Whether or not $E$ and $E'$ always have the same limit points.
+\end{enumerate}
 \end{enumerate}
 
 \begin{proof}
-Prove that $E'$ is closed. \\
+6a)
 
-The set $E'$ is closed if it contains its own limit points. \\
+Let $p\in E''$. Then, for $r>0$,
+$$\exists q\in N_{\frac{r}{2}} (p):q\in E', q\neq p.$$
 
-Let $x\in \bar{E}'$.
+Let
+$$\delta = \frac{d(p,q)}{2} < \frac{r}{2}.$$
 
-% Assume that $p$ is a limit point of $E'$. Then, $\exists x\neq p,$ (since if $x=p, d(x,p)=0$, and the neighborhood has a finite number of points, so there can not exist a limit point). We fix $r>0$, so $\exists x\in E'\cap N_{\frac{r}{2}}(p)$ and $\exists y\in E \cap N_{\frac{r}{2}}(x)$. \\
+Since $q\in E'$, for $r>0$, $\exists s\in N_\delta (q): s\in E$, and  $s\neq q$. Due to the definition of the radius of $N_\delta (q), s\neq p$ since the neighborhood's radius is not large enough to contain $p$.
 
-% Since $x\in E'$, $x$ is a limit point of $E$, by the definition of $E'$. As such, $\exists y\in E: d(x,y) < \frac{r}{2}$. By the triangle inequality:
-% $$d(y,p) \leq d(y,x) + d(x,p).$$
+Then:
+$$d(p,q) < \frac{r}{2}$$
+$$d(q,s) < \delta$$
+$$d(p,s) \leq d(p,q) + d(q,s) < \frac{r}{2} + \delta < \frac{r}{2} + \frac{r}{2} = r.$$
 
-% Substituting using the inequalities described above:
-% $$d(y,p) < \frac{r}{2}+\frac{r}{2} =r,$$
-
-% so $p$ is a limit point of $E$. Since $p$ is a limit point of $E$, it must be in $E'$. Therefore, since $E'$ contains its own limit points, it is closed.
+So, $p\in E'$, and $E'$ is closed.
 \end{proof}
 
 \begin{proof}
+6b)
+
 Proof that $E$ and $\bar{E}$ have the same limit points. \\
 
 By the previous proof, $E'$ is closed and therefore contains its own limit points. \\
@@ -134,14 +142,14 @@ Let $x\in E'$. Then $x\in  $
 
 \end{proof}
 
-\begin{proof}[CHECK ME]
-  Do $E$ and $E'$ always have the same limit points? \\
+\begin{proof}
+ 6c)
 
   Consider the set
   $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
 
   Since $\lim_{n\rightarrow\infty} \frac{1}{n} = 0$, and $|E|=|\N|$ (by Lemma 1), $N_r (0)\cap E$ has infinitely many points, zero must be a limit point of $E$, so $E' = \{0\}$. \\
-  
+
   However, the limit points of $E'$ are the empty set, since no matter the point we pick to center the neighborhood, the intersection will contain at most one element (zero). As such, $E$ and $E'$ do not always have the same limit points. \\
 \end{proof}
 
@@ -155,44 +163,51 @@ Let $x\in E'$. Then $x\in  $
 \item[7.] Let $A_1,A_2,A_3,\dots$ be subsets of a metric space.
 \begin{enumerate}
   \item If $B_n = \cup_{i=1}^{n} A_i,$ prove that $\bar{B}_n = \cup_{i=1}^{n} \bar{A}_i,$ for $n=1,2,3,\dots$.
-  \item If $B = \cup_{i=1}^{\infty} A_i,$ prove that $\bar{B} \supset \cup_{i=1}^{\infty} \bar{A}_i.$
-\end{enumerate}
-Show, by an example, that this inclusion can be proper.
+  \item If $B = \cup_{i=1}^{\infty} A_i,$ prove that $\bar{B} \supset \cup_{i=1}^{\infty} \bar{A}_i,$ and show by an example that this inclusion can be proper.
 \end{enumerate}
 
-\begin{proof}[CHECK ME]
-Note that:
-$$\bar{B}_n = B_n \cup B_n'$$
-$$\bigcup_{i=1}^n \bar{A}_i = \bigcup_{i=1}^n \{A_i \cup A_i'\} = $$
-Claim: $\bar{B}_n \subseteq \cup_{i=1}^{n} \bar{A}_i$.
+\end{enumerate}
 
-Assume $x\in \bar{B}_n$. \\
+\begin{lemma}
+$\overline{A\cup B} = \overline{A}\cup\overline{B}.$
+\end{lemma}
 
-Case 1: $x\in B_n$. \\
+\begin{proof}
+6a)
 
-Since $B_n \subseteq \cup_{i=1}^n A_i$, and $x\in B_n$, $x\in \cup_{i=1}^n A_i \subseteq \cup_{i=1}^n \bar{A}_i$. Therefore $x\in\cup_{i=1}^n \bar{A}_i$. \\
+Claim: $(A\cup B)' \subseteq A' \cup B'.$
 
-Case 2: $x\in B_n'$. \\
+Case 1: The trivial case is that $A\cup B$ is finite. Then $(A\cup B)'$ is the empty set, since finite sets cannot have limit points, which is a subset of any set so our claim holds true.
 
-Since $B_n = \cup_{i=1}^n A_i$, and $x\in B_n'$, then $x$ must be a limit point of some $A_i$ in $\cup_{i=1}^n A_i$, so $x\in A_i'$, and as such is in the union $\cup_{i=1}^n A_i'$. Therefore $x\in\cup_{i=1}^n \bar{A}_i$. \\
+Case 2: $A\cup B$ is not finite. Then let $x\in(A\cup B)'$. Choose any $r>0$, and consider $N_r (x) \cap A$, and $N_r (x) \cap B$. Suppose both are finite. Then $N_r (x) \cap (A\cup B)$ is finite, and $x$ is not a limit point. This is a contradiction, so our assumption that both are finite is incorrect. Therefore, at least one must be infinite, so $N_r (x) \cap A$ or $N_r (x) \cap B$ must be infinite, and therefore $x\in A'\cup B'.$
 
-As such, $\bar{B}_n \subseteq \cup_{i=1}^{n} \bar{A}_i$. \\
+Claim: $A' \cup B' \subseteq (A\cup B)'.$
 
-Claim: $\cup_{i=1}^{n} \bar{A}_i \subseteq \bar{B}_n$. \\
+Let $x\in A'\cup B'.$ Choose any $r>0$. Then, $N_r (x) \cap A$ or $N_r (x) \cap B$  is infinite, and $x\in(A\cup B)'$.
 
-Assume $y\in\cup_{i=1}^{n} \bar{A}_i$. \\
+Therefore, $(A\cup B)' = A' \cup B',$ and
+$$\overline{A\cup B} = (A\cup B)\cup(A\cup B)' = A\cup A' \cup B \cup B' = \overline{A}\cup\overline{B}.$$
+\end{proof}
 
-Case 1: $y\in\cup_{i=1}^{n} A_i$. \\
+\begin{proof}
+6a) Cont.
 
-Since $B_n = \cup_{i=1}^{n} A_i, y\in B_n$.
+We proceed with proof by induction.
 
-Case 2: $y\in\cup_{i=1}^{n} A_i'$. \\
+Let $n = 1.$ Then:
+$$\overline{\bigcup^1_{i=1} A_i} = \overline{A_1}=\bigcup^1_{i=1} \overline{A_i}.$$
 
-Since $B_n = \cup_{i=1}^{n} A_i$, they must have the same limit points. As such, $y\in B_n'$.
+Let $n=k$. Assume that
+$$\overline{\bigcup^k_{i=1} A_i} = \bigcup^k_{i=1} \overline{A_i},$$ for all $k\in\N$.
 
-As a result, $\cup_{i=1}^{n} \bar{A}_i \subseteq \bar{B}_n$. \\
+Let $n=k+1$. Then,
+$$\overline{\bigcup^{k+1}_{i=1} A_i} = \overline{\bigcup^k_{i=1} A_i \cup A_{k+1}},$$
+which by the lemma above is equivalent to (using our assumption for $n=k$)
+$$\overline{\bigcup^k_{i=1} A_i} \cup \overline{A_{k+1}} = \bigcup^k_{i=1} \overline{A_i} \cup \overline{A_{k+1}} = \bigcup^{k+1}_{i=1} \overline{A_i}.$$
 
-Therefore, $\bar{B}_n = \cup_{i=1}^{n} \bar{A}_i$.
+Therefore
+$$B_n = \bigcup^n_{i=1} A_i, \qquad \overline{B_n} = \overline{\bigcup^n_{i=1} A_i} = \bigcup^n_{i=1} \overline{A_i}$$
+by the Principle of Mathematical Induction.
 \end{proof}
 
 
@@ -205,7 +220,7 @@ Therefore, $\bar{B}_n = \cup_{i=1}^{n} \bar{A}_i$.
 \item[8.] Is every point of every open set $E \subset \R^2$ a limit point of $E$? Answer the same question for closed sets in $\R^2$.
 \end{enumerate}
 
-\begin{proof}[CHECK ME]
+\begin{proof}
 Since $E$ is open, all elements of $E$ are interior points. \\
 
 Let $p\in E$. Choose $r>0$, and let $N_r(p)$ be a neighborhood of $p$. Since $p$ is an interior point, $\exists \delta > 0: N_\delta (p) \subseteq E$. \\
@@ -236,41 +251,216 @@ Closed sets, by definition contain all of their own limit points, so any closed 
 \end{enumerate}
 
 \begin{proof}
-Proof that $E^\circ$ is always open. \\
-
-$E^\circ = \{p: N_r(p) \subseteq E$ for some $r\}$.
-\end{proof}
-
-\begin{proof}[CHECK ME]
-Proof that $E$ is open if and only if $E^\circ = E$. \\
-
-Assume that $E^\circ =E$. Then, $E$ is the set of all interior points of $E$. Since every point of $E$ is an interior point, $E$ is open.
-\end{proof}
-
-\begin{proof}[CHECK ME]
-If $G \subset E$ and $G$ is open, prove that $G\subset E^\circ$. \\
-
-Since $G$ is open, every point of $G$ is an interior point of $G$. Since $G\subseteq E$, $G$ is a set of some number of interior points of $E$, so $G\subseteq E^\circ$.
+9a)
 \end{proof}
 
 \begin{proof}
-Prove that the complement of $E^\circ$ is the closure of the complement of $E$. \\
-
-$(E^\circ)^c = \bar{E^c} = (E^c \cup E'^c)$?
+9b)
 \end{proof}
 
 \begin{proof}
-Do $E$ and $\bar{E}$ always have the same interiors?
+9c)
+
+Let $p\in G$, where $G$ is an open set. Since $G$ is open, $p$ is an interior point of $G$. Choose any $r>0$, and $N_r (p) \subseteq G.$
+
+\texttt{Next step: Show that $N_r(p)\subseteq E$, so that $p\in E$, so $G\subseteq E^\circ$.}
 \end{proof}
 
 \begin{proof}
-Do $E$ and $E^\circ$ always have the same closures? \\
+9d)
 
-Since $\bar{E} = E\cup E'$, and $\bar{E}^\circ = E^\circ \cup E'^\circ$, we must show that $\bar{E} \subset \bar{E}^\circ$ and $\bar{E}^\circ \subset \bar{E}$. \\
+Claim: $(E^\circ)^c \subseteq \overline{(E^c)}$. Since $E^\circ \subseteq E$ (why exactly is this?), $(E^\circ)^c$ is closed since it is the complement of an open set, and is equal to $(E^\circ)^c$, which is a super-set of $\overline{(E^c)}.$
 
-$\bar{E} \subset \bar{E}^\circ$: \\
-
-$\bar{E}^\circ \subset \bar{E}$:
+Claim: $\overline{(E^c)} \subseteq (E^\circ)^c$.
 \end{proof}
+
+\begin{proof}
+9e)
+
+Pick two open intervals, say $(0,1)\cup(1,2)$. Then 1 is not an interior point, and the closure of the set is $([0,1]\cup[1,2] = [0,2]$, where one is an interior point.
+
+As such, the set and its closure do not necessarily have the same interiors.
+\end{proof}
+
+
+\begin{proof}
+9f)
+
+Let $E=\{1\}$.
+
+Then $E^\circ = \emptyset$, $\overline{E^\circ} = \overline{\emptyset} = \emptyset$.
+
+In addition, $\overline{E} = \{1\} \neq \emptyset$.
+
+As such, the set and the set of it's interior points do not necessarily have the same closures.
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[12.] Let $K\subseteq \R^1$ consist of zero and the numbers 1/$n$ for $n=1,2,3,\dots.$ Prove that $K$ is compact directly from the definition (without using Heine-Borel theorem).
+\end{enumerate}
+
+\begin{proof}
+Suppose that $K\subseteq \mathcal{C}$, where $\mathcal{C}$ is an open covering of $K$. Since $\mathcal{C}$ is an open covering, it is the set of $\cup_\alpha G_\alpha$ where $K\subseteq \cup_\alpha G_\alpha$.
+
+Since $0\in K$, there must be some $G_{\alpha,0}$ that contains zero as well. Since all $G$ are open, there exists $r>0$ such that $N_r (0)\subseteq G_{\alpha,0}$.
+
+Since 0 is the only limit point of $K$ (by Lemma 1), $K\backslash N_r(0)$ is finite, and can be can therefore be covered by finite number of subcovers, $\cup_\alpha^n G_\alpha$.
+
+Therefore, $K$ is compact.
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[13.] Construct a compact set of real numbers whose limit points form a countable set.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[14.] Give an example of an open cover of the segment $(0,1)$ which has no finite subcover.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+
+\begin{enumerate}
+\item[15.] Show that Theorem 2.36 and its Corollary become false (in $\R^1$, for example) if the word "compact" is replaced by "closed" or "bounded".
+\end{enumerate}
+\setcounter{equation}{2}
+\begin{theorem}
+If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such that the intersection of every
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[16.] Regard $\Q$, the set of all rational numbers, as a metric space, with $d(p,q)=|p-q|$. Let $E$ be the set of all $p\in \Q$ such that $2<p^2<3$. Show:
+\begin{enumerate}
+\item $E$ is closed and bounded in $\Q$, but that $E$ is not compact.
+\item Whether $E$ is open in $\Q$.
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+16a)
+\end{proof}
+
+\begin{proof}
+16b)
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[17.] Let $E = \{x: x\in [0,1]$ and $x$'s decimal expansion contains only the digits 4 and 7$\}$. Show:
+\begin{enumerate}
+\item Whether $E$ is countable.
+\item Whether $E$ is dense in $[0,1]$.
+\item Whether $E$ is compact.
+\item Whether $E$ is perfect.
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+17a)
+\end{proof}
+
+\begin{proof}
+17b)
+\end{proof}
+
+\begin{proof}
+17c)
+\end{proof}
+
+\begin{proof}
+17d)
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[18.] Is there a nonempty perfect set in $\R^1$ which contains no rational number?
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+
+\begin{enumerate}
+\item[19.]
+\begin{enumerate}
+\item If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated.
+\item Prove the same for disjoint open sets.
+\item Fix $p\in X, \delta >0,$ define $A$ to be the set of all $q\in X$ for which $d(p,q)<\delta$, define $B$ similarly, with $>$ in place of $<$. Prove that $A$ and $B$ are separated.
+\item Prove that every connected metric space with at least two points in uncountable. \textit{Hint}: Use (c).
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
 
 \end{document} %Where the text for the document ends.
