@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: July 30, 2017
-% Version: 0.3a
+% Last Edited: August 3, 2017
+% Version: 0.4a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -14,6 +14,7 @@
 \usepackage{enumitem}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{dirtytalk}
 
 % Page Formatting
 % These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
@@ -28,9 +29,12 @@
 \newtheorem{axiom}[equation]{Axiom}
 \theoremstyle{plain}
 \newtheorem{theorem}[equation]{Theorem}
+\newtheorem*{theorem*}{Theorem}
 \newtheorem{proposition}[equation]{Proposition}
 \newtheorem{lemma}[equation]{Lemma}
+\newtheorem*{lemma*}{Lemma}
 \newtheorem{corollary}[equation]{Corollary}
+\newtheorem*{corollary*}{Corollary}
 \newtheorem{conjecture}[equation]{Conjecture}
 
 % Define frequently used commands
@@ -61,38 +65,43 @@
 \item[5.] Construct a bounded set of real numbers with exactly three limit points.
 \end{enumerate}
 
-\begin{lemma}
-Consider the set $E$:
-$$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
-Claim: $|E|=|\N|$. \\
+\begin{theorem*}[Limit points of $E_p$]\label{theorem:thm1}
+Consider the set $E_p$:
+$$E_p = \left\{\frac{1}{n}+p: n\in\N\right\}.$$
 
-Let $f:E\rightarrow\N$ where $\frac{1}{n} \mapsto n$. We will show that $f$ is one-to-one. \\
-Assume $f(a)=f(b)$. Then $a=b$, so $f$ is one-to-one. \\
-Choose $n\in\N$. Then there exists exactly one $\frac{1}{n}\in E$ such that $f(\frac{1}{n}) = n$ (since the reciprocal of any natural number is unique relative to the reciprocal of any other number in the naturals). As such, $f$ is onto. \\
-
-Since there is a one-to-one correspondence between $E$ and $\N$, $|E|=|\N|$.
-\end{lemma}
-
+When $p\in\Z$, the limit point of $E_p$ is the point $p$.
+\end{theorem*}
 
 \begin{proof}
-Let $E$ be the set of numbers such that:
-$$E = \bigcup_{k=0}^{2} A_k, \qquad A_k = \left\{\frac{1}{n} + k: n\in\N\right\}.$$
+We begin by showing that $|E_p| = |\N|.$ \\
 
-By Lemma 1, we know that $A_0$ has the same cardinality as $N$. Since $\lim_{n\rightarrow\infty} \frac{1}{n} = 0$ the value of $k$ allows us to change the value the limit approaches. As such, every value of $A_1$ is one larger than the corresponding value of $A_0$, as is $A_2$ with respect to $A_1$. The cardinality remains unchanged.
+Claim: $|E_p|=|\N|$. \\
 
-Since the cardinality of $A_k$ is that of the naturals, the neighborhood $N_r(k)$ for some $r>0$ intersect $A_k$ is infinite.
+Let $f:E_p \rightarrow\N$ where $\frac{1}{n} + p \mapsto n$. Assume that $f(a)=f(b)$. Then $\frac{1}{a} + p =\frac{1}{b} + p$. By cancellation, $\frac{1}{a}=\frac{1}{b}$, so $a=b$, and $f$ is one-to-one. \\
 
-Therefore the set of limit points of $E$ must contain at least the points 0, 1, and 2, and as such, $\{0,1,2\}\subseteq E'$. \\
+Choose $n\in\N$. Since the reciprocal of any natural number is unique relative to the reciprocal of any other number in the naturals, there exists exactly one $\frac{1}{n} + p \in E_p$ such that $f(\frac{1}{n} + p) = n$. As such, $f$ is onto. \\
 
-We now show that $E'$ contains only 0, 1, and 2. \\
+Since there is a one-to-one correspondence between $E$ and $\N$, $|E|=|\N|$. \\
 
-Suppose that there is some limit point $x\not\in\{0,1,2\}$. Let $\epsilon = \min(d(x,0),\ d(x,1),\ d(x,2))$ (we want the smallest radius possible). Then the neighborhood
-$$N_\frac{\epsilon}{2} (x) = \left\{y: d(x,y) < \frac{\epsilon}{2}\right\}$$
-does not contain the set $(0, \frac{\epsilon}{2})\cup(1, 1+\frac{\epsilon}{2})\cup(2, 2+\frac{\epsilon}{2})$. Each interval in that union has no least lower bound, since $\N$ is not bounded above, we can pick larger and larger $n$ for $\frac{1}{n}$, which the interval is composed of. Since this portion of the interval is not included, the neighborhood is finite. Since the neighborhood is finite, the intersection with $E$ is finite and therefore $x$ is not a limit point. \\
+We now show that the set $E_p$ has a limit point $p$. \\
 
-As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
+Since the cardinality of $E_p$ is that of the naturals, for $r>0, N_r(p)\cap E_p$ is infinite (we choose $p$ because that is what our sequence converges to -- the choice of any other point $\frac{1}{n} + p$ results in $\epsilon: \forall r > \epsilon,
+N_r(\frac{1}{n} + p)\cap E_p$ is finite). Therefore the set of limit points of $E_p$ must contain at least the point $p$; and as such, $\{p\}\subseteq E'$. \\
+
+We now show that $E_p'$ contains only the point $p$. \\
+
+Suppose that there is some limit point $x\neq p$. Let $\delta = d(x,p)$. Then the neighborhood 
+$$N_\frac{\delta}{2} (x) = \left\{y: d(x,y) < \frac{\delta}{2}\right\}$$
+does not contain the interval $(p, x -\frac{\delta}{2}]$ (inclusive since the neighborhood includes $(x -\frac{\delta}{2}, x +\frac{\delta}{2})$, by definition). The interval $(p, x -\frac{\delta}{2}]$ is equivalent to the set $\{\frac{1}{n} + p: \frac{1}{n} \leq x -\frac{\delta}{2}\}$. This set has no least lower bound, since $\N$ is not bounded above, so we are able to pick larger and larger $n$ for $\frac{1}{n}$ which satisfy the inequality. By not including this portion of the interval, the neighborhood becomes finite. Since the neighborhood is finite, $N_\frac{\delta}{2} \cap E_p$ is finite and therefore $x$ is not a limit point of $E_p$. \\
+
+As such, $x\not\in E_p'$, and $E_p' = \{p\}$.
 \end{proof}
 
+\begin{corollary*}[$E_p\backslash N_r(p)$ is finite]
+Given the set $E_p$, excluding the neighborhood of $p$ makes the cardinality of the set finite. That is to say that $E_p\backslash N_r(p)$ is finite.
+\end{corollary*}
+
+The solution to this example is then trivial, as we can take the finite union of any $E_p$ that we choose to create sets with an arbitrary finite number of limit points. For example, the set $\cup^2_{i=0} E_i$ contains exactly three limit points (the points 0, 1, and 2).
 
 
 \pagebreak
@@ -111,10 +120,10 @@ As such, $x\not\in E'$, and $E' = \{0,1,2\}$.
 \begin{proof}
 6a)
 
-Let $p\in E''$. Then, for $r>0$,
+Let $p\in E''$. Then, for $r>0$, 
 $$\exists q\in N_{\frac{r}{2}} (p):q\in E', q\neq p.$$
 
-Let
+Let 
 $$\delta = \frac{d(p,q)}{2} < \frac{r}{2}.$$
 
 Since $q\in E'$, for $r>0$, $\exists s\in N_\delta (q): s\in E$, and  $s\neq q$. Due to the definition of the radius of $N_\delta (q), s\neq p$ since the neighborhood's radius is not large enough to contain $p$.
@@ -138,18 +147,21 @@ Let $\bar{E}'$ be the set of all limit points of $\bar{E}$. \\
 
 We begin by showing that $E'\subseteq \bar{E}'$. \\
 
-Let $x\in E'$. Then $x\in  $
+Let $x\in E'$. Then for all $r>0, N_r(x)$ contains some point $y\neq x$. Since $E\subseteq\bar{E}$, $y\in\bar{E}$, so $x\in\bar{E}'$, and $E\subseteq\bar{E}$. \\
 
+We now show that $\bar{E}'\subseteq E'$. \\
+
+Let $x\in\bar{E}'$. Then for all $r>0, N_r(x)$ contains some point $y\neq x$. Since $\bar{E} = E\cup E'$, $y\in E$ or $y\in E'$. If $y\in E$, then $x\in E'$. If $y\in E'$, choose $\epsilon>0$ such that $\epsilon < d(x,y)$ and $N_\epsilon(y) \subseteq N_r(x)$. Since $y$ is a limit point of the set $E$, then there is some point $z\in E$ such that $z\neq y$ and $z\in N_\epsilon(y)$. Since $z\neq x$ (due to $x\not\in N_\epsilon(y)$), and $N_\epsilon(y) \subseteq N_r(x)$, any neighborhood of $x$ contains $z\neq x$ with $x\in E$, so $x$ must be a limit point of $E$.
 \end{proof}
 
 \begin{proof}
  6c)
-
+ 
   Consider the set
   $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
 
-  Since $\lim_{n\rightarrow\infty} \frac{1}{n} = 0$, and $|E|=|\N|$ (by Lemma 1), $N_r (0)\cap E$ has infinitely many points, zero must be a limit point of $E$, so $E' = \{0\}$. \\
-
+  By the theorem Limit points of $E_p$, we know that $E' = \{0\}$. \\
+  
   However, the limit points of $E'$ are the empty set, since no matter the point we pick to center the neighborhood, the intersection will contain at most one element (zero). As such, $E$ and $E'$ do not always have the same limit points. \\
 \end{proof}
 
@@ -168,12 +180,12 @@ Let $x\in E'$. Then $x\in  $
 
 \end{enumerate}
 
-\begin{lemma}
+\begin{lemma*}
 $\overline{A\cup B} = \overline{A}\cup\overline{B}.$
-\end{lemma}
+\end{lemma*}
 
 \begin{proof}
-6a)
+7a)
 
 Claim: $(A\cup B)' \subseteq A' \cup B'.$
 
@@ -185,31 +197,38 @@ Claim: $A' \cup B' \subseteq (A\cup B)'.$
 
 Let $x\in A'\cup B'.$ Choose any $r>0$. Then, $N_r (x) \cap A$ or $N_r (x) \cap B$  is infinite, and $x\in(A\cup B)'$.
 
-Therefore, $(A\cup B)' = A' \cup B',$ and
+Therefore, $(A\cup B)' = A' \cup B',$ and 
 $$\overline{A\cup B} = (A\cup B)\cup(A\cup B)' = A\cup A' \cup B \cup B' = \overline{A}\cup\overline{B}.$$
 \end{proof}
 
 \begin{proof}
-6a) Cont.
+7a) Cont.
 
 We proceed with proof by induction.
 
 Let $n = 1.$ Then:
 $$\overline{\bigcup^1_{i=1} A_i} = \overline{A_1}=\bigcup^1_{i=1} \overline{A_i}.$$
 
-Let $n=k$. Assume that
+Let $n=k$. Assume that 
 $$\overline{\bigcup^k_{i=1} A_i} = \bigcup^k_{i=1} \overline{A_i},$$ for all $k\in\N$.
 
-Let $n=k+1$. Then,
+Let $n=k+1$. Then, 
 $$\overline{\bigcup^{k+1}_{i=1} A_i} = \overline{\bigcup^k_{i=1} A_i \cup A_{k+1}},$$
 which by the lemma above is equivalent to (using our assumption for $n=k$)
 $$\overline{\bigcup^k_{i=1} A_i} \cup \overline{A_{k+1}} = \bigcup^k_{i=1} \overline{A_i} \cup \overline{A_{k+1}} = \bigcup^{k+1}_{i=1} \overline{A_i}.$$
 
-Therefore
+Therefore 
 $$B_n = \bigcup^n_{i=1} A_i, \qquad \overline{B_n} = \overline{\bigcup^n_{i=1} A_i} = \bigcup^n_{i=1} \overline{A_i}$$
-by the Principle of Mathematical Induction.
+by the Principle of Mathematical Induction. 
 \end{proof}
 
+\begin{proof}
+7b)
+
+Since $B_i \supseteq \cup A_i$, and $B \supseteq A_i\ \forall i$, then $\overline{B} \supseteq \overline{A}_i\ \forall i$. Then, $\overline{B} \supseteq \cup^{\infty}_{i=1} \overline{A}_i$. However, it is not necessarily true that $\overline{B} \subseteq \cup^{\infty}_{i=1} \overline{A}_i$. \\
+
+Let $A_i = \{r_i\}$ where the set $\{r_1, r_2, \dots\}$ is an enumeration of $\Q$. Then $\overline{B} = \R$, and $A_i' = \emptyset \forall i$, so $\cup \overline{A}_i = B$. As such, $\overline{B} \supset \cup^{\infty}_{i=1} \overline{A}_i$.
+\end{proof}
 
 
 \pagebreak
@@ -227,7 +246,7 @@ Let $p\in E$. Choose $r>0$, and let $N_r(p)$ be a neighborhood of $p$. Since $p$
 
 Choose $0<\epsilon \leq \min(r,\delta)$. Then, $N_\epsilon (p) \subseteq N_\delta (p) \subseteq E$. Since $N_\epsilon (p)$ contains infinitely many points of $E$, and $N_\epsilon (p) \subseteq N_r (p)$, $N_r(p)$ does as well. \\
 
-Closed sets, by definition contain all of their own limit points, so any closed subset of $\R^2$ will contain its own limit points. However, it is not the case that any finite set of $E$ will have limit points since the neighborhood intersect $E$ will be finite.
+Closed sets, by definition, contain all of their own limit points: so any closed subset of $\R^2$ will contain its own limit points. However, it is not the case that any finite set $B$ will have limit points since the neighborhood intersect $B$ will be finite.
 \end{proof}
 
 
@@ -252,18 +271,27 @@ Closed sets, by definition contain all of their own limit points, so any closed 
 
 \begin{proof}
 9a)
+
+Since every point of $E^\circ$ is an interior point (by definition of $E^\circ$), the set $E^\circ$ is open.
 \end{proof}
 
 \begin{proof}
 9b)
+
+A set is open if every point of the set is an interior point of the set (the definition of open). If a set $E$ is equal to the set of it's interior points, $E^\circ$, then every point of $E$ is an interior point of $E$, and $E$ is open. As such, $E$ is open if and only if $E^\circ = E$.
 \end{proof}
 
 \begin{proof}
 9c)
 
-Let $p\in G$, where $G$ is an open set. Since $G$ is open, $p$ is an interior point of $G$. Choose any $r>0$, and $N_r (p) \subseteq G.$
+Since $G$ is open, $G=G^\circ$. \\
 
-\texttt{Next step: Show that $N_r(p)\subseteq E$, so that $p\in E$, so $G\subseteq E^\circ$.}
+Claim: $G^\circ \subseteq E^\circ$. \\
+
+Assume $x\in G^\circ$. Then $x\in E$.
+Assume that $x\not\in E^\circ.$ Then $x$ is not an interior point of $E$, and will not be contained in any open subset of $E$, like $G^\circ$, which is a contradiction. \\
+
+Therefore $x\in E^\circ$ and $G^\circ \subseteq E^\circ$. Since $G^\circ = G$, and $G^\circ \subseteq E^\circ, G\subseteq E^\circ$.
 \end{proof}
 
 \begin{proof}
@@ -312,7 +340,7 @@ Suppose that $K\subseteq \mathcal{C}$, where $\mathcal{C}$ is an open covering o
 
 Since $0\in K$, there must be some $G_{\alpha,0}$ that contains zero as well. Since all $G$ are open, there exists $r>0$ such that $N_r (0)\subseteq G_{\alpha,0}$.
 
-Since 0 is the only limit point of $K$ (by Lemma 1), $K\backslash N_r(0)$ is finite, and can be can therefore be covered by finite number of subcovers, $\cup_\alpha^n G_\alpha$.
+Since 0 is the only limit point of $K$ (by the theorem Limit points of $E_p$), $K\backslash N_r(0)$ is finite (by the corollary to the theorem Limit points of $E_p$), and can be can therefore be covered by finite number of subcovers, $\cup_\alpha^n G_\alpha$.
 
 Therefore, $K$ is compact.
 \end{proof}
@@ -330,8 +358,31 @@ Therefore, $K$ is compact.
 \end{enumerate}
 
 \begin{proof}
+The theorem Limit points of $E_p$ can easily be trivially extended to handle $p\in\Q$, so that the limit point of a set $E_p$ is known to be $p$. \\
 
+Let $E_p$, where $p\in\Q$, be defined as follows:
+$$E_p = \left\{\frac{1}{n} + p: n\in\N, n\geq 2\right\}.$$
+
+Let $\{r_1,r_2,\dots\}$ be an indexed set of the rationals such that $0\leq r_i<\frac{1}{2}$. \\
+
+Then the set $A$ such that
+$$A=\bigcup_{i=1}^\infty (E_{r_i} \cup {r_i})$$
+has limit points $\{r_1,r_2,\dots\},$ which is a set containing countably many points (since there are infinitely many rational numbers between zero and one-half). \\
+
+The set $A$ is bounded on both sides (zero and one respectively), and since it contains it's own limit points, it's closed.\\
+
+Since $A$ is closed and bounded, it is compact.
 \end{proof}
+
+% Backup proof of 13
+% \begin{proof}
+% If we have 
+% $$E = \left\{\frac{1}{2^n}: n\in\N \right\},$$
+% then to fill the gaps between the numbers, we can choose 
+% $$\delta_n = \frac{\frac{1}{n+1}+\frac{1}{n}}{2},$$
+% which gives us the midpoint between two consecutive points in $E$. Then, between those two points:
+% $$\frac{1}{n+1} \leq \frac{1}{n+1} + \frac{\delta_n}{2^m} \leq \frac{1}{n}.$$
+% \end{proof}
 
 
 
@@ -346,7 +397,11 @@ Therefore, $K$ is compact.
 \end{enumerate}
 
 \begin{proof}
+Let $R$ be the indexed list of rationals $\{r_0, r_1, \dots\}$ such that $0\leq r_i < r_{i+1}  1$. \\
 
+Let $E=\cup_{i=0}^\infty (r_i, r_{i+2}).$ Then $E=(0,1)$, since $r_0=0$ and $r_\infty = 1$ (\textit{note: would it be better to write that the sequence $r_i$ approaches 1 as $i\rightarrow\infty$?}). \\
+
+By using the indices $i$ and $i+2$, we create overlap between any two intervals. Should we exclude some interval (like taking the finite union), we will have a gap in our subcover. As such, this open cover has no finite subcover.
 \end{proof}
 
 
@@ -359,14 +414,31 @@ Therefore, $K$ is compact.
 
 
 \begin{enumerate}
-\item[15.] Show that Theorem 2.36 and its Corollary become false (in $\R^1$, for example) if the word "compact" is replaced by "closed" or "bounded".
+\item[15.] Show that Theorem 2.36 and its Corollary become false (in $\R^1$, for example) if the word \say{compact} is replaced by \say{closed} or \say{bounded.}
 \end{enumerate}
 \setcounter{equation}{2}
-\begin{theorem}
-If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such that the intersection of every
-\end{theorem}
-\begin{proof}
+\begin{theorem*}
+If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such that the intersection of every finite subcollection of $\{K_\alpha\}$ is nonempty, then $\cap K_\alpha$ is nonempty.
+\end{theorem*}
 
+\begin{corollary*}
+If $\{K_n\}$ is a sequence of nonempty compact sets such that $K_n \supset K_{n+1}$ ($n=1,2,3,\dots$), then $\cap_1^\infty K_n$ is not empty.
+\end{corollary*}
+
+\begin{proof}
+Consider the closed set $A_n=[n,\infty)$. For any choice of $n$, this set has no limit point since it is a list of natural numbers, and we can very easily choose any $r < 1$ such that $N_r(p)\cap A_n$ is finite. As such, it contains its own non-existent limit points and is closed. \\
+
+Since the intersection of any finite collection of $A_n$s will have a nonzero number of elements in common, then $\cap A_n$ should be nonempty. However, $\cap_{i=1}^\infty A_n = \emptyset$. \\
+
+Therefore, Theorem 2.36 and its Corollary become false if the word \say{compact} is replaced by \say{closed.}
+\end{proof}
+
+\begin{proof}
+Consider the bounded set $A_n = (0, \frac{1}{n})$. It is bounded since for any $n$, we can choose a number $M: d(p,q) < M, \forall p,q\in A_n$. \\
+
+Since the intersection of any finite collection of $A_n$ will have a nonzero number of element ins common, then $\cap A_n$ should be nonempty. However, $\cap_{i=1}^\infty A_n = \emptyset$, since as we near $n\rightarrow\infty, \frac{1}{n}\rightarrow 0$, yielding the interval $(0,0)$, which is equivalent to the empty set, and the empty set intersect any set is the empty set. \\
+
+Therefore, Theorem 2.36 and its Corollary become false if the word \say{compact} is replaced by \say{bounded.}
 \end{proof}
 
 
@@ -386,6 +458,8 @@ If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such 
 
 \begin{proof}
 16a)
+
+
 \end{proof}
 
 \begin{proof}
@@ -399,7 +473,7 @@ If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such 
 
 
 \begin{enumerate}
-\item[17.] Let $E = \{x: x\in [0,1]$ and $x$'s decimal expansion contains only the digits 4 and 7$\}$. Show:
+\item[17.] Let $E = \{x: x\in [0,1]$ and $x$'s decimal expansion contains only the digits 4 and 7$\}$. Show: 
 \begin{enumerate}
 \item Whether $E$ is countable.
 \item Whether $E$ is dense in $[0,1]$.
@@ -410,18 +484,35 @@ If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such 
 
 \begin{proof}
 17a)
+
+$E$ is uncountably infinite since we can create an element that is not in any list containing the elements of $E$ (similar to the example we had done in class to prove that $\R$ is uncountable).
 \end{proof}
 
 \begin{proof}
 17b)
+
+$E$ is not dense in $[0,1]$ since not every point in $[0,1]$ is a point or limit point of $E$ (for example, $0.1$).
 \end{proof}
 
 \begin{proof}
 17c)
+
+Claim: In base 10, $E$ is bounded and closed (but not, I suspect, in octal). \\
+
+$E$ is bounded since we can choose a number $M$ (like $2$) such that $d(p,q) < M, \forall p,q\in E$. \\
+
+For two elements of $E$ to be distinct, they must differ by at least one digit, denoted $x_n$ (the $n$th digit of the two numbers). If they differ by a single digit, they are closer in magnitude than they would be if they differed in several places. Then, the distance between any two elements of $E$, $a_i$ and $b_i$ is at least
+$$\frac{|a_n - b_n|}{10^n} = \frac{3}{10^n}.$$
+
+This means that between any two elements of $E$, for any $r < \frac{3}{10^n}$, $N_r(p)\cap E$ will contain only the singleton that the neighborhood is centered around. As such, $E$ has no limit points. \\
+
+Since $E$ contains its non-existent limit points, it is closed. Since $E$ is closed and bounded, it is compact.
 \end{proof}
 
 \begin{proof}
 17d)
+
+Since $E$ has no limit points, and $E$ is nonempty, $E$ is not perfect.
 \end{proof}
 
 
@@ -459,6 +550,28 @@ If $\{K_\alpha\}$ is a collection of compact subsets of a metric space $X$ such 
 \end{enumerate}
 
 \begin{proof}
+19a)
+
+For $A$ and $B$ to be separated, they must be disjoint and share no limit points. Since $A$ and $B$ are disjoint, $A\cap B=\emptyset$. Since $A$ and $B$ are closed, $A=\overline{A}$ and $B=\overline{B}$, $\overline{A}\cap B=\emptyset$, and $A\cap\overline{B}=\emptyset$. Therefore, $A$ and $B$ are separated.
+\end{proof}
+
+\begin{proof}
+19b)
+
+
+\end{proof}
+
+
+\begin{proof}
+19c)
+
+
+\end{proof}
+
+
+\begin{proof}
+19d)
+
 
 \end{proof}
 
