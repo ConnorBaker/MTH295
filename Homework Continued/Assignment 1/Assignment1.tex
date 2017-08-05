@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: August 3, 2017
-% Version: 0.4a
+% Last Edited: August 4, 2017
+% Version: 0.4b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -90,7 +90,7 @@ N_r(\frac{1}{n} + p)\cap E_p$ is finite). Therefore the set of limit points of $
 
 We now show that $E_p'$ contains only the point $p$. \\
 
-Suppose that there is some limit point $x\neq p$. Let $\delta = d(x,p)$. Then the neighborhood 
+Suppose that there is some limit point $x\neq p$. Let $\delta = d(x,p)$. Then the neighborhood
 $$N_\frac{\delta}{2} (x) = \left\{y: d(x,y) < \frac{\delta}{2}\right\}$$
 does not contain the interval $(p, x -\frac{\delta}{2}]$ (inclusive since the neighborhood includes $(x -\frac{\delta}{2}, x +\frac{\delta}{2})$, by definition). The interval $(p, x -\frac{\delta}{2}]$ is equivalent to the set $\{\frac{1}{n} + p: \frac{1}{n} \leq x -\frac{\delta}{2}\}$. This set has no least lower bound, since $\N$ is not bounded above, so we are able to pick larger and larger $n$ for $\frac{1}{n}$ which satisfy the inequality. By not including this portion of the interval, the neighborhood becomes finite. Since the neighborhood is finite, $N_\frac{\delta}{2} \cap E_p$ is finite and therefore $x$ is not a limit point of $E_p$. \\
 
@@ -120,10 +120,10 @@ The solution to this example is then trivial, as we can take the finite union of
 \begin{proof}
 6a)
 
-Let $p\in E''$. Then, for $r>0$, 
+Let $p\in E''$. Then, for $r>0$,
 $$\exists q\in N_{\frac{r}{2}} (p):q\in E', q\neq p.$$
 
-Let 
+Let
 $$\delta = \frac{d(p,q)}{2} < \frac{r}{2}.$$
 
 Since $q\in E'$, for $r>0$, $\exists s\in N_\delta (q): s\in E$, and  $s\neq q$. Due to the definition of the radius of $N_\delta (q), s\neq p$ since the neighborhood's radius is not large enough to contain $p$.
@@ -156,12 +156,12 @@ Let $x\in\bar{E}'$. Then for all $r>0, N_r(x)$ contains some point $y\neq x$. Si
 
 \begin{proof}
  6c)
- 
+
   Consider the set
   $$E = \left\{\frac{1}{n}: n\in\N\right\}.$$
 
   By the theorem Limit points of $E_p$, we know that $E' = \{0\}$. \\
-  
+
   However, the limit points of $E'$ are the empty set, since no matter the point we pick to center the neighborhood, the intersection will contain at most one element (zero). As such, $E$ and $E'$ do not always have the same limit points. \\
 \end{proof}
 
@@ -197,7 +197,7 @@ Claim: $A' \cup B' \subseteq (A\cup B)'.$
 
 Let $x\in A'\cup B'.$ Choose any $r>0$. Then, $N_r (x) \cap A$ or $N_r (x) \cap B$  is infinite, and $x\in(A\cup B)'$.
 
-Therefore, $(A\cup B)' = A' \cup B',$ and 
+Therefore, $(A\cup B)' = A' \cup B',$ and
 $$\overline{A\cup B} = (A\cup B)\cup(A\cup B)' = A\cup A' \cup B \cup B' = \overline{A}\cup\overline{B}.$$
 \end{proof}
 
@@ -209,17 +209,17 @@ We proceed with proof by induction.
 Let $n = 1.$ Then:
 $$\overline{\bigcup^1_{i=1} A_i} = \overline{A_1}=\bigcup^1_{i=1} \overline{A_i}.$$
 
-Let $n=k$. Assume that 
+Let $n=k$. Assume that
 $$\overline{\bigcup^k_{i=1} A_i} = \bigcup^k_{i=1} \overline{A_i},$$ for all $k\in\N$.
 
-Let $n=k+1$. Then, 
+Let $n=k+1$. Then,
 $$\overline{\bigcup^{k+1}_{i=1} A_i} = \overline{\bigcup^k_{i=1} A_i \cup A_{k+1}},$$
 which by the lemma above is equivalent to (using our assumption for $n=k$)
 $$\overline{\bigcup^k_{i=1} A_i} \cup \overline{A_{k+1}} = \bigcup^k_{i=1} \overline{A_i} \cup \overline{A_{k+1}} = \bigcup^{k+1}_{i=1} \overline{A_i}.$$
 
-Therefore 
+Therefore
 $$B_n = \bigcup^n_{i=1} A_i, \qquad \overline{B_n} = \overline{\bigcup^n_{i=1} A_i} = \bigcup^n_{i=1} \overline{A_i}$$
-by the Principle of Mathematical Induction. 
+by the Principle of Mathematical Induction.
 \end{proof}
 
 \begin{proof}
@@ -246,7 +246,7 @@ Let $p\in E$. Choose $r>0$, and let $N_r(p)$ be a neighborhood of $p$. Since $p$
 
 Choose $0<\epsilon \leq \min(r,\delta)$. Then, $N_\epsilon (p) \subseteq N_\delta (p) \subseteq E$. Since $N_\epsilon (p)$ contains infinitely many points of $E$, and $N_\epsilon (p) \subseteq N_r (p)$, $N_r(p)$ does as well. \\
 
-Closed sets, by definition, contain all of their own limit points: so any closed subset of $\R^2$ will contain its own limit points. However, it is not the case that any finite set $B$ will have limit points since the neighborhood intersect $B$ will be finite.
+It is not the case that any finite set $B$ will have limit points since the neighborhood intersect $B$ will be finite.
 \end{proof}
 
 
@@ -270,19 +270,19 @@ Closed sets, by definition, contain all of their own limit points: so any closed
 \end{enumerate}
 
 \begin{proof}
-9a)
+9a) \textit{Didn't show that all points of $E^\circ$ are interior to $E^\circ$.}
 
 Since every point of $E^\circ$ is an interior point (by definition of $E^\circ$), the set $E^\circ$ is open.
 \end{proof}
 
 \begin{proof}
-9b)
+9b) \textit{Must prove both directions.}
 
 A set is open if every point of the set is an interior point of the set (the definition of open). If a set $E$ is equal to the set of it's interior points, $E^\circ$, then every point of $E$ is an interior point of $E$, and $E$ is open. As such, $E$ is open if and only if $E^\circ = E$.
 \end{proof}
 
 \begin{proof}
-9c)
+9c) \textit{Proof is lacking.}
 
 Since $G$ is open, $G=G^\circ$. \\
 
@@ -297,7 +297,7 @@ Therefore $x\in E^\circ$ and $G^\circ \subseteq E^\circ$. Since $G^\circ = G$, a
 \begin{proof}
 9d)
 
-Claim: $(E^\circ)^c \subseteq \overline{(E^c)}$. Since $E^\circ \subseteq E$ (why exactly is this?), $(E^\circ)^c$ is closed since it is the complement of an open set, and is equal to $(E^\circ)^c$, which is a super-set of $\overline{(E^c)}.$
+Claim: $(E^\circ)^c \subseteq \overline{(E^c)}$.
 
 Claim: $\overline{(E^c)} \subseteq (E^\circ)^c$.
 \end{proof}
@@ -305,7 +305,7 @@ Claim: $\overline{(E^c)} \subseteq (E^\circ)^c$.
 \begin{proof}
 9e)
 
-Pick two open intervals, say $(0,1)\cup(1,2)$. Then 1 is not an interior point, and the closure of the set is $([0,1]\cup[1,2] = [0,2]$, where one is an interior point.
+Pick two open intervals, say $(0,1)\cup(1,2)$. Then 1 is not an interior point, and the closure of the set is $[0,1]\cup[1,2] = [0,2]$, where one is an interior point.
 
 As such, the set and its closure do not necessarily have the same interiors.
 \end{proof}
@@ -336,9 +336,9 @@ As such, the set and the set of it's interior points do not necessarily have the
 \end{enumerate}
 
 \begin{proof}
-Suppose that $K\subseteq \mathcal{C}$, where $\mathcal{C}$ is an open covering of $K$. Since $\mathcal{C}$ is an open covering, it is the set of $\cup_\alpha G_\alpha$ where $K\subseteq \cup_\alpha G_\alpha$.
+Let $\mathcal{C}$ is an open covering of $K$.
 
-Since $0\in K$, there must be some $G_{\alpha,0}$ that contains zero as well. Since all $G$ are open, there exists $r>0$ such that $N_r (0)\subseteq G_{\alpha,0}$.
+Since $0\in K$, there must be some $G_{\alpha,0} \in\mathcal{C}$ that contains zero as well. Since all $G$ are open, there exists $r>0$ such that $N_r (0)\subseteq G_{\alpha,0}$.
 
 Since 0 is the only limit point of $K$ (by the theorem Limit points of $E_p$), $K\backslash N_r(0)$ is finite (by the corollary to the theorem Limit points of $E_p$), and can be can therefore be covered by finite number of subcovers, $\cup_\alpha^n G_\alpha$.
 
@@ -358,6 +358,8 @@ Therefore, $K$ is compact.
 \end{enumerate}
 
 \begin{proof}
+\textit{Limit points are $\R$ in $(0,1)$, not contained in the union, so the set is not compact. Try again.}
+
 The theorem Limit points of $E_p$ can easily be trivially extended to handle $p\in\Q$, so that the limit point of a set $E_p$ is known to be $p$. \\
 
 Let $E_p$, where $p\in\Q$, be defined as follows:
@@ -376,9 +378,9 @@ Since $A$ is closed and bounded, it is compact.
 
 % Backup proof of 13
 % \begin{proof}
-% If we have 
+% If we have
 % $$E = \left\{\frac{1}{2^n}: n\in\N \right\},$$
-% then to fill the gaps between the numbers, we can choose 
+% then to fill the gaps between the numbers, we can choose
 % $$\delta_n = \frac{\frac{1}{n+1}+\frac{1}{n}}{2},$$
 % which gives us the midpoint between two consecutive points in $E$. Then, between those two points:
 % $$\frac{1}{n+1} \leq \frac{1}{n+1} + \frac{\delta_n}{2^m} \leq \frac{1}{n}.$$
@@ -397,6 +399,8 @@ Since $A$ is closed and bounded, it is compact.
 \end{enumerate}
 
 \begin{proof}
+\textit{Well Ordering Principle when used to order the rationals does not preserve the less than or greater than operator. Proof does not work. Try again.}
+
 Let $R$ be the indexed list of rationals $\{r_0, r_1, \dots\}$ such that $0\leq r_i < r_{i+1}  1$. \\
 
 Let $E=\cup_{i=0}^\infty (r_i, r_{i+2}).$ Then $E=(0,1)$, since $r_0=0$ and $r_\infty = 1$ (\textit{note: would it be better to write that the sequence $r_i$ approaches 1 as $i\rightarrow\infty$?}). \\
@@ -473,7 +477,7 @@ Therefore, Theorem 2.36 and its Corollary become false if the word \say{compact}
 
 
 \begin{enumerate}
-\item[17.] Let $E = \{x: x\in [0,1]$ and $x$'s decimal expansion contains only the digits 4 and 7$\}$. Show: 
+\item[17.] Let $E = \{x: x\in [0,1]$ and $x$'s decimal expansion contains only the digits 4 and 7$\}$. Show:
 \begin{enumerate}
 \item Whether $E$ is countable.
 \item Whether $E$ is dense in $[0,1]$.
@@ -497,22 +501,25 @@ $E$ is not dense in $[0,1]$ since not every point in $[0,1]$ is a point or limit
 \begin{proof}
 17c)
 
-Claim: In base 10, $E$ is bounded and closed (but not, I suspect, in octal). \\
+Claim: $E$ is bounded. \\
 
 $E$ is bounded since we can choose a number $M$ (like $2$) such that $d(p,q) < M, \forall p,q\in E$. \\
 
-For two elements of $E$ to be distinct, they must differ by at least one digit, denoted $x_n$ (the $n$th digit of the two numbers). If they differ by a single digit, they are closer in magnitude than they would be if they differed in several places. Then, the distance between any two elements of $E$, $a_i$ and $b_i$ is at least
-$$\frac{|a_n - b_n|}{10^n} = \frac{3}{10^n}.$$
+Claim: $E$ is closed. \\
 
-This means that between any two elements of $E$, for any $r < \frac{3}{10^n}$, $N_r(p)\cap E$ will contain only the singleton that the neighborhood is centered around. As such, $E$ has no limit points. \\
+Let $a,b\in E, a\neq b$. For two elements of $E$ to be distinct, they must differ by at least one digit. It is important to note that no element of $E$ has a finite decimal expansion (since such an expansion could be re-written with trailing zeros, and would then not be the decimal expansion of an element of $E$). Define $a$ and $b$ as the non-terminating decimal expansions below:
+$$a = 0.a_1a_2a_3\dots,$$
+$$b=0.b_1b_2b_3\dots.$$
 
-Since $E$ contains its non-existent limit points, it is closed. Since $E$ is closed and bounded, it is compact.
+\textit{Work in progress\dots}
+
+Since $E$ contains its own limit points, it is closed. Since $E$ is closed and bounded, it is compact.
 \end{proof}
 
 \begin{proof}
 17d)
 
-Since $E$ has no limit points, and $E$ is nonempty, $E$ is not perfect.
+Since $E$ is compact, and every point of $E$ is a limit point of $E$, it is perfect.
 \end{proof}
 
 
