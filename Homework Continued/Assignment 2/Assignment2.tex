@@ -1,0 +1,149 @@
+% Author: Connor Baker
+% Date Created: August 4, 2017
+% Last Edited: August 4, 2017
+% Version: 0.1a
+
+% Declare type of document
+\documentclass[10pt]{article}
+
+% Import Packages
+\usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathdots}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{dirtytalk}
+
+% Page Formatting
+% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
+\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
+\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
+\parindent 0in
+
+% Define the basic math environments
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\newtheorem{axiom}[equation]{Axiom}
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+
+% Define frequently used commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rang{rang}
+\newcommand{\ds}{\displaystyle}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\begin{document} %This is where we type the text that we plan on having in our document.
+
+% Create the Header
+\begin{center}
+  {\Large Rudin's \textsc{Principles of Mathematical Analysis, 3rd ed}}
+
+  {\large Connor Baker, June 2017}
+
+  \subsection*{Numerical Sequences and Series: Selected Exercises}
+\end{center}
+
+\begin{enumerate}
+\item[1.] Prove that convergence of $\{s_n\}$ implies convergence of $\{|s_n|\}$. Is the converse true?
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[2.] Calculate $\lim_{n\rightarrow\infty} (\sqrt{n^2+n}-n)$.
+\end{enumerate}
+
+\begin{proof}
+We begin by multiplying by the algebraic conjugate:
+$$\lim_{n\rightarrow\infty} \left[(\sqrt{n^2+n}-n) \cdot \frac{\sqrt{n^2+n}+n}{\sqrt{n^2+n}+n}\right]=\lim_{n\rightarrow\infty} \left[ \frac{n^2+n-n^2}{\sqrt{n^2+n}+n}\right] = \lim_{n\rightarrow\infty} \left[ \frac{n}{\sqrt{n^2+n}+n}\right].$$
+Tentatively trying to evaluate the limit yields a composition of algebraic indeterminate forms:
+$$\lim_{n\rightarrow\infty} \left[\frac{n}{\sqrt{n^2+n}+n}\right] = \frac{\infty}{\sqrt{\infty}+\infty} = \frac{\infty}{\infty+\infty}.$$
+We proceed by multiplying by a form of one:
+$$\lim_{n\rightarrow\infty} \left[\frac{n}{\sqrt{n^2+n}+n} \cdot \frac{\frac{1}{n}}{\frac{1}{n}}\right] = \lim_{n\rightarrow\infty}  \left[\frac{\frac{n}{n}}{\sqrt{\frac{n^2}{n^2}+\frac{n}{n^2}}+\frac{n}{n}}\right]=\lim_{n\rightarrow\infty}  \left[\frac{1}{\sqrt{1+\frac{1}{n}}+1}\right].$$
+From this point, we can now successfully evaluate the limit.
+$$\lim_{n\rightarrow\infty}  \left[\frac{1}{\sqrt{1+\frac{1}{n}}+1}\right] = \frac{1}{\sqrt{1+\frac{1}{\infty}}+1} = \frac{1}{\sqrt{1+0}+1} = \frac{1}{2}.$$
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[3.] If $s_1 = \sqrt{2},$ and
+$$s_{n+1} =\sqrt{2+s_n}, (n=1,2,3,\dots),$$
+prove that $\{s_n\}$ converges, and that $s_n<2$ for $n=1,2,3,\dots$.
+\end{enumerate}
+
+\begin{proof}
+We begin by proving that $s_n<2, \forall n\in\N$. \\
+
+Let $n=1.$ Then $s_1=\sqrt{2}<2$, and the base case holds. \\
+
+Inductive hypothesis: Assume that for $n\leq k,$ the following is true: $s_k < 2$. \\
+
+Let $n=k+1$. Then $s_{k+1} = \sqrt{2\cdot s_k} = \sqrt{2}\cdot\sqrt{s_k}.$ By the inductive hypothesis, $\sqrt{2}\cdot\sqrt{s_k}< \sqrt{2}\cdot\sqrt{2} = 2.$ \\
+
+By the Principle of Mathematical Induction, $s_n<2$ for all $n\in\N$.
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[4.] Find the upper and lower limits of the sequence $\{s_n\}$ defined by
+$$s_1=0; \quad s_{2m}=\frac{s_{2m-1}}{2}; \quad s_{2m+1}=\frac{1}{2} + s_{2m}.$$
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[5.] For any two real sequences $\{a_n\}, \{b_n\},$ prove that
+$$\lim_{n\rightarrow\infty} \sup(a_n+b_n)\leq \lim_{n\rightarrow\infty} \sup(a_n) + \lim_{n\rightarrow\infty} \sup(b_n)$$
+provided the sum on the right is not of the form $\infty-\infty$.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+\end{document}
