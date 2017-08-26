@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: May 29, 2017
-% Last Edited: August 4, 2017
-% Version: 0.4b
+% Last Edited: August 26, 2017
+% Version: 0.4c
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -284,6 +284,10 @@ A set is open if every point of the set is an interior point of the set (the def
 \begin{proof}
 9c) \textit{Proof is lacking.}
 
+'$\exists\delta > 0: N_\delta (x) \subseteq G$ but $N_\delta (x) \subseteq E, x\in E^\circ$'. \\
+
+Must review following for accuracy. \\
+
 Since $G$ is open, $G=G^\circ$. \\
 
 Claim: $G^\circ \subseteq E^\circ$. \\
@@ -502,24 +506,34 @@ $E$ is not dense in $[0,1]$ since not every point in $[0,1]$ is a point or limit
 17c)
 
 Claim: $E$ is bounded. \\
-
-$E$ is bounded since we can choose a number $M$ (like $2$) such that $d(p,q) < M, \forall p,q\in E$. \\
+Let $M=2,$ and $p,q\in E.$ Since $d(p,q)<2$ for all $p,q\in E$, $E$ is bounded. \\
 
 Claim: $E$ is closed. \\
+Let $a,b\in E, a\neq b$. For two numbers to be distinct, their decimal expansions must vary in at least one place. Define $a$ and $b$ as the non-terminating decimal expansions below:
+\begin{center}
+\begin{tabular}{c}
+$a = 0.a_1a_2a_3\dots$ \\
+$b = 0.b_1b_2b_3\dots$
+\end{tabular}.
+\end{center}
+Since $a,b\in E$, $a_i,b_i\in\{4,7\}.$ Assume that $a$ and $b$ vary in only once place. Then:
+$$|a-b| = \frac{3}{10^i}.$$
+As $i\rightarrow\infty$, the difference between the two numbers approaches zero. Since these expansions are non-terminating, we can set the place that they vary farther and farther out. As long as we choose $i:\forall r>0, \frac{3}{10^i} < r,$ then $N_r(a)\cup E$ will contain at least one point $b, b\neq a$: as such, $a$ is a limit point of $E$.
+Since $a\in E,$ $E$ is closed. \\
 
-Let $a,b\in E, a\neq b$. For two elements of $E$ to be distinct, they must differ by at least one digit. It is important to note that no element of $E$ has a finite decimal expansion (since such an expansion could be re-written with trailing zeros, and would then not be the decimal expansion of an element of $E$). Define $a$ and $b$ as the non-terminating decimal expansions below:
-$$a = 0.a_1a_2a_3\dots,$$
-$$b=0.b_1b_2b_3\dots.$$
+Claim: $E$ is compact. \\
 
-\textit{Work in progress\dots}
-
-Since $E$ contains its own limit points, it is closed. Since $E$ is closed and bounded, it is compact.
+Since $E$ is closed and bounded, it is compact.
 \end{proof}
 
 \begin{proof}
 17d)
 
-Since $E$ is compact, and every point of $E$ is a limit point of $E$, it is perfect.
+To be a perfect set, every point of $E$ must be a limit point of $E$ (we've already met the criteria that $E$ is closed). \\
+
+Given any $a\in E,\exists b\in E$: $b_i\neq a_i$ as $i\rightarrow\infty$. As such, $\forall r>0$, $b\in N_r(a)\cap E,$ $b\neq a$. Then $a\in E'$. \\
+
+Therefore, every $a\in E$ is a limit point of $E$, and $E$ is perfect.
 \end{proof}
 
 
