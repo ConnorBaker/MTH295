@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: August 4, 2017
-% Last Edited: August 4, 2017
-% Version: 0.1a
+% Last Edited: August 26, 2017
+% Version: 0.1b
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -13,6 +13,8 @@
 \usepackage{mathtools,mathdots}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{tabu}
+\usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{dirtytalk}
 
@@ -67,9 +69,35 @@
 \end{enumerate}
 
 \begin{proof}
+1a) \\
 
+Assume that $\{s_n\}$ is a convergent Cauchy sequence, and let $\epsilon > 0$. Since $\{s_n\}$ is a Cauchy sequence, for every $\epsilon > 0, \exists N\in\Z$ such that $|s_n-s_m|<\epsilon, \forall m,n\geq N$. \\
+
+Claim: $||p|-|q|| \leq |p-q|.$ \\
+
+Case 1: $p \geq 0, q\geq 0$. \\
+Then $||p|-|q|| = |p - q|$. \\
+
+Case 2: $p \leq 0, q\leq 0$. \\
+Then $||p|-|q|| = |(-p) - (-q)| = |q - p| = |-1(p-q)| = |-1|\cdot|p-q| = |p-q|$. \\
+
+Case 3: $p \leq 0, q\geq 0$. \\
+Then $||p|-|q|| = |(-p) - q| =|-1(p+q)| = |-1|\cdot|p+q| = |p+q| \leq |p-q|$,  since subtracting a non-negative number from a non-positive number increases the magnitude of the result more so than adding a non-negative number to a non-positive number. \\
+
+Case 4: $p \geq 0, q\leq 0$. \\
+Then $||p|-|q|| = |p - (-q)| =|p+q| \leq |p-q|$, since subtracting a non-positive number from a non-negative number increases the magnitude of the result more so than adding a non-positive number to a non-negative number. \\
+
+
+As such, $||s_n| - |s_m||\leq |s_n - s_m| < \epsilon$ for all $m,n\geq N$. \\
+
+Therefore, $\{|s_n|\}$ is a convergent Cauchy sequence.
 \end{proof}
 
+\begin{proof}
+1b) \\
+
+Since $||p| - |q|| \leq |p-q|,$ the converse is not true -- having $||s_n|-|s_m|| < \epsilon, \forall m,n\geq N$ tells us nothing about whether $|s_n-s_m| < \epsilon, \forall m,n\geq N$ is true.
+\end{proof}
 
 
 \pagebreak
@@ -104,15 +132,28 @@ prove that $\{s_n\}$ converges, and that $s_n<2$ for $n=1,2,3,\dots$.
 \end{enumerate}
 
 \begin{proof}
-We begin by proving that $s_n<2, \forall n\in\N$. \\
+Claim: $s_n < 2, \forall n\in\N$. \\
 
-Let $n=1.$ Then $s_1=\sqrt{2}<2$, and the base case holds. \\
+Base case: Let $n=1$. Then $s_1=\sqrt{2}<2$ and the base case holds. \\
 
-Inductive hypothesis: Assume that for $n\leq k,$ the following is true: $s_k < 2$. \\
+Inductive hypothesis: Let $n=k$. Assume that for all $n\leq k$, $s_k < 2.$ \\
 
-Let $n=k+1$. Then $s_{k+1} = \sqrt{2\cdot s_k} = \sqrt{2}\cdot\sqrt{s_k}.$ By the inductive hypothesis, $\sqrt{2}\cdot\sqrt{s_k}< \sqrt{2}\cdot\sqrt{2} = 2.$ \\
+Inductive step: Let $n=k+1$. Then $s_{k+1} = \sqrt{2+s_k}$, which, by our inductive hypothesis, is less than $\sqrt{2+2}=\sqrt{4}=2$. \\
 
-By the Principle of Mathematical Induction, $s_n<2$ for all $n\in\N$.
+By the Principle of Mathematical Induction, $s_n < 2, \forall n\in\N$. As such, $s_n$ is bounded above. \\
+
+Claim: $s_n<s_{n+1}, \forall n\in\N.$ \\
+
+Base case: Let $n=1$. Then $s_1=\sqrt{2}<\sqrt{2+\sqrt{2}} = s_{2}$ and the base case holds. \\
+
+Inductive hypothesis: Let $n=k$. Assume that for all $n\leq k$, $s_k < s_{k+1}.$ \\
+
+Inductive step: Let $n=k+1$. Then $s_{k+1} = \sqrt{2+s_k}$, which, by our inductive hypothesis, is less than $\sqrt{2+s_{k+1}}=s_{k+2}$. \\
+
+By the Principle of Mathematical Induction, $s_n < s_{n+1}, \forall n\in\N$. As such, $s_n$ is monotonic increasing. \\
+
+Since $s_n$ is both bounded above and monotonic increasing, by the monotone convergence theorem, $s_n$ converges.
+
 \end{proof}
 
 
@@ -127,6 +168,58 @@ $$s_1=0; \quad s_{2m}=\frac{s_{2m-1}}{2}; \quad s_{2m+1}=\frac{1}{2} + s_{2m}.$$
 \end{enumerate}
 
 \begin{proof}
+We begin by trying to find the closed form of the sequence $\{s_n\}.$
+\[
+\renewcommand{\arraystretch}{2}
+\begin{tabu}{|c|c|c|}
+\hline
+m & s_{2m} & s_{2m+1} \\ \hline
+1 & s_2 = \frac{0}{2} & s_3 = \frac{1}{2}+0 = \frac{1}{2} \\ \hline
+2 & s_4 = \frac{\frac{1}{2}}{2}  = \frac{1}{2^2} & s_5 = \frac{1}{2}+\frac{1}{2^2} = \frac{2+1}{2^2} \\ \hline
+3 & s_6 = \frac{\frac{2+1}{2^2}}{2}  = \frac{2+1}{2^3} & s_7 = \frac{1}{2}+\frac{2+1}{2^3} = \frac{2^2+2+1}{2^3} \\ \hline
+\vdots & \vdots & \vdots \\ \hline
+m & s_{2m}=\frac{\sum{2^k}^{m-2}_{k=0}}{2^m} & s_{2m+1}=\frac{\sum{2^k}^{m-1}_{k=0}}{2^m} \\ \hline
+\end{tabu}
+\]
+We then try to find the closed forms of the sums that we're using -- since these are geometric series, we can use the formula that follows:
+$$\sum_{k}^{n} ar^k = \frac{a(1-r^n)}{1-r}.$$
+For our series, $a=1$, and $r=2$, so:
+$$\frac{a(1-2^n)}{1-2} = \frac{1-2^n}{-1} = 2^n-1.$$
+
+As such, we now have:
+$$s_{2m} = \frac{\sum{2^k}^{m-2}_{k=0}}{2^m} =\frac{2^{m-1}-1}{2^m} = \frac{1}{2} - \frac{1}{2^m},$$
+and
+$$s_{2m+1} = \frac{\sum{2^k}^{m-1}_{k=0}}{2^m} = \frac{2^m-1}{2^m} = 1 - \frac{1}{2^m}.$$
+
+Claim: The closed forms of $s_{2m}$ and $s_{2m+1}$ we have derived hold $\forall m\in\N$. We proceed with induction. \\
+
+Base case: Let $m=1$. Then:
+$$s_{2} = \frac{s_1}{2} = \frac{0}{2} = 0,$$
+and
+$$\frac{2^{1-1}-1}{2^1} = \frac{0}{2} = 0 = s_2.$$
+In addition,
+$$s_{3} = \frac{s_2}{2} = \frac{1}{2} + s_2 = \frac{1}{2} + 0 = \frac{1}{2},$$
+and
+$$\frac{2^{1}-1}{2^1} = \frac{1}{2} = s_3.$$
+
+Assume that $\forall m \leq r$, our closed forms of $s_{2m}$ and $s_{2m+1}$ hold. Then
+$$s_{2r} = \frac{1}{2} - \frac{1}{2^r}; \quad s_{2r+1} = 1 - \frac{1}{2^r}.$$
+
+Let $m=r+1$. Then
+$$s_{2(r+1)} = s_{2r+2} = \frac{s_{2r+1}}{2} = \frac{1-\frac{1}{2^r}}{2} = \frac{1}{2} - \frac{1}{2^{r+1}},$$
+and
+$$s_{2(r+1)+1} = s_{2r+3} = \frac{1}{2} + s_{2r+2} = \frac{1}{2} + \frac{1}{2} -\frac{1}{2^{r+1}} = 1-\frac{1}{2^{r+1}}.$$
+
+By the Principle of Mathematical Induction, $\forall m \in\N$,
+$$s_{2m} = \frac{1}{2} - \frac{1}{2^m}; \quad s_{2m+1} = 1 - \frac{1}{2^m}$$
+hold. \\
+
+We now look at what the sequences $s_{2m}$ and $s_{2m+1}$ converge to:
+$$\lim_{m\rightarrow\infty} s_{2m} = \lim_{m\rightarrow\infty} \frac{1}{2} - \frac{1}{2^m} = \frac{1}{2},$$
+$$\lim_{m\rightarrow\infty} s_{2m+1} = \lim_{m\rightarrow\infty} 1 - \frac{1}{2^m} = 1.$$
+Since the sequence converges, any sub-sequence must converge to the same point. As such, when we consider the limit supremum and infimum -- that is, the supremum and infimum of all subsequenes, they must converge to the same point that the limit of the sequence converges to. As such,
+$$\lim_{m\rightarrow\infty}\inf s_{m} = \frac{1}{2},$$
+$$\lim_{m\rightarrow\infty}\sup s_{m} = 1.$$
 
 \end{proof}
 
@@ -145,5 +238,127 @@ provided the sum on the right is not of the form $\infty-\infty$.
 \begin{proof}
 
 \end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[6.] Investigate the behavior (convergence or divergence) of $\sum a_n$ if
+\begin{enumerate}
+\item $a_n = \sqrt{n+1} - \sqrt{n}.$
+\item $a_n = \frac{\sqrt{n+1} - \sqrt{n}}{n}.$
+\item $a_n = (\sqrt[n]{n} - 1)^n.$
+\end{enumerate}
+\end{enumerate}
+A note on notation: An easy test to see if a series diverges is to check if  $lim_{n\rightarrow\infty} \sup a_n \neq lim_{n\rightarrow\infty} \inf a_n$. If the series converges, then the two are equal, and we do not need to use the $\sup$ and $\inf$ notation. Below, we do not use $\sup$ and $\inf$ because either the series converges and it was needless, or it does not and we are done with the problem.
+\begin{proof}
+6a) \\
+
+We begin by finding a more useful form of $a_n$:
+$$a_n = \sqrt{n+1} - \sqrt{n} = (\sqrt{n+1} - \sqrt{n}) \cdot \frac{\sqrt{n+1} + \sqrt{n}}{\sqrt{n+1} + \sqrt{n}} = \frac{n+1-n}{\sqrt{n+1} + \sqrt{n}} = \frac{1}{\sqrt{n+1} + \sqrt{n}}.$$
+Since $\sqrt{n} < \sqrt{n+1}$,
+$$\frac{1}{\sqrt{n+1} + \sqrt{n}} > \frac{1}{\sqrt{n+1} + \sqrt{n+1}} = \frac{1}{2\sqrt{n+1}}.$$
+Since we know that $\frac{1}{\sqrt{n+1}}$ diverges (it is a $p$-series where $p \leq 1$), we can use the limit comparison test.
+$$\lim_{n\rightarrow\infty} \left(\frac{\frac{1}{2\sqrt{n+1}}}{\frac{1}{\sqrt{n+1}} }\right) = \frac{1}{2}.$$
+Since $0<\frac{1}{2}<\infty$, by the limit comparison test, $a_n$ diverges.
+\end{proof}
+
+\begin{proof}
+6b) \\
+
+We begin by finding a more useful form of $a_n$:
+$$a_n = \frac{\sqrt{n+1} - \sqrt{n}}{n} = (\frac{\sqrt{n+1} - \sqrt{n}}{n}) \cdot \frac{\sqrt{n+1} + \sqrt{n}}{\sqrt{n+1} + \sqrt{n}} = \frac{n+1-n}{n(\sqrt{n+1} + \sqrt{n})} = \frac{1}{n(\sqrt{n+1} + \sqrt{n})}.$$
+Since $\sqrt{n}<\sqrt{n+1}$,
+$$\frac{1}{n(\sqrt{n+1} + \sqrt{n})} < \frac{1}{n(\sqrt{n} + \sqrt{n})} = \frac{1}{2n\sqrt{n})} = \frac{1}{2n^{3/2}}.$$
+To more clearly see that the sum of our newly created sequence is a $p$-series, we can re-write it as such:
+$$\sum^{\infty} \left(\frac{1}{2n^{3/2}}\right) = \frac{1}{2} \cdot \sum^{\infty} \left(\frac{1}{n^{3/2}}\right).$$
+Since $p = \frac{3}{2},$ and $p > 1,$ the sum must converge. Furthermore, since $a_n$ is smaller than the sequence which when summed converges, $a_n$ must also sum when converged.
+\end{proof}
+
+\begin{proof}
+6c) \\
+
+Let $\alpha = \lim_{n\rightarrow\infty} (\sqrt[n]{(\sqrt[n]{n} - 1)^n}).$ Then
+$$\alpha = \lim_{n\rightarrow\infty} (\sqrt[n]{n} - 1) = \lim_{n\rightarrow\infty} (\sqrt[n]{n}) - \lim_{n\rightarrow\infty} (1) = \lim_{n\rightarrow\infty} (e^{\ln(\sqrt[n]{n})}) - 1 = \lim_{n\rightarrow\infty} (e^{\frac{\ln(n)}{n}}) - 1.$$
+Plugging in for $n$, we arrive the basic indeterminate form $\frac{\infty}{\infty}$, so we can proceed with L'Hôpital's rule.
+$$\alpha = \lim_{n\rightarrow\infty} (e^{\frac{1}{n}}) - 1 = e^0 - 1 = 1 - 1 = 0.$$
+Since $\alpha = 0$, and $\alpha < 1$, by the root test $\sum a_n$ converges.
+\end{proof}
+
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[7.] Prove that the convergence of $\sum a_n$ implies the convergence of
+$$\sum \left(\frac{\sqrt{a_n}}{n}\right),$$
+if $a_n \geq 0$.
+\end{enumerate}
+
+\begin{proof}
+Since $\sum a_n$ converges, $\exists m\in \N: \forall n\geq m, a_n = 0.$ Furthermore, $\exists N\in \N: \forall n\in\N, s_n \in [0,N]$.
+Take $s_{m-1}$. We know that $\exists p\in \R:$
+$$s_{m-1} = \sum_n^{m-1} \frac{\sqrt{a_n}}{n} = p.$$
+
+Claim: $s_\infty - s_{m-1} = 0$. \\
+It is clear that
+$$s_\infty - s_{m-1} = \sum_{n=m}^{\infty} \frac{\sqrt{a_n}}{n}.$$
+Since $n\geq m$, $a_n = 0$ and the sum is zero. then, $s_\infty = s_{m-1} = p$, and the sum converges to $p$.
+\end{proof}
+
+
+
+\pagebreak
+
+
+
+\begin{enumerate}
+\item[11.] Suppose $a_n > 0$, $s_n = a_1+a_2+\cdots+a_n$, and $\sum a_n$ diverges.
+\begin{enumerate}
+\item Prove that $\sum\frac{a_n}{1+ a_n}$ diverges.
+\item Prove that
+$$\frac{a_{N+1}}{s_{N+1}} + \cdots + \frac{a_{N+k}}{s_{N+k}} \geq 1- \frac{s_{N}}{s_{N+k}}$$
+and that $\sum\frac{a_n}{s_n}$ diverges.
+\item Prove that
+$$\frac{a_n}{s^2_n}\leq \frac{1}{s_{n-1}} - \frac{1}{s_n}$$
+and that $\sum\frac{a_n}{s^2_n}$ converges.
+\item What can be said about
+$$\sum\frac{a_n}{1+n\cdot a_n} \quad\text{and} \quad \sum\frac{a_n}{1+n^2 \cdot a_n}?$$
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+11a) \\
+
+By re-writing the sum, we see that
+$$\sum \left(\frac{a_n}{1+ a_n}\right) = \sum\left(\frac{1}{(\frac{1+ a_n}{a_n})}\right) = \sum\left(\frac{1}{(\frac{1}{a_n}+ 1)}\right).$$
+Since $a_n > 0, \exists N\in\N: N \geq \frac{1}{a_n},$ by the Archimedian principle. As such, $\frac{1}{a_n}\in [0,N].$ Then, $(\frac{1}{a_n}+1)\in [1,N+1],$ and $$\left(\frac{1}{(\frac{1}{a_n}+1)}\right)\geq \frac{1}{N+1}.$$
+By the divergence theorem, since the terms of this infinite sum are positive, the sum must diverge.
+\end{proof}
+
+
+\begin{proof}
+11b) \\
+
+\end{proof}
+
+
+\begin{proof}
+11c) \\
+
+\end{proof}
+
+
+\begin{proof}
+11d) \\
+
+\end{proof}
+
 
 \end{document}
