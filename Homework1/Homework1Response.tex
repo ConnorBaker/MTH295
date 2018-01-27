@@ -1,46 +1,97 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
-% Last Edited: January 18, 2016
-% Version: 0.5c
+% Last Edited: January 27, 2018
+% Version: 0.5d
 
 % Declare type of document
 \documentclass[10pt]{article}
 
 % Import Packages
 \usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
 \usepackage{amsfonts,amsmath,amssymb,amsthm}
 \usepackage{mathtools,mathdots}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{longtable}
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+\usepackage{dirtytalk}
+\usepackage[pdftex]{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepackage{url}
+\usepackage{caption}
+\usepackage[inline]{asymptote}
+\usepackage{lmodern}
 
-% Page Formatting
-% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
-\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
-\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
-\parindent 0in
 
-% Define the basic math environments
+% Define the basic math environments with both number and unnumbered environments
 \theoremstyle{definition}
 \newtheorem{definition}[equation]{Definition}
+\newtheorem*{definition*}{Definition}
 \newtheorem{example}[equation]{Example}
+\newtheorem{problem}[equation]{Problem}
+\newtheorem*{problem*}{Problem}
+\newtheorem*{example*}{Example}
+\newtheorem{axiom}[equation]{Axiom}
+\newtheorem*{axiom*}{Axiom}
 \theoremstyle{plain}
 \newtheorem{theorem}[equation]{Theorem}
+\newtheorem*{theorem*}{Theorem}
 \newtheorem{proposition}[equation]{Proposition}
+\newtheorem*{proposition*}{Proposition}
 \newtheorem{lemma}[equation]{Lemma}
+\newtheorem*{lemma*}{Lemma}
 \newtheorem{corollary}[equation]{Corollary}
+\newtheorem*{corollary*}{Corollary}
 \newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+\newtheorem*{remark}{Remark}
+
+% Define the basic math environments without numbering
+% \theoremstyle{definition}
+% \newtheorem*{definition}{Definition}
+% \newtheorem*{example}{Example}
+% \newtheorem*{problem*}{Problem}
+% \newtheorem*{axiom}{Axiom}
+% \newtheorem*{remark}{Remark}
+% \theoremstyle{plain}
+% \newtheorem*{theorem}{Theorem}
+% \newtheorem*{proposition}{Proposition}
+% \newtheorem*{lemma}{Lemma}
+% \newtheorem*{corollary}{Corollary}
+% \newtheorem*{conjecture}{Conjecture}
 
 % Define frequently used commands
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rang{rang}
+\newcommand{\ds}{\displaystyle}
+
+% Defines the command for the quotient bar
+\newcommand\Mydiv[2]{%
+$\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
+        \overline{\enspace\strut#2}$}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\Urlmuskip=0mu plus 2mu
+
+\title{MTH 295: Homework 1}
+\author{Connor Baker}
+\date{January 2018}
 
 % Begin the document
 \begin{document}
-% Create the Header
-\begin{center}
-  \subsection*{Homework 1\\Connor Baker, January 2017}
-\end{center}
+
+\maketitle
 
 \begin{enumerate}
   % Problem 1
@@ -49,11 +100,36 @@
 
 % Proof 1
 \begin{proof}
-  Assume that $a,b\in\Z$, $a-b$ is odd, and $a+b$ is even. If $a-b$ is odd, then by definition, $a-b=2x+1$ for some number $x\in\Z$. If $a+b$ is even, then by definition, $a+b=2y$ for some number $y\in\Z$. \\
+Assume that both $a$ and $b$ are integers. We proceed using proof by contradiction, and assume that $a-b$ is even implies that $a+b$ is odd.
 
-  \par Combining the system of equations with addition yields $2a=2x+2y+1$. This can be rewritten as $2a = 2(x+y) + 1$. This implies that an even number (the product $2a$) can be equal to an odd number (the even numer resulting from the product of $2(x+y)$ plus one), which is a contradicition. \\
+Since $a-b$ is even, it can be written as 
+\begin{equation}
+    a-b = 2k
+\end{equation}
+for some integer $k$, and since $a+b$ is odd, it can be written as
+\begin{equation}
+    a+b = 2j+1
+\end{equation}
+for some integer $j$. Solving both equations for $a$ yields
+\begin{subequations}
+\begin{equation}
+    a = 2k+b
+\end{equation}
+\begin{equation}
+    a=2j+1-b
+\end{equation}
+and setting them equal to the other (by transitivity) gives:
+\begin{equation}
+    2k+b = 2j+1 - b.
+\end{equation}
+Simplifying by means of collecting $b$ on the left hand side and factoring out a two gives
+\begin{equation}
+    2(k+b) = 2j+1.
+\end{equation}
+\end{subequations}
+Since an even number can never be equal to an odd number (by definition), we have arrived at a contradiction, and our original assumption that $a-b$ is even implies that $a+b$ is odd must be incorrect.
 
-  \par Therefore, through by law of the excluded middle, if $a-b$ is odd, then $a+b$ is odd.
+Therefore, by means of proof by contradiction, if $a-b$ is odd, then $a+b$ is odd.
 \end{proof}
 
 
@@ -133,6 +209,5 @@
 
   \par Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
 \end{proof}
-\end{enumerate} % End problem set
 
 \end{document} % End document

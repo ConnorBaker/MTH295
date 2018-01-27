@@ -8,3 +8,5 @@
 *.fls
 
 *.gz
+*.pre
+.DS_Store
