@@ -1,7 +1,7 @@
 % Author: Connor Baker
 % Date Created: January 2, 2016
 % Last Edited: January 27, 2018
-% Version: 0.5d
+% Version: 0.6a
 
 % Declare type of document
 \documentclass[10pt]{article}
@@ -112,12 +112,10 @@ for some integer $k$, and since $a+b$ is odd, it can be written as
 \end{equation}
 for some integer $j$. Solving both equations for $a$ yields
 \begin{subequations}
-\begin{equation}
-    a = 2k+b
-\end{equation}
-\begin{equation}
-    a=2j+1-b
-\end{equation}
+\begin{align}
+    a &= 2k+b \\
+    a &= 2j+1-b
+\end{align}
 and setting them equal to the other (by transitivity) gives:
 \begin{equation}
     2k+b = 2j+1 - b.
@@ -144,10 +142,30 @@ Therefore, by means of proof by contradiction, if $a-b$ is odd, then $a+b$ is od
 \end{enumerate}
 
 % Proof 2
+\setcounter{equation}{0}
 \begin{proof}
-  We will prove that if $x$ or $y$ is even, then the product $xy$ is even. Assume that $x$ is even, and that $x,y\in\Z$. By definition, $x=2k$ for all $k\in\Z$. Then $xy=2ky$ is even. So, regardless of the parity of $y$, the product $xy$ will be even so long as at least one is even. If $x$ was odd, and $y$ was even, then the above would still hold, due to multiplication being commutative. \\
+Assume that $x$ and $y$ are integers. We proceed with proof by contrapositive, so we assume that if $x$ or $y$ are even, then $xy$ is even.
 
-  \par Since either $x$ or $y$ is even, and $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
+We begin with the case in which $x$ is even. Then, $x$ can be rewritten as $x=2k$ for some integer $k$. Then the product $xy$ can be written as
+\begin{align}
+    xy &= 2k\cdot y \\
+       &= 2(ky)
+\end{align}
+which is even, by definition. Without loss of generality, the case in which $y$ is even is the same (simply swap the variables $x$ and $y$).
+
+Finally, we have the case in which both $x$ and $y$ are even. In this case, $x$ and $y$ can be written
+\begin{align}
+    x &= 2k \\
+    y &= 2j
+\end{align}
+for some integers $k$ and $j$. With these equivalencies, we can rewrite the product $xy$ as follows:
+\begin{align}
+    xy &= 2k\cdot 2j \\
+       &= 2(2kj)
+\end{align}
+which is even, by definition.
+
+Since either $x$ or $y$ being even implies $xy$ is even, we can infer by the contrapositive that if $xy$ is odd, then both $x$ and $y$ are odd.
 \end{proof}
 
 
@@ -162,6 +180,7 @@ Therefore, by means of proof by contradiction, if $a-b$ is odd, then $a+b$ is od
 \end{enumerate}
 
 % Proof 3
+\setcounter{equation}{0}
 \begin{proof}
   The equation $12m + 15n = 1$ is equivalent to $3(4m+5n)=1$. For this statement to be true, $4m+5n$ must be the multiplicative inverse of $3$, which is not in the set of natural numbers. Therefore, there do not exist integers $m$ and $n$ such that $12m + 15n = 1$.
 \end{proof}
@@ -178,6 +197,7 @@ Therefore, by means of proof by contradiction, if $a-b$ is odd, then $a+b$ is od
 \end{enumerate}
 
 % Proof 4
+\setcounter{equation}{0}
 \begin{proof}
   Because $n\in\N$, $n\geq 1$ for all choices of $n$. As a result, $1/n \leq 1$, for all choices of $n$. Therefore, $M$ can be any number such that $M\geq 2$.
 \end{proof}
@@ -194,20 +214,23 @@ Therefore, by means of proof by contradiction, if $a-b$ is odd, then $a+b$ is od
 \end{enumerate}
 
 % Proof 5
+\setcounter{equation}{0}
 \begin{proof}
   Let the function $f(x)$ be as follows:
-  \begin{equation*}
+  \begin{equation}
     f(x) = \frac{(x-1)(x+2)}{(x-3)(x+4)}
-  \end{equation*}
-  Then $f(x)$ has two $x$-intercepts at $x=-2,1$, and two vertical asymptotes at $x=-4,3$. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change the sign of its output. As such, it has been established that $f(x)$ does not change sign over the intervals $(-\infty,-4),(-4,-2),(-2,1),(1,3),(3,\infty)$. \\
+  \end{equation}
+Then $f(x)$ has two $x$-intercepts at $x=-2$ and at $x=1$, and two vertical asymptotes at $x=-4$ and $x=3$. By the Intermediate Value Theorem, those four $x$-values are the only places that the function can change sign. As such, it has been established that $f(x)$ does not change sign over the intervals 
+$$
+(-\infty,-4), (-4,-2), (-2,1), (1,3), (3,\infty).
+$$
+By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, then by the Intermediate Value Theorem proves, the function value has the same sign on the entirety of the interval.
 
-  \par By picking a point on the intervals $(-2,1)$ and $(3,\infty)$ and verifying the sign, then by the Intermediate Value Theorem proves, the function value has the same sign on the entirety of the interval. \\
+Let $x=0$. Then, on the interval $(-2,1)$, the function is positive.
 
-  \par Let $x=0$. Then, on the interval $(-2,1)$, the function is positive. \\
+Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive.
 
-  \par Let $x=4$. Then, on the interval $(3,\infty)$, the function is positive. \\
-
-  \par Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
+Therefore, by the Intermediate Value Theorem, if $-2 < x < 1$ or $x > 3$, then $\frac{(x-1)(x+2)}{(x-3)(x+4)} > 0$.
 \end{proof}
 
 \end{document} % End document
