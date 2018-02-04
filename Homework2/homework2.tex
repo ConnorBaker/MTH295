@@ -1,143 +1,202 @@
 % Author: Connor Baker
 % Date Created: January 26, 2017
-% Last Edited: February 2, 2017
-% Version: 0.3b
+% Last Edited: February 3, 2018
+% Version: 0.3c
+
 
 % Declare type of document
 \documentclass[10pt]{article}
 
 % Import Packages
 \usepackage[utf8]{inputenc}
+\usepackage[mathscr]{euscript}
 \usepackage{amsfonts,amsmath,amssymb,amsthm}
 \usepackage{mathtools,mathdots}
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{longtable}
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+\usepackage{dirtytalk}
+\usepackage[pdftex]{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepackage{url}
+\usepackage{caption}
+\usepackage[inline]{asymptote}
+\usepackage{lmodern}
 
-% Page Formatting
-% These settings let you manipulate the margins on the paper, and provide more options than you might be used to using in a word style document.  For example, the settings \oddsidemargin and \evensidemargin are allowed to be adjusted separately in case you are binding a book together.
-\topmargin -0.25in \oddsidemargin -.25in \evensidemargin -.25in
-\textheight 9in \textwidth 6.75in \headheight 0in \headsep .35in
-\parindent 0in
 
-% Define the basic math environments
+% Define the basic math environments with both number and unnumbered environments
 \theoremstyle{definition}
-\newtheorem{definition}[equation]{Definition}
-\newtheorem{example}[equation]{Example}
-\theoremstyle{plain}
-\newtheorem{theorem}[equation]{Theorem}
-\newtheorem{proposition}[equation]{Proposition}
-\newtheorem{lemma}[equation]{Lemma}
-\newtheorem{corollary}[equation]{Corollary}
-\newtheorem{conjecture}[equation]{Conjecture}
+% \newtheorem{definition}[equation]{Definition}
+% \newtheorem*{definition*}{Definition}
+% \newtheorem{example}[equation]{Example}
+\newtheorem{problem}[equation]{Problem}
+\newtheorem*{problem*}{Problem}
+% \newtheorem*{example*}{Example}
+% \newtheorem{axiom}[equation]{Axiom}
+% \newtheorem*{axiom*}{Axiom}
+% \theoremstyle{plain}
+% \newtheorem{theorem}[equation]{Theorem}
+% \newtheorem*{theorem*}{Theorem}
+% \newtheorem{proposition}[equation]{Proposition}
+% \newtheorem*{proposition*}{Proposition}
+% \newtheorem{lemma}[equation]{Lemma}
+% \newtheorem*{lemma*}{Lemma}
+% \newtheorem{corollary}[equation]{Corollary}
+% \newtheorem*{corollary*}{Corollary}
+% \newtheorem{conjecture}[equation]{Conjecture}
+% \newtheorem*{conjecture*}{Conjecture}
+% \newtheorem*{remark}{Remark}
 
+% Define the basic math environments without numbering
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+% \newtheorem*{problem}{Problem}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{remark}{Remark}
+\theoremstyle{plain}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{conjecture}{Conjecture}
 % Define frequently used commands
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator\dom{dom}
+\DeclareMathOperator\rang{rang}
+\newcommand{\ds}{\displaystyle}
+
+% Defines the command for the quotient bar
+\newcommand\Mydiv[2]{%
+$\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
+\overline{\enspace\strut#2}$}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\Urlmuskip=0mu plus 2mu
+
+\title{MTH 295: Homework 1}
+\author{Connor Baker}
+\date{February 2018}
+
 
 % Begin the document
 \begin{document}
 % Create the Header
-\begin{center}
-  \subsection*{Homework 2\\Connor Baker, February 2017}
-\end{center}
+\maketitle
 
 % Problem 1
 \begin{enumerate}
-\item Determine whether the following expressions are true or false.  Give a complete explanation for each part.
-  \begin{enumerate}
-  \item $\emptyset \subseteq \{\emptyset, \{ \emptyset \} \}$
-  \item $\{\emptyset\} \subseteq \{\emptyset, \{ \emptyset \} \}$
-  \item $\{\{\emptyset\}\} \subseteq \{\emptyset, \{ \emptyset \} \}$
-  \item For every set $A$, $\{\emptyset\} \subseteq A.$
-  \item $\{1,2\} \in \{\{1,2,3\},\{1,3\}, 1, 2\}$
-  \item $\{\{4\}\} \subseteq \{1,2,3,\{4\}\}$
-  \end{enumerate}
+\item Determine whether the following expressions are true or false. Give a complete explanation for each part.
+\begin{enumerate}
+\item $\emptyset \subseteq \{\emptyset, \{ \emptyset \} \}$
+\item $\{\emptyset\} \subseteq \{\emptyset, \{ \emptyset \} \}$
+\item $\{\{\emptyset\}\} \subseteq \{\emptyset, \{ \emptyset \} \}$
+\item For every set $A$, $\{\emptyset\} \subseteq A.$
+\item $\{1,2\} \in \{\{1,2,3\},\{1,3\}, 1, 2\}$
+\item $\{\{4\}\} \subseteq \{1,2,3,\{4\}\}$
+\end{enumerate}
 \end{enumerate}
 
 \begin{definition}[Subset]
-  Given two subsets $A,B$, $A$ is said to be a subset of $B$ if and only if all elements of $A$ are also in $B$. That is to say:
-  \begin{equation*}
-    X \subseteq Y \iff \forall x(x\in X \implies x\in Y)
-  \end{equation*}
+Given two sets $A$ and $B$, the set $A$ is said to be a subset of the set $B$ if and only if all elements of $A$ are also elements of $B$. That is to say:
+\begin{equation*}
+A \subseteq B \iff \forall x(x\in A \implies x\in B)
+\end{equation*}
 \end{definition}
 
 % Proof 1a
 \begin{proof}{(a)}
-  Let $A=\emptyset, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
-  \begin{equation*}
-    \emptyset \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \emptyset \implies a\in \{\emptyset,\{\emptyset\}\})
-  \end{equation*}
-  However, $a\not\in\emptyset$ (the empty set contains no elements). As such, the statement is vacuously true (because for all $a$, of which there are none, we cannot tell whether it is in both sets or not). \\
+Let $A=\emptyset, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+\begin{equation*}
+\emptyset \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \emptyset \implies a\in \{\emptyset,\{\emptyset\}\})
+\end{equation*}
 
-  \par Therefore, by the definition of a subset, the expression is true.
+\noindent However, $a\not\in\emptyset$ (the empty set contains no elements). As such, the statement is vacuously true (because for all $a$, of which there are none, we cannot tell whether it is in both sets or not).
+
+\noindent Therefore, by the definition of a subset, the expression is true.
 \end{proof}
 
 % Proof 1b
 \begin{proof}{(b)}
-  Let $A=\{\emptyset\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
-  \begin{equation*}
-    \{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\emptyset\} \implies a\in \{\emptyset,\{\emptyset\}\})
-  \end{equation*}
-  Let $a=\emptyset$, the only element of $A$. Then,
-  \begin{equation*}
-    \{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
-  \end{equation*}
-  which is true. \\
+Let $A=\{\emptyset\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+\begin{equation*}
+\{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\emptyset\} \implies a\in \{\emptyset,\{\emptyset\}\})
+\end{equation*}
+Let $a=\emptyset$, the only element of $A$. Then,
+\begin{equation*}
+\{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
+\end{equation*}
+which is true.
 
-  \par Therefore, by the definition of a subset, the expression is true.
+\noindent Therefore, by the definition of a subset, the expression is true.
 \end{proof}
 
 % Proof 1c
 \begin{proof}{(c)}
-  Let $A=\{\{\emptyset\}\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
-  \begin{equation*}
-    \{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\{\emptyset\}\} \implies a\in \{\emptyset,\{\emptyset\}\})
-  \end{equation*}
-  Let $a=\{\emptyset\}$, the only element of $A$. Then,
-  \begin{equation*}
-    \{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\{\emptyset\} \in \{\{\emptyset\}\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
-  \end{equation*}
-  which is true. \\
+Let $A=\{\{\emptyset\}\}, B = \{\emptyset,\{\emptyset\}\}$. Then, by the definition of a subset,
+\begin{equation*}
+\{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff \forall a(a\in \{\{\emptyset\}\} \implies a\in \{\emptyset,\{\emptyset\}\})
+\end{equation*}
+Let $a=\{\emptyset\}$, the only element of $A$. Then,
+\begin{equation*}
+\{\{\emptyset\}\} \subseteq \{\emptyset,\{\emptyset\}\} \iff (\{\emptyset\} \in \{\{\emptyset\}\} \implies \emptyset \in \{\emptyset,\{\emptyset\}\})
+\end{equation*}
+which is true.
 
-  \par Therefore, by the definition of a subset, the expression is true.
+\bigskip
+
+\noindent Therefore, by the definition of a subset, the expression is true.
 \end{proof}
 
 
 % Proof 1d
 \begin{proof}{(d)}
-  Let $B=\{\emptyset\}$. Then, by the definition of a subset,
-  \begin{equation*}
-    \{\emptyset\} \subseteq C \iff \forall b(b\in \{\emptyset\} \implies b\in C)
-  \end{equation*}
-  Let $b=\emptyset$, the only element of $B$. Then,
-  \begin{equation*}
-    \{\emptyset\} \subseteq C \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in C)
-  \end{equation*}
-  which is contingent on the elements of $C$. There is no guarantee that $C$ contains the empty set. \\
+Let $B=\{\emptyset\}$. Then, by the definition of a subset,
+\begin{equation*}
+\{\emptyset\} \subseteq C \iff \forall b(b\in \{\emptyset\} \implies b\in C)
+\end{equation*}
+Let $b=\emptyset$, the only element of $B$. Then,
+\begin{equation*}
+\{\emptyset\} \subseteq C \iff (\emptyset \in \{\emptyset\} \implies \emptyset \in C)
+\end{equation*}
+which is contingent on the elements of $C$. There is no guarantee that $C$ contains the empty set.
 
-  \par Therefore, by the definition of a subset, the expression is false.
+\bigskip
+
+\noindent Therefore, by the definition of a subset, the expression is false.
 \end{proof}
 
 
 % Proof 1e
 \begin{proof}{(e)}
-  This statement is false because the set does not contain the set $\{1,2\}$.
+This statement is false because the second set does not contain the set $\{1,2\}$.
 \end{proof}
 
 % Proof 1f
 \begin{proof}{(f)}
-  Let $A=\{\{4\}\}, B = \{1,2,3,\{4\}\}$. Then, by the definition of a subset,
-  \begin{equation*}
-    \{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff \forall a(a\in \{\{4\}\} \implies a\in \{1,2,3,\{4\}\})
-  \end{equation*}
-  Let $a=\{4\}$, the only element of $A$. Then,
-  \begin{equation*}
-      \{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff (\{4\}\in \{\{4\}\} \implies \{4\}\in \{1,2,3,\{4\}\})
-  \end{equation*}
-  which is true. \\
+Let $A=\{\{4\}\}, B = \{1,2,3,\{4\}\}$. Then, by the definition of a subset,
+\begin{equation*}
+\{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff \forall a(a\in \{\{4\}\} \implies a\in \{1,2,3,\{4\}\})
+\end{equation*}
+Let $a=\{4\}$, the only element of $A$. Then,
+\begin{equation*}
+\{\{4\}\} \subseteq \{1,2,3,\{4\}\} \iff (\{4\}\in \{\{4\}\} \implies \{4\}\in \{1,2,3,\{4\}\})
+\end{equation*}
+which is true.
 
-  \par Therefore, by the definition of a subset, the expression is true.
+\bigskip
+
+\noindent Therefore, by the definition of a subset, the expression is true.
 \end{proof}
 
 
@@ -147,35 +206,48 @@
 
 
 \begin{enumerate}
-  % Problem 2
-  \item[2.] Let $\Delta = [0,1) = \{x \in \R: 0 \leq x < 1\}$ and let $A_\alpha = (-\alpha,\alpha] = \{x \in \R: -\alpha < x \leq \alpha\} \subseteq \R$, where $\alpha \in \Delta$.  Prove that
-      $$\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1),$$
-   and
-      $$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset$$
+% Problem 2
+\item[2.] Let $\Delta = [0,1) = \{x \in \R: 0 \leq x < 1\}$ and let $A_\alpha = (-\alpha,\alpha] = \{x \in \R: -\alpha < x \leq \alpha\} \subseteq \R$, where $\alpha \in \Delta$. Prove that
+$$
+\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1),
+$$
+and
+$$
+\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset.
+$$
 \end{enumerate}
 
 % Proof 2a
 \begin{proof}{(a)}
-  We will first prove that $$\bigcup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1).$$ \\
-
-  \par There exists some $x\in\Delta = [0,1)$ such that $a\in\ A_x=(-x,x]$. Since $0 \leq x<1$, letting $x$ be the largest value it can, the set $A_x$ which is $(-x,x]$ must be a subset of the set $(-1,1)$. \\
-
-  \par We will now prove that $$(-1,1) \subseteq \bigcup_{\alpha \in \Delta} A_\alpha.$$ \\
-
-  \par Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Then, let $n=(1+|x|)/(2)$. We know that $x\in A_n = (-n, n]$. As such, $(-1,1)\in A_n$. \\
-
-  \par Therefore, it has been proven that $$\bigcup_{\alpha \in \Delta} A_\alpha = (-1,1).$$
+We will first prove that
+$$
+\bigcup_{\alpha \in \Delta} A_\alpha \subseteq (-1,1).
+$$
+Let $x,y\in\Delta$, where $x<y$. Since $x$ is less than $y$, $y$ can be rewritten as $y=x+\delta$ for some $\delta>0.$ Then $A_x = (-x,x]$, and $A_y = (-y, y] = (-(x+\delta), (x+\delta)] = (-x-\delta, x+\delta],$ and $A_x\subseteq A_y.$ The implication of this is that for the largest $y\in\Delta$, the set $A_y$ is a superset all sets $A_x$, where $x<y$. As such, if we take the largest $y\in\Delta$,
+$$
+\bigcup_{\alpha \in \Delta} A_\alpha \equiv A_y.
+$$
+Since $0 \leq y < 1$, and $A_\alpha \equiv (-\alpha,\alpha]$, the set $A_y$ must be a subset of the set $(-1,1)$. We will now prove that
+$$
+(-1,1) \subseteq \bigcup_{\alpha \in \Delta} A_\alpha.
+$$
+Picking some $x$ in $(-1,1)$, it is guaranteed that $|x|\in\Delta$. Let 
+$$
+n= \frac{1+|x|}{2}.
+$$
+Then $A_n = (-n, n]$, and $x\in A_n$. As such, $(-1,1)\subseteq A_n$.
 \end{proof}
 
 % Proof 2b
 \begin{proof}{(b)}
-  We will first prove that $$\bigcap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset.$$ \\
-
-  \par Let $\alpha=0$. Then $A_\alpha = (0,0] = \emptyset$. The intersection with the any set is the empty set (since they have no elements to share in common). Since I proved in Problem (1), Part (a), the empty set is a subset of any set, $$\bigcap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset.$$
-
-  \par By the same proof as mentioned above, $$\emptyset \subseteq \bigcap_{\alpha \in \Delta} A_\alpha.$$ \\
-
-  \par Therefore, it has been proven that $$\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset.$$
+We will first prove that
+$$
+\bigcap_{\alpha \in \Delta} A_\alpha \subseteq \emptyset.
+$$
+Let $\alpha=0$. Then $A_\alpha = (0,0] = \emptyset$. Since all other $A_\alpha$, where $\alpha\neq 0$, are nonempty, they are disjoint with $A_0$. The intersection of disjoint sets is the empty set, so
+$$
+\bigcap_{\alpha \in \Delta} A_\alpha = \emptyset.
+$$
 \end{proof}
 
 
@@ -185,19 +257,17 @@
 
 
 \begin{enumerate}
-  % Problem 3
-  \item[3.] Let $A, B, C,$ and $D$ be sets with $C \subseteq A$ and $D \subseteq B$.  Prove that $C \cup D \subseteq A \cup B$.
+% Problem 3
+\item[3.] Let $A, B, C,$ and $D$ be sets with $C \subseteq A$ and $D \subseteq B$.Prove that $C \cup D \subseteq A \cup B$.
 \end{enumerate}
 
 % Proof 3
 \begin{proof}
-  By the definition of a subset, $(\forall c)(c\in C \implies c\in A)$. Again, by the same definition, $(\forall d) (d\in D \implies d\in B)$. \\
+By the definition of a subset, $(\forall c)(c\in C \implies c\in A)$. Again, by the same definition, $(\forall d) (d\in D \implies d\in B)$. Then, by the definition of the union, $(\forall c)(c\in C \implies c\in C\cup D)$ and $(\forall d)(d\in D\implies d\in C\cup D)$. Additionally, by the same definition, it follows from the first two statements that since all $c,d\in C\cup D$, then all $c,d \in A\cup B$.
 
-  \par Then, by the definition of the union, $(\forall c)(c\in C \implies c\in C\cup D)$ and $(\forall d)(d\in D\implies d\in C\cup D)$. \\
+\bigskip
 
-  \par Additionally, by the same definition, it follows from the first two statements that since all $c,d\in C\cup D$, then all $c,d \in A\cup B$. \\
-
-  \par Therefore, since all $c,d\in C\cup D$ and all $c,d \in A\cup B$, it follows that $C\cup D \subseteq A\cup B$.
+\noindent Therefore, since all $c,d\in C\cup D$ and all $c,d \in A\cup B$, it follows that $C\cup D \subseteq A\cup B$.
 \end{proof}
 
 
@@ -207,17 +277,36 @@
 
 
 \begin{enumerate}
-  % Problem 4
-  \item[4.] Prove that if $\mathcal{A}$ is a non-empty family of sets, then $$\bigcap_{A \in \mathcal{A}}A \subseteq \bigcup_{A \in \mathcal{A}} A.$$
+% Problem 4
+\item[4.] Prove that if $\mathcal{A}$ is a non-empty family of sets, then $$\bigcap_{A \in \mathcal{A}}A \subseteq \bigcup_{A \in \mathcal{A}} A.$$
 \end{enumerate}
 
 % Proof 4
 \begin{proof}
-  Let the set $X\in\mathcal{A}$. Then, let $x\in X$. If $x\in \cap_{A \in \mathcal{A}}A$, then $x$ is in all sets in the family. As such, $\cap_{A \in \mathcal{A}}A \subseteq X$. \\
-
-  \par If $x$ from the set $X$ as described above is in $\cup_{A \in \mathcal{A}}A$, then $x$ is in at least one set in the family. As such, $X \subseteq \cup_{A \in \mathcal{A}}A$. \\
-
-  \par Then, $\cap_{A \in \mathcal{A}}A \subseteq X \subseteq \cup_{A \in \mathcal{A}}A$. Therefore, $\cap_{A \in \mathcal{A}}A \subseteq \cup_{A \in \mathcal{A}}A$.
+Let the set $X\in\mathcal{A}$. Then, let $x\in X$. If 
+$$
+x\in \bigcap_{A \in \mathcal{A}}A,
+$$
+then $x$ is in all sets in the family. As such, 
+$$
+\bigcap_{A \in \mathcal{A}}A \subseteq X.
+$$
+Let the set $X\in\mathcal{A}$. Then, let $x\in X$. If
+$$
+x\in\bigcup_{A \in \mathcal{A}}A,
+$$
+then $x$ is in at least one set in the family. As such, 
+$$
+X \subseteq \bigcup_{A \in \mathcal{A}}A.
+$$
+Then, 
+$$
+\bigcap_{A \in \mathcal{A}}A \subseteq X \subseteq \bigcup_{A \in \mathcal{A}}A.
+$$
+and
+$$
+\bigcap_{A \in \mathcal{A}}A \subseteq \bigcup_{A \in \mathcal{A}}A.
+$$
 \end{proof}
 
 
@@ -227,65 +316,65 @@
 
 
 \begin{enumerate}
-  % Problem 5
-  \item[5.] Use the principle of mathematical induction to prove $4^{n+4} > (n+4)^4,$ for all natural numbers $n$.
+% Problem 5
+\item[5.] Use the principle of mathematical induction to prove $4^{n+4} > (n+4)^4,$ for all natural numbers $n$.
 \end{enumerate}
 
 % Proof 5
 \begin{proof}
-  Let $n=1$:
-  $$4^5>5^4$$
-  so the base case is true.
-  Then, let $n=k$:
-  \setcounter{equation}{0}
-  \begin{equation}
-    4^{k+4} > (k+4)^4.
-  \end{equation}
-    Since $k\in\N$, then $(k+1)\in\N$ as well. As such, when $n=k+1$:
-  \begin{equation}
-    4^{k+5} > (k+5)^4.
-  \end{equation}
-  To prove that this inequality holds for all natural numbers, we will establish bounds using Inequality (1). Equation (3) shows the left hand side of Inequality (2) re-written in expanded form.
-  \begin{equation}
-    4^{k+5} = 4^k*4^5
-  \end{equation}
-  With this knowledge, we can see that:
-  \begin{equation}
-    4^{k+5} = 4^k*4^5 = 4(4^{k+4}).
-  \end{equation}
-  which we can compare directly to the left hand side of Inequality (1)
-  \begin{equation*}
-    4(4^{k+4}) > 4^{k+4}
-  \end{equation*}
-  and find that it is greater by four times. In terms of building a series of inequalities, we now have:
-  \begin{equation}
-    4^{k+5} = 4(4^{k+4}) > 4^{k+4}
-  \end{equation}
-  Now, let us look at the right hand side of Inequalities (1) and (2):
-  \begin{equation}
-    (k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256
-  \end{equation}
-  \begin{equation}
-    (k+5)^4 = k^4 + 20k^3 + 150k^2 + 500k + 625.
-  \end{equation}
-  Referring to Equation (4), where we used four times the left hand side of Inequality (2), we now use four times the right hand side of Inequality (1) to keep the relationship that the two share:
-  \begin{equation}
-    4(4^{k+4}) > 4(k+4)^4.
-  \end{equation}
-  From this point, it is important to note the distributed form of $4(k+4)^4$ is greater than $(k+5)^4$ (given of course that $k\in\N$):
-  \begin{equation}
-    4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > k^4 + 20k^3 + 150k^2 + 500k + 625 = (k+5)^4.
-  \end{equation}
-  Therefore
-  \begin{equation}
-    4(k+4)^4 > (k+5)^4.
-  \end{equation}
-  Finally, we build the last inequality, taking parts of Equation (5), Inequality (8), and Inequality (10):
-  \begin{equation}
-    4^{k+5} = 4(4^{k+4})>4(k+4)^4 > (k+5)^4
-  \end{equation}
+Let $n=1$:
+$$4^5>5^4$$
+so the base case is true.
+Then, let $n=k$:
+\setcounter{equation}{0}
+\begin{equation}
+4^{k+4} > (k+4)^4.
+\end{equation}
+Since $k\in\N$, then $(k+1)\in\N$ as well. As such, when $n=k+1$:
+\begin{equation}
+4^{k+5} > (k+5)^4.
+\end{equation}
+To prove that this inequality holds for all natural numbers, we will establish bounds using Inequality (1). Equation (3) shows the left hand side of Inequality (2) re-written in expanded form.
+\begin{equation}
+4^{k+5} = 4^k*4^5
+\end{equation}
+With this knowledge, we can see that:
+\begin{equation}
+4^{k+5} = 4^k*4^5 = 4(4^{k+4}).
+\end{equation}
+which we can compare directly to the left hand side of Inequality (1)
+\begin{equation*}
+4(4^{k+4}) > 4^{k+4}
+\end{equation*}
+and find that it is greater by four times. In terms of building a series of inequalities, we now have:
+\begin{equation}
+4^{k+5} = 4(4^{k+4}) > 4^{k+4}
+\end{equation}
+Now, let us look at the right hand side of Inequalities (1) and (2):
+\begin{equation}
+(k+4)^4 = k^4 + 16k^3 + 96k^2 + 256k + 256
+\end{equation}
+\begin{equation}
+(k+5)^4 = k^4 + 20k^3 + 150k^2 + 500k + 625.
+\end{equation}
+Referring to Equation (4), where we used four times the left hand side of Inequality (2), we now use four times the right hand side of Inequality (1) to keep the relationship that the two share:
+\begin{equation}
+4(4^{k+4}) > 4(k+4)^4.
+\end{equation}
+From this point, it is important to note the distributed form of $4(k+4)^4$ is greater than $(k+5)^4$ (given of course that $k\in\N$):
+\begin{equation}
+4(k+4)^4 = 4k^4 + 64k^3 + 384k^2 + 1024k + 1024 > k^4 + 20k^3 + 150k^2 + 500k + 625 = (k+5)^4.
+\end{equation}
+Therefore
+\begin{equation}
+4(k+4)^4 > (k+5)^4.
+\end{equation}
+Finally, we build the last inequality, taking parts of Equation (5), Inequality (8), and Inequality (10):
+\begin{equation}
+4^{k+5} = 4(4^{k+4})>4(k+4)^4 > (k+5)^4
+\end{equation}
 
-  Then, by the principle of mathematical induction, $4^{n+4} > (n+4)^4$ $\forall n\in\N$.
+Then, by the principle of mathematical induction, $4^{n+4} > (n+4)^4$ $\forall n\in\N$.
 \end{proof}
 % End problem set
 
